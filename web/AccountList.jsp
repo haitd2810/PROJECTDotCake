@@ -53,7 +53,7 @@
                                                 <th>Phone</th>
                                                 <th>Address</th>
                                                 <th>Mail</th>
-                                                <th>roleID</th>
+                                                <th>role</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -67,7 +67,12 @@
                                                     <td style="border: grey 1px solid;">${dto.getPhone()}</td>
                                                     <td style="border: grey 1px solid;">${dto.getAddress()}</td>
                                                     <td style="border: grey 1px solid;">${dto.getMail()}</td>
-                                                    <td style="border: grey 1px solid;">${dto.getRoleID()}</td> 
+                                                    <c:if test="${dto.getRoleID()==0}">
+                                                    <td style="border: grey 1px solid;">Customer</td> 
+                                                    </c:if>
+                                                    <c:if test="${dto.getRoleID()==1}">
+                                                    <td style="border: grey 1px solid;">Seller</td> 
+                                                    </c:if>
                                                 </tr>
                                             </form>
                                         </c:forEach>
