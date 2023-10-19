@@ -1,0 +1,127 @@
+.carousel-inner img {
+    width: 100%;
+    height: 550px;
+}
+.slide_product{
+    width: 100vw;
+    padding-top: 109px;
+}
+.title_about{
+    text-align: center;
+    font-size: 18px;
+    border-right: 1px solid grey;
+    color: grey;
+    padding-top: 20vh;
+    padding-bottom: 20vh;
+    place-content: center;
+    place-items: center;
+   }
+   .image_about{
+       padding: 0;
+   }
+   .image_about img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0px;
+    object-fit: cover;
+    color: transparent;
+    display: block;
+    vertical-align: middle;
+   }
+   .title_about h2{
+       font-family: Lucida Handwriting;
+       margin-top: 30px;
+       font-size: 24px;
+   }
+   .title_about h3{
+       font-size: 30px;
+       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   }
+   .content_about{
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+   }
+   .content-why{
+    border-bottom:1px solid grey ;
+    padding-bottom: 4rem;
+   }
+   .title-why{
+    width: 100vw;
+    text-align: center;
+   }
+   .why{
+    letter-spacing: .025em;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 3rem;
+    line-height: 1.5rem;
+    padding-top: 4rem;
+   }
+   .quanlity{
+    text-align: center;
+    margin-left: 12vw;
+   }
+   .title-quality{
+    font-family: Lucida Handwriting;
+    color: grey;
+    font-size: 3rem;
+   }
+   .des-quality{
+       font-size: 1.5rem;
+   }
+   .img-quality{
+    width: 100%;
+   }
+   .foreveryone{
+    text-align: center;
+   }
+   .fact{
+    text-align: center;
+   }
+   .content-product{
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+   }
+   .image_product{
+    padding: 0;
+    border-right: 1px solid grey;
+   }
+   .image_product img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0px;
+    object-fit: cover;
+    color: transparent;
+    display: block;
+    vertical-align: middle;
+   }
+   .title_product{
+    text-align: center;
+    font-size: 18px;
+    border-right: 1px solid grey;
+    color: grey;
+    padding-top: 20vh;
+    padding-bottom: 20vh;
+    place-content: center;
+    place-items: center;
+   }
+   .title_product h2{
+    font-family: Lucida Handwriting;
+    margin-top: 30px;
+    font-size: 24px;
+   }
+   .title_product h3{
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   }
+   .content_des{
+    padding: 0 10rem;
+   }
+   .link_to_product{
+    border:  2px solid;
+    padding: 1%;
+    background-color: rgb(83, 75, 75);
+    color:white;
+   }

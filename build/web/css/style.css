@@ -1,0 +1,10 @@
+.category{
+    padding: 12px;
+    width: 100%;
+    height: 47px;
+    line-height: 47px;
+    border-radius: 10px;
+    border: 1px solid #6c93f533;
+    color: #81879f;
+    font-family: inherit;
+}
