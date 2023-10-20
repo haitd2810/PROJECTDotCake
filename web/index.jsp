@@ -1,5 +1,5 @@
-<!--//test pull code part 1
-//test push code part 1-->
+<!--//test pull code part 2
+//test push code part 2-->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
