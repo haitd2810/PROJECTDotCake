@@ -18,8 +18,13 @@
 
     </head>
     <body class="crm_body_bg">
-        <%@include file="MenuAdmin.jsp" %>
         <c:set var="user" value = "${sessionScope.USER}"></c:set>
+        <c:if test="${empty user}">
+            <h2>Access Denied. Please login</h2>
+            <a href="index.jsp">Click here to go back home</a>
+        </c:if>
+        <c:if test="${not empty user}">
+            <%@include file="MenuAdmin.jsp" %>
             <div class="row">
                 <div class="col-12">
                     <div class="white_card card_height_100 mb_30">
@@ -93,16 +98,17 @@
                     </div>
                 </div>
             </c:if>
-        </section>
+        </c:if>    
+    </section>
 
 
-        <script src=".\js\jquery1-3.4.1.min.js"></script>
+    <script src=".\js\jquery1-3.4.1.min.js"></script>
 
-        <script src=".\js\bootstrap1.min.js"></script>
+    <script src=".\js\bootstrap1.min.js"></script>
 
-        <script src=".\js\metisMenu.js"></script>
+    <script src=".\js\metisMenu.js"></script>
 
-        <script src=".\js\custom.js"></script>
+    <script src=".\js\custom.js"></script>
 
 
-    </body></html>
+</body></html>

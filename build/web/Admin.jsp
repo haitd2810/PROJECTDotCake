@@ -9,7 +9,14 @@
 <link href="css/style1.css" rel="stylesheet" type="text/css"/>
 </head>
 <body class="crm_body_bg">
-    <%@include file="MenuAdmin.jsp" %>
+    <c:set var="user" value = "${sessionScope.USER}"></c:set>
+    <c:if test="${empty user}">
+        <h2>Access Denied. Please login</h2>
+        <a href="index.jsp">Click here to go back home</a>
+    </c:if>
+    <c:if test="${not empty user}">
+        <%@include file="MenuAdmin.jsp" %>
+    </c:if>
 
 
     <script src=".\js\jquery1-3.4.1.min.js"></script>
