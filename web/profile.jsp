@@ -32,7 +32,7 @@
                             <div class="card mb-4">
                                 <div class="card-body text-center">
                                 <c:if test="${empty user.getAvatar()}"> 
-                                    <img src="https://png.pngtree.com/png-vector/20190417/ourlarge/pngtree-vector-business-men-icon-png-image_947324.jpg" alt="avatar"
+                                    <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg" alt="avatar"
                                          class="rounded-circle img-fluid" style="width: 150px;height: 150px;">
                                 </c:if>
                                 <c:if test="${not empty user.getAvatar()}"> 
