@@ -5,6 +5,7 @@
 
 package controller;
 
+import dal.CartDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -17,7 +18,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Cart;
-import model.UserDAO;
+import dal.UserDAO;
 
 /**
  *
@@ -36,7 +37,7 @@ public class CartList extends HttpServlet {
     throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        UserDAO dao = new UserDAO();
+        CartDAO dao = new CartDAO();
         List<Cart> cart = dao.getCartList();
         session.setAttribute("CARTLIST", cart);
         response.sendRedirect("CartList.jsp");

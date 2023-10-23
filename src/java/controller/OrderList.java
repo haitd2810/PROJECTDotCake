@@ -5,6 +5,7 @@
 
 package controller;
 
+import dal.OrderDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -17,7 +18,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Order;
-import model.UserDAO;
+import dal.UserDAO;
 
 /**
  *
@@ -36,7 +37,7 @@ public class OrderList extends HttpServlet {
     throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        UserDAO dao = new UserDAO();
+        OrderDAO dao = new OrderDAO();
         List<Order> ord = dao.getOrderList();
         session.setAttribute("ORDERLIST", ord);
         response.sendRedirect("OrderList.jsp");

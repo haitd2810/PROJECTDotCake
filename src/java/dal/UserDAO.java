@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model;
+package dal;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,6 +11,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import model.Bill;
+import model.Cart;
+import model.Order;
+import model.Product;
+import model.Ship;
+import model.User;
 
 public class UserDAO extends MyDAO {
 
@@ -202,34 +208,7 @@ public class UserDAO extends MyDAO {
         return false;
     }
 
-    List<Product> product = new ArrayList<>();
-
-    public List<Product> getProduct() throws SQLException {
-        PreparedStatement stm = null;
-        ResultSet rs = null;
-        try {
-            if (con != null) {
-                String sql = "select * from Product";
-                stm = con.prepareStatement(sql);
-                rs = stm.executeQuery();
-                while (rs.next()) {
-                    String productID = rs.getString("productID");
-                    String productName = rs.getString("productName");
-                    int productPrice = rs.getInt("productPrice");
-                    String detail = rs.getString("detail");
-                    Date createDate = rs.getDate("CreateDate");
-                    int quantity = rs.getInt("quantity");
-                    String categoryID = rs.getString("categoryID");
-                    String status = rs.getString("status");
-                    Product pro = new Product(productID, productName, productPrice, detail, createDate, quantity, categoryID, status);
-                    product.add(pro);
-                }
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        return product;
-    }
+    
     List<User> admin = new ArrayList<>();
     public List<User> getAdmin() throws SQLException {
         PreparedStatement stm = null;
@@ -284,90 +263,5 @@ public class UserDAO extends MyDAO {
         return admin;
     }
     
-    List<Order> Order = new ArrayList<>();
-    public List<Order> getOrderList() throws SQLException {
-        PreparedStatement stm = null;
-        ResultSet rs = null;
-        try {
-            String sql = "select * from [Order]";
-            stm = con.prepareStatement(sql);
-            rs = stm.executeQuery();
-            while (rs.next()) {
-                String OrderID = rs.getString("orderID");
-                Date createDate = rs.getDate("createDateOrder");
-                int quantity = rs.getInt("quantity");
-                String cartID = rs.getString("cartID");
-                Order ord = new Order(OrderID, createDate, quantity, cartID);
-                Order.add(ord);
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        return Order;
-    }
     
-    List<Bill> bill = new ArrayList<>();
-    public List<Bill> getBillList() throws SQLException {
-        PreparedStatement stm = null;
-        ResultSet rs = null;
-        try {
-            String sql = "select * from [Bill]";
-            stm = con.prepareStatement(sql);
-            rs = stm.executeQuery();
-            while (rs.next()) {
-                String billID = rs.getString("BillID");
-                int shipfee = rs.getInt("shipp_fee");
-                Date shipDate = rs.getDate("ShipmentDate");
-                String status = rs.getString("status");
-                String orderID = rs.getString("orderID");
-                Bill Bill = new Bill(billID, shipfee, shipDate, status, orderID);
-                bill.add(Bill);
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        return bill;
-    }
-    
-    List<Ship> ship = new ArrayList<>();
-    public List<Ship> getShipList() throws SQLException {
-        PreparedStatement stm = null;
-        ResultSet rs = null;
-        try {
-            String sql = "select * from [Ship]";
-            stm = con.prepareStatement(sql);
-            rs = stm.executeQuery();
-            while (rs.next()) {
-                String shipID = rs.getString("shipID");
-                String billID = rs.getString("billID");
-                String inforShipper = rs.getString("inforShipper");
-                Date shipDate = rs.getDate("shipDate");
-                Ship shipInfo = new Ship(shipID, billID, inforShipper, shipDate);
-                ship.add(shipInfo);
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        return ship;
-    }
-    List<Cart> cart = new ArrayList<>();
-    public List<Cart> getCartList() throws SQLException {
-        PreparedStatement stm = null;
-        ResultSet rs = null;
-        try {
-            String sql = "select * from [ShoppingCart]";
-            stm = con.prepareStatement(sql);
-            rs = stm.executeQuery();
-            while (rs.next()) {
-                String cartID = rs.getString("CartID");
-                int userID = rs.getInt("userID");
-                Date CreateDate = rs.getDate("createDateCart");
-                Cart cartInfo = new Cart(cartID, userID, CreateDate);
-                cart.add(cartInfo);
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        return cart;
-    }
 }

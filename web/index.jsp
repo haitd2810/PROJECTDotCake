@@ -59,7 +59,7 @@
 			<button class = "button button_about"><a href="#"><span>About DeCake</span></a></button>
 		</div>
 		</div>
-	    <div class="col-md-6 image_about">
+	    <div class="col-md-6 image_about" style="padding:0;">
 			<img src="images/z4741944688434_c3fd8b57b9412dd09bf5fd5302c1af5e.jpg"></img>
 		</div>
    </div>

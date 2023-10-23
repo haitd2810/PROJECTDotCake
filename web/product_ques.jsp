@@ -9,20 +9,22 @@
 <html>
 
 <head>
-    <title>Ship</title>
+    <title>Product Ques</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/product_ques.css">
 </head>
 
 <body>
+    <%@include file="header.jsp" %>
+    <%@include file="ship.jsp" %>
     <h1>Câu hỏi thường gặp</h1>
     <h3>Bạn có thể tìm câu trả lời cho những câu hỏi thường gặp ở dưới đây </h3>
 
 
     <div class="chon">
-        <button>VỀ GIAO HÀNG</button>
-        <button >VỀ ĐẶT HÀNG </button>
-        <button id="giaohang">VỀ SẢN PHẨM</button>
+        <button id="giaohang"><a href="ship_ques.jsp" style="color:black;">VỀ GIAO HÀNG</a></button>
+        <button><a href="order_ques.jsp" style="color:black;">VỀ ĐẶT HÀNG</a> </button>
+        <button><a href="product_ques.jsp" style="color:black;">VỀ SẢN PHẨM</a></button>
     </div>
 
     <div class="ques">
@@ -145,7 +147,7 @@
 
 
     </div>
-    </div>
+
 </body>
 
 </html>

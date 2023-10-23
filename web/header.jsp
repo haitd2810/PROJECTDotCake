@@ -66,7 +66,7 @@
                     <a href="index.jsp">Home</a>
                     <a href="about.jsp">About</a>
                     <a href="product.jsp">Products</a>
-                    <a href="#">Services</a>
+                    <a href="ship_ques.jsp">Services</a>
                     <a href="contact.jsp">Contact</a> 
                     <c:set var="user" value = "${sessionScope.USER}"></c:set>
                     <c:if test="${user.getRoleID()==2}">

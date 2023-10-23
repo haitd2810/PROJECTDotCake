@@ -51,10 +51,10 @@
     <div class="content-contact ">
         <div class="col-md-4 content-menu">
             <h6 style="font-size: 2rem;">Menu</h6>
-            <a style="font-size:1.5rem;line-height: 3rem;" class="menu" href="index.html">Home</a><br>
-            <a style="font-size:1.5rem;line-height: 3rem;" class="menu" href="about.html">About</a><br>
-            <a style="font-size:1.5rem;line-height: 3rem;" class="menu" href="#products.html">Products</a><br>
-            <a style="font-size:1.5rem;line-height: 3rem;" class="menu" href="#services.html">Services</a>
+            <a style="font-size:1.5rem;line-height: 3rem;" class="menu" href="index.jsp">Home</a><br>
+            <a style="font-size:1.5rem;line-height: 3rem;" class="menu" href="about.jsp">About</a><br>
+            <a style="font-size:1.5rem;line-height: 3rem;" class="menu" href="product.jsp">Products</a><br>
+            <a style="font-size:1.5rem;line-height: 3rem;" class="menu" href="ship_ques.jsp">Services</a>
         </div>
         <div class="col-md-4">
             <h6 style="font-size: 2rem;">HOTLINE</h6>
@@ -69,6 +69,5 @@
             <h6 style="font-size: 1.75rem;">© 2023 DotCake Pastry.</h6>
         </div>
     </div>
-    <%@include file="footer.html" %>
     </body>
 </html>

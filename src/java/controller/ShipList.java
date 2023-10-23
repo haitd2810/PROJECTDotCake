@@ -5,6 +5,7 @@
 
 package controller;
 
+import dal.ShipDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -17,7 +18,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Ship;
-import model.UserDAO;
+import dal.UserDAO;
 
 /**
  *
@@ -36,7 +37,7 @@ public class ShipList extends HttpServlet {
     throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        UserDAO dao = new UserDAO();
+        ShipDAO dao = new ShipDAO();
         List<Ship> ship = dao.getShipList();
         session.setAttribute("SHIPLIST", ship);
         response.sendRedirect("ShipList.jsp");
