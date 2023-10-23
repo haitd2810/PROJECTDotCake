@@ -1,0 +1,128 @@
+.arrow ,.arrow1,.arrow2,.arrow3{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black;
+    padding-bottom: 3%;
+    cursor: pointer;
+}
+
+.arrow.down,.arrow1.down,.arrow2.down,.arrow3.down {
+    border-top: none;
+    border-bottom: 5px solid black;
+    margin-bottom: 3%;
+}
+
+
+.fees-table {
+    display: none;
+    border-collapse: collapse;
+}
+.kc{
+    width:200px;
+}
+.fee{
+    width:200px; 
+ }
+th{
+    border:1px solid rgb(202, 200, 200);
+    text-transform: uppercase;
+    letter-spacing: 1px;   
+    height: 2.75rem;
+    text-align: left;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    padding-bottom: .375rem;
+    padding-top: .375rem;
+    font-size: larger;
+
+}
+ 
+td{
+    border:1px solid rgb(202, 200, 200);
+    letter-spacing: 1px;   
+    height: 2.75rem;
+    text-align: left;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    padding-bottom: .375rem;
+    padding-top: .375rem;
+    font-size: 17.25px;
+
+}
+h1{
+    font-size: clamp(2rem,4vw,4rem);
+    font-family: Fraunces,serif;
+    font-style: italic;
+    font-weight: 100;
+    text-align: center;
+    color :rgb(110, 108, 108);
+    margin-bottom:0;
+    font-size: 48px;
+}
+h3{
+   
+    line-height: 1.375;
+    font-size: 20px;
+    font-weight: 100;
+    color :rgb(68, 68, 68);
+    text-align: center;
+}
+.chon{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.chon button{
+    padding-left: 2rem;
+    padding-right: 2rem;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    border-width: 1px;
+    border-radius: 9999px;
+    height: 2.5rem;
+    border:  1px solid rgb(68, 68, 68);
+    box-sizing: border-box;
+    margin: 0 10px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background-color: white;
+}
+.chon button:hover {
+    background-color: rgb(184, 179, 179);
+    color: white;
+  }
+.chon #giaohang{
+    background-color:rgb(179, 178, 178);
+}
+.ques{
+    display:block;
+    width:70%;
+    margin:auto;
+}
+p{
+    --tw-text-opacity: 1;
+    color: rgb(68 68 68/var(--tw-text-opacity));
+    font-family: Inter,system-ui,sans-serif;
+    line-height: 1.375;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: left;
+}
+.q1,.q2,.q3,.q4{
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+}
+p{
+    cursor: pointer;
+    line-height: 1.75rem;
+}
+#ans,#ans_q2, #ans_q3,#ans_q4{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}

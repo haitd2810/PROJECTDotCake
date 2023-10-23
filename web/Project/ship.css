@@ -1,0 +1,287 @@
+html,body{
+    margin: 0;
+}
+#header_img{
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: cover;
+    color: transparent;
+}
+#mua{
+    font-size: clamp(2rem,4vw,4rem);
+    font-family: Fraunces,serif;
+    font-style: italic;
+    font-weight: 100;
+    text-align: center;
+    max-width: 96%;
+    color :rgb(68, 68, 68);
+    margin-bottom:0;
+}
+#mua2{
+    font-size: clamp(4rem,4vw,8rem);
+    font-family: Fraunces,serif;
+    font-style: italic;
+    font-weight: 100;
+    text-align: center;
+    max-width: 96%;
+    color :rgb(68, 68, 68);
+    margin-top:0;
+}
+.cacbuoc{
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+
+.buoc1{
+    border-right: 2px black dashed;
+    width:45%;
+    padding-right: 5%;
+}
+.buoc1 img{
+    height: 70%;
+    width: 70%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: contain;
+    color: transparent;
+    display: block;
+    margin-left: 40%;
+    
+}
+.buoc1 h2 {
+    margin:0;
+    line-height: 1.375;
+    font-size: 44px;
+    font-style: italic;
+    font-weight: 100;
+    color :rgb(68, 68, 68);
+    text-align: end;
+}
+ #right{
+    font-style: normal;
+    margin-right:10%;
+    padding:0 15px;
+    border: 1px black solid;
+    border-radius:50%;
+    font-size: 40px;
+}
+.buoc1 p{
+    margin:5px;
+    line-height: 1.375;
+    font-size: 20px;
+    font-weight: 100;
+    color :rgb(68, 68, 68);
+    text-align: end;
+}
+.b1,.b3,.b5{
+    display:flex;
+    align-items: end;
+    justify-content: end;
+}
+.b2,.b4,.b6{
+    display:flex;
+    align-items: start;
+    justify-content: start;
+
+}
+
+#left{
+    font-style: normal;
+    margin-right:10%;
+    padding:0 15px;
+    border: 1px black solid;
+    border-radius:50%;
+    font-size: 40px;
+}
+.buoc3{
+    border-right: 2px black dashed;
+    width:45%;
+    padding-right: 5%;
+    
+}
+.buoc3 img{
+    height: 70%;
+    width: 70%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: contain;
+    color: transparent;
+    display: block;
+    margin-left: 40%;
+}
+.buoc3 h2 {
+    margin:0;
+    line-height: 1.375;
+    font-size: 44px;
+    font-style: italic;
+    font-weight: 100;
+    color :rgb(68, 68, 68);
+    text-align: end;
+}
+.buoc3 p{
+    margin:5px;
+    line-height: 1.375;
+    font-size: 20px;
+    font-weight: 100;
+    color :rgb(68, 68, 68);
+    text-align: end;
+}
+
+.buoc5{
+    border-right: 2px black dashed;
+    width:45%;
+    padding-right: 5%;
+}
+.buoc5 img{
+    height: 70%;
+    width: 70%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: contain;
+    color: transparent;
+    display: block;
+    margin-left: 40%;
+}
+.buoc5 h2 {
+    margin:0;
+    line-height: 1.375;
+    font-size: 44px;
+    font-style: italic;
+    font-weight: 100;
+    color :rgb(68, 68, 68);
+    text-align: end;
+}
+.buoc5 p{
+    margin:5px;
+    line-height: 1.375;
+    font-size: 20px;
+    font-weight: 100;
+    color :rgb(68, 68, 68);
+    text-align: end;
+    padding-left:18%;
+}
+
+
+
+.buoc2{
+    width:45%;
+    padding-left: 3rem;
+    display:block;
+    margin-left:50%;
+    border-left: 2px black dashed;
+
+}
+.buoc2 img{
+    height: 70%;
+    width: 70%;
+    object-fit: contain;
+    color: transparent;
+    display: block;
+    margin-right: 40%;
+}
+.buoc2 h2 {
+    margin-bottom: 0.75rem;
+    line-height: 1.375;
+    font-size: 44px;
+    font-style: italic;
+    font-weight: 100;
+    color :rgb(68, 68, 68);
+    text-align: start;
+}
+.buoc2 p{
+    margin-bottom: 0.75rem;
+    line-height: 1.375;
+    font-size: 20px;
+    font-weight: 100;
+    color :rgb(68, 68, 68);
+    text-align: start;
+    margin-top:0;
+}
+
+
+.buoc4{
+    width:45%;
+    padding-left: 3rem;
+    display:block;
+    margin-left:50%;
+    border-left: 2px black dashed;
+
+}
+.buoc4 img{
+    height: 70%;
+    width: 70%;
+    object-fit: contain;
+    color: transparent;
+    display: block;
+    margin-right: 40%;
+}
+.buoc4 h2 {
+    margin-bottom: 0.75rem;
+    line-height: 1.375;
+    font-size: 44px;
+    font-style: italic;
+    font-weight: 100;
+    color :rgb(68, 68, 68);
+    text-align: start;
+}
+.buoc4 p{
+    margin-bottom: 0.75rem;
+    line-height: 1.375;
+    font-size: 20px;
+    font-weight: 100;
+    color :rgb(68, 68, 68);
+    text-align: start;
+    margin-top:0;
+}
+
+
+
+.buoc6{
+    width:45%;
+    padding-left: 3rem;
+    display:block;
+    margin-left:50%;
+    border-left: 2px black dashed;
+    
+
+}
+.buoc6 img{
+    height: 70%;
+    width: 70%;
+    object-fit: contain;
+    color: transparent;
+    display: block;
+    margin-right: 40%;
+}
+.buoc6 h2 {
+    margin-bottom: 0.75rem;
+    line-height: 1.375;
+    font-size: 44px;
+    font-style: italic;
+    font-weight: 100;
+    color :rgb(68, 68, 68);
+    text-align: start;
+}
+.buoc6 p{
+    margin-bottom: 0.75rem;
+    line-height: 1.375;
+    font-size: 20px;
+    font-weight: 100;
+    color :rgb(68, 68, 68);
+    text-align: start;
+    margin-top:0;
+}
+
+
+
