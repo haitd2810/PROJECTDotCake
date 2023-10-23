@@ -93,7 +93,6 @@
 		</div>
 	    <div class="col-md-6 title_product">
 		<h2>SẢN PHẨM CỦA DOTCAKE</h2>
-		<h3>Bánh Entremet</h3>
 		<p class = "description">
             Là dòng bánh hiện đại và cao cấp nhất của Pháp, Entremet được tạo nên bởi nhiều tầng kết cấu đặc biệt và những kỹ thuật đòi hỏi tay nghề cao của người Chef.
              Mỗi chiếc bánh là sự hoà quyện của những lớp bạt xốp mềm, lớp kem thơm ngậy và hương vị đặc trưng của trái cây tươi.
@@ -102,7 +101,7 @@
             Bạn sẽ tìm thấy ở DotCake một chiếc bánh Entremet đặc biệt dành cho mọi dịp chúc mừng, 
             hoặc cũng có thể là một nửa chiếc bánh Entremet để thưởng thức mỗi ngày một cách đơn giản, mà không cần đợi đến dịp gì.
 		</p>
-        <a class="link_to_product" href="#product.html">Xem Sản Phẩm</a>
+        <a class="link_to_product" href="product.jsp">Xem Sản Phẩm</a>
 		</div>
    </div>
         <%@include file="footer.html" %>

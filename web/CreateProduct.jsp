@@ -32,10 +32,10 @@
                         <div class="white_card_header">
                             <div class="box_header m-0">
                                 <div class="main-title">
-                                    <c:if test="${user.getRoleID()==0 || user.getRoleID()==1 }">
+                                    <c:if test="${user.getRoleID()==0 }">
                                         <h2 style="text-align: center">Access Denied</h2>
                                     </c:if>
-                                    <c:if test="${user.getRoleID()==2}">
+                                    <c:if test="${user.getRoleID()==2 || user.getRoleID()==1 }">
                                         <h3 class="m-0">Add Product </h3>
                                     </div>
                                 </div>
