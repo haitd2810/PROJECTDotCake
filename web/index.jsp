@@ -47,7 +47,7 @@
    <!--Content About-->
    <div class = "row content_about">
 	    <div class="col-md-6 title_about">
-		<h3>DeCake Is</h3>
+		<h3>DotCake Is</h3>
 		<h2>Lựa chọn lý tưởng cho bánh ngọt chuẩn Pháp</h2>
 		<p class = "description">
 		 Dành nhiều tình cảm đặc biệt cho bánh ngọt Pháp, chúng tôi quyết tâm tạo nên thương hiệu DotCake Pastry để mang tới cho mọi người một trải nghiệm thưởng thức bánh thật tinh tế và tận tâm.
