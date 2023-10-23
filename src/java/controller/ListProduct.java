@@ -5,6 +5,7 @@
 
 package controller;
 
+import dal.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -18,7 +19,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Product;
-import model.UserDAO;
+import dal.UserDAO;
 
 /**
  *
@@ -38,7 +39,7 @@ public class ListProduct extends HttpServlet {
     throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        UserDAO dao = new UserDAO();
+        ProductDAO dao = new ProductDAO();
         List<Product> product = dao.getProduct();
         session.setAttribute("PRODUCTLIST", product);
         response.sendRedirect("ProductList.jsp");

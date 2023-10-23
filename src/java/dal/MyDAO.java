@@ -1,6 +1,7 @@
-package model;
+package dal;
 
 import java.sql.*;
+import model.DBContext;
 
 public class MyDAO extends DBContext {
   public Connection con = null;
