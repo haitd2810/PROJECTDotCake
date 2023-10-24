@@ -17,6 +17,7 @@ import model.Order;
 import model.Product;
 import model.Ship;
 import model.User;
+import model.image;
 
 public class UserDAO extends MyDAO {
 
@@ -173,11 +174,6 @@ public class UserDAO extends MyDAO {
         return null;
     }
 
-    public static void main(String[] args) {
-        UserDAO userdao = new UserDAO();
-//        userdao.createNewAccountUser("Hoàng","Nguyen", "123456", "0904240146", "anhhoangthu1463@gmail.com");
-//        userdao.getAccountByUser("NguyenHoang");
-    }
 
     public boolean UpdateUser(String name, String email, String phone, String address, String username)
             throws SQLException, ClassNotFoundException {
@@ -263,5 +259,36 @@ public class UserDAO extends MyDAO {
         return admin;
     }
     
+    public List<image> getIamge(String pid){
+        List<image> image=new ArrayList<>();
+        try {
+            String sql="select * from productimg";
+            PreparedStatement pr=connection.prepareStatement(sql);
+            pr.setString(1, pid);
+            ResultSet rs=pr.executeQuery();
+            while(rs.next()){
+                image.add(new image(rs.getString(1), rs.getString(2), rs.getString(3)));
+            }
+        } catch (Exception e) {
+        }
+        return image;
+    }
     
+        public static void main(String[] args) {
+        UserDAO userdao = new UserDAO();
+    }
+        
+    public Product loadProduct(String id){
+        try {
+            String sql="select * from product where productid = ? ";
+            PreparedStatement pr=connection.prepareStatement(sql);
+            pr.setString(1, id);
+            ResultSet rs=pr.executeQuery();
+            while(rs.next()){
+                return new Product(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getDate(5), rs.getInt(6), rs.getString(7), rs.getString(8));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
 }

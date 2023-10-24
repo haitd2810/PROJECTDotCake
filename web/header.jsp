@@ -65,7 +65,7 @@
                 <div class = "navbar header_menu--items">
                     <a href="index.jsp">Home</a>
                     <a href="about.jsp">About</a>
-                    <a href="product.jsp">Products</a>
+                    <a href="product">Products</a>
                     <a href="ship_ques.jsp">Services</a>
                     <a href="contact.jsp">Contact</a> 
                     <c:set var="user" value = "${sessionScope.USER}"></c:set>
