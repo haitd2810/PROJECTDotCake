@@ -19,7 +19,7 @@ import model.Product;
 public class ProductDAO extends MyDAO {
     List<Product> product = new ArrayList<>();
 
-    public List<Product> getProduct() throws SQLException {
+    public List<Product> getProduct() {
         PreparedStatement stm = null;
         ResultSet rs = null;
         try {
@@ -44,5 +44,10 @@ public class ProductDAO extends MyDAO {
             ex.printStackTrace();
         }
         return product;
+    }
+    
+    public static void main(String[] args) {
+        ProductDAO product=new ProductDAO();
+        System.out.println(product.getProduct());
     }
 }

@@ -32,18 +32,6 @@
         <servlet-name>CartList</servlet-name>
         <servlet-class>controller.CartList</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>Ship_ques</servlet-name>
-        <servlet-class>controller.Ship_ques</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Product_ques</servlet-name>
-        <servlet-class>controller.Product_ques</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Order_ques</servlet-name>
-        <servlet-class>controller.Order_ques</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>UpdateUser</servlet-name>
         <url-pattern>/updateuser</url-pattern>
@@ -75,18 +63,6 @@
     <servlet-mapping>
         <servlet-name>CartList</servlet-name>
         <url-pattern>/CartList</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Ship_ques</servlet-name>
-        <url-pattern>/Ship_ques</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Product_ques</servlet-name>
-        <url-pattern>/Product_ques</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Order_ques</servlet-name>
-        <url-pattern>/Order_ques</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

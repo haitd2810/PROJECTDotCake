@@ -3,7 +3,7 @@
     Created on : Oct 17, 2023, 8:16:31 PM
     Author     : Duy Hai
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -35,44 +35,42 @@
                         alt="">
                 </div>
                 <div class="col-md-6 product_info">
-                    <h3 class="category">category</h3>
-                    <h1 class="name">NAME</h1>
+                    <h3 class="category">${product.getCategoryID()}</h3>
+                    <h1 class="name">${product.getProductName()}</h1>
                     <div class="price">
-                        <p>Price:<span>123</span>$</p>   
+                        <p>Price:<span>${product.getProductPrice()}</span>VND</p>   
                     </div>
                     <h4 class="title">Cà phê & Cốt dừa</h4>
                     <div class="description">
                         <p>
-                            Nằm trong BST bánh dành cho dịp lễ 20.10, Enchanted được thiết kế như một hộp quà với những
-                            chiếc nơ sô-cô-la trắng thật xinh xắn cùng lớp nền phủ từ bơ cacao nâu mịn như nhung. Là món
-                            quà ý nghĩa dành tặng cho những người phụ nữ tinh tế và duyên dáng. Lớp mousse mềm mịn được
-                            làm từ cà phê rang xay đậm đà, đi kèm với lớp kem dừa thơm ngậy. Ít ngọt và dễ hợp khẩu vị
-                            với tất cả mọi người.
+                            ${product.getProductDetail()}
                         </p>
-                        <p>Đây sẽ là một lựa chọn rất phù hợp cho ngày 20.10 này.</p>
                     </div>
                     <div class="structure">
-                        <ul>
+                        ${product.getCreateDate()}
+<!--                        <ul>
                             <h4>CẤU TRÚC VỊ BÁNH</h4>
                             <li>Lớp 01: Phun phủ bơ cacao</li>
                             <li>Lớp 02: Kem mousse cà phê</li>
                             <li>Lớp 03: Bạt bánh cà phê mềm</li>
                             <li>Lớp 04: Kem ngậy dừa non</li>
                             <li>Lớp 05: Bạt bánh cà phê mềm</li>
-                        </ul>
+                        </ul>-->
                     </div>
                     <div class="size">
-                        <h4>KÍCH THƯỚC</h4>
+                        ${product.getQuantity()}
+<!--                        <h4>KÍCH THƯỚC</h4>
                         <p>Đường kính:<span></span>cm | Chiều cao:<span></span>cm</p>
-                        <p>Dành cho <span></span> người ăn</p>
+                        <p>Dành cho <span></span> người ăn</p>-->
                     </div>
                     <div class="accessory">
-                        <ul>
+                        ${product.getStatus()}
+<!--                        <ul>
                             <h4>PHỤ KIỆN TẶNG KÈM</h4>
                             <li>01 Chiếc nến sinh nhật</li>
                             <li>01 Bộ đĩa và dĩa dành cho 10 người</li>
                             <li>01 Dao cắt bánh</li>
-                        </ul>
+                        </ul>-->
                     </div>
                     <div class="manual">
                         <ul>
