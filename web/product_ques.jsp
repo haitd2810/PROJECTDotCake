@@ -22,9 +22,9 @@
 
 
     <div class="chon">
-        <button id="giaohang"><a href="ship_ques.jsp" style="color:black;">VỀ GIAO HÀNG</a></button>
+        <button ><a href="ship_ques.jsp" style="color:black;">VỀ GIAO HÀNG</a></button>
         <button><a href="order_ques.jsp" style="color:black;">VỀ ĐẶT HÀNG</a> </button>
-        <button><a href="product_ques.jsp" style="color:black;">VỀ SẢN PHẨM</a></button>
+        <button id="giaohang"><a href="product_ques.jsp" style="color:black;">VỀ SẢN PHẨM</a></button>
     </div>
 
     <div class="ques">

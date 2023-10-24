@@ -8,6 +8,7 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -16,7 +17,8 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author Duy Hai
  */
-public class Product_ques extends HttpServlet {
+@WebServlet(name="ShipQues", urlPatterns={"/ShipQues"})
+public class ShipQues extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -30,39 +32,40 @@ public class Product_ques extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<div class=\"q1\" onclick=\"toggleAns_q1(document.querySelector('.arrow'))\">\n" +
-"            <p> Cách bảo quản của các loại bánh thế nào? Thời gian sử dụng là bao lâu\n" +
-"            </p>\n" +
+            out.println("<div class=\"q1\" onclick=\"toggleFeesTable(document.querySelector('.arrow'))\">\n" +
+"            <p> Phí giao hàng của LaFuong được tính như thế nào?</p>\n" +
 "            <div class=\"arrow\"></div>\n" +
 "        </div>\n" +
-"        <div id=\"ans_q1\" >\n" +
-"            Tất cả các loại bánh của chúng tôi hoàn toàn sử dụng nguyên liệu tươi và \n" +
-"            không sử dụng chất bảo quản, vì vậy vui lòng giữ bánh trong hộp kín & bảo\n" +
-"             quản ngăn mát tủ lạnh ngay khi bạn nhận bánh (không để bánh vào ngăn đông).\n" +
-"              Bạn không nên để bánh ở nhiệt độ phòng quá 30 phút (bánh sẽ bị chảy), \n" +
-"              chỉ lấy bánh ra khỏi ngăn mát tủ lạnh ngay trước khi ăn. Bánh được bảo\n" +
-"               quản đúng cách có thể sử dụng trong vòng 3 ngày.        \n" +
-"        </div>" +
+"        <table id=\"feesTable\" class=\"fees-table\">\n" +
+"            <thead>\n" +
+"                <th class=\"kc\">KHOẢNG CÁCH</th>\n" +
+"                <th class=\"fee\">PHÍ GIAO HÀNG</th>\n" +
+"            </thead>\n" +
+"            <tbody id=\"feesBody\">\n" +
+"                <!-- Dữ liệu sẽ được thêm vào đây bằng JavaScript -->\n" +
+"            </tbody>\n" +
+"        </table>\n" +
+"        <hr />" +
+            "<div class=\"q2\" onclick=\"toggleAnswer(this)\">\n" +
+"                <p> Tôi có thể chọn giờ giao hàng không?</p>\n" +
+"                <div class=\"arrow\"></div>\n" +
+"            </div>\n" +
+"            <div id=\"ans\" style=\"display: none;\">\n" +
+"                Bạn có thể đến một trong các khung giờ sau: 11h-15h, 15h-16h, 17h-18h, 18h-21h.\n" +
+"            </div>"+
             "<hr />\n" +
-"        <div class=\"q2\" onclick=\"toggleAnswer(this)\">\n" +
-"            <p> Tôi có thể đặt bánh theo mẫu riêng mà tôi muốn được không?  </p>\n" +
-"            <div class=\"arrow1\"></div>\n" +
-"        </div>\n" +
-"        <div id=\"ans_q2\" style=\"display: none;\">\n" +
-"            Rất tiếc, chúng tôi chỉ sản xuất các mẫu có sẵn và không nhận đặt theo mẫu riêng.\n" +
-"        </div>" +
-            "hr />\n" +
-"        <div class=\"q3\" onclick=\"toggleAns_q3(document.querySelector('.arrow2'))\">\n" +
-"            <p> Tôi muốn di chuyển bánh từ nơi này đến nơi khác bằng xe máy / ô tô thì có sợ bánh bị chảy không?\n" +
+                    
+"            <div class=\"q3\" onclick=\"toggleAns_q3(this)\">\n" +
+"            <p> Tôi có thể chọn giờ giao hàng chính xác tuyệt đối (ví dụ 12h15) thay vì chọn khung giờ như trên không?\n" +
 "            </p>\n" +
 "            <div class=\"arrow2\"></div>\n" +
 "        </div>\n" +
+"\n" +
+"\n" +
 "        <div id=\"ans_q3\">\n" +
-"            Bạn có thể di chuyển bánh bằng ô tô trong thời gian dưới 45 phút (với điều kiện máy lạnh trên xe mở ở mức lạnh sâu).\n" +
-"             Nếu bạn di chuyển bằng xe máy thì quãng đường không nên dài quá 30 phút và thời tiết ngoài trời không vượt mức 30 độ C\n" +
-"              (quá nóng bánh sẽ bị chảy), tốt nhất nên di chuyển kèm đá lạnh/ đá khô. Vì vậy chúng tôi khuyến khích bạn đặt giao hàng\n" +
-"               đến trực tiếp địa chỉ bạn sẽ ăn bánh để không phải tự di chuyển bánh nhiều lần.\n" +
-"        </div><hr />");
+"            Xin lỗi, hiện tại chúng tôi chỉ có thể giao theo khung giờ mà không thể hẹn bạn chính xác đến từng phút,\n" +
+"            .\n" +
+"        </div>");
         }
     } 
 
