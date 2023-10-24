@@ -35,11 +35,11 @@ public class ProductServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        ProductDAO dao=new ProductDAO();
+         ProductDAO dao=new ProductDAO();
         UserDAO user=new UserDAO();
         List<Product> listP=dao.getProduct();
         String productid=request.getParameter("productid");
-        List<image> ListI=user.getIamge(productid);
+        List<image> ListI=user.getIamge();
         request.setAttribute("product", listP);
         request.setAttribute("image", ListI);
         request.getRequestDispatcher("product.jsp").forward(request, response);

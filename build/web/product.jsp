@@ -37,15 +37,12 @@
                             với sự hài hoà của các tầng hương vị và kết cấu đặc biệt trong từng chiếc bánh.</p>
                     </div>
                     <div class="row product">
-                        <c:forEach var="o" items="${product}">
+                        <c:forEach var="o" items="${image}">
                             <c:if test="${not empty product}">
                                 <a href="ProductDetail?pid=${o.getProductID()}">
                                     <div class="col-md-3 seller__item" style="padding: 0">
-                                        <c:forEach var="i" items="${image}">
-                                            <img src="${i.getImage()}?productid=${o.getProductID()}" alt="">
-                                        </c:forEach>
-                                        <h1>${o.getProductName()}
-                                        </h1>
+                                        <img src="${o.getImage()}" alt="">
+                                        <h1>${o.getProductName()}</h1>
                                         <p><span>${o.getProductPrice()}</span>VND</p>
                                         <div class="seller__btn">
                                             <button class="order"><a href="">Order</a></button>

@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 import model.Bill;
 import model.Cart;
+import model.Category;
 import model.Order;
 import model.Product;
 import model.Ship;
@@ -255,16 +256,16 @@ public class UserDAO extends MyDAO {
         }
         return admin;
     }
-
-    public List<image> getIamge(String pid) {
+    
+    public List<image> getIamge() {
         List<image> image = new ArrayList<>();
         try {
-            String sql = "select * from productimg";
+            String sql = "select * from productimg join Product on ProductIMG.productID=Product.productID";
             PreparedStatement pr = connection.prepareStatement(sql);
-            pr.setString(1, pid);
             ResultSet rs = pr.executeQuery();
             while (rs.next()) {
-                image.add(new image(rs.getString(1), rs.getString(2), rs.getString(3)));
+                image.add( new image(rs.getString(2), rs.getString(1), rs.getString(6),rs.getString(8),
+                rs.getInt(9),rs.getString(10),rs.getDate(11),rs.getInt(12),rs.getString(13),rs.getString(14)));
             }
         } catch (Exception e) {
         }
@@ -273,16 +274,19 @@ public class UserDAO extends MyDAO {
 
     public static void main(String[] args) {
         UserDAO userdao = new UserDAO();
+        System.out.println(userdao.loadProduct("B01"));
     }
 
-    public Product loadProduct(String id) {
+    public Category loadProduct(String id) {
         try {
-            String sql = "select * from product where productid = ? ";
+            String sql = "select * from productimg join Product on ProductIMG.productID=Product.productID join "
+                    + "Category on Category.categoryID=Product.categoryID where Product.productID = ? ";
             PreparedStatement pr = connection.prepareStatement(sql);
             pr.setString(1, id);
             ResultSet rs = pr.executeQuery();
             while (rs.next()) {
-                return new Product(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getDate(5), rs.getInt(6), rs.getString(7), rs.getString(8));
+                return new Category(rs.getString(16),rs.getString(2), rs.getString(1), rs.getString(6),rs.getString(8),
+                rs.getInt(9),rs.getString(10),rs.getDate(11),rs.getInt(12),rs.getString(13),rs.getString(14));
             }
         } catch (Exception e) {
         }

@@ -4,30 +4,23 @@
  */
 package model;
 
+import java.util.Date;
+
 /**
  *
  * @author admin
  */
-public class image {
-    private String pid;
+public class image extends Product{
     private String image;
     private String imageId;
 
     public image() {
     }
 
-    public image(String pid, String image, String imageId) {
-        this.pid = pid;
+    public image(String image, String imageId, String productID, String ProductName, int ProductPrice, String ProductDetail, Date CreateDate, int quantity, String categoryID, String status) {
+        super(productID, ProductName, ProductPrice, ProductDetail, CreateDate, quantity, categoryID, status);
         this.image = image;
         this.imageId = imageId;
-    }
-
-    public String getPid() {
-        return pid;
-    }
-
-    public void setPid(String pid) {
-        this.pid = pid;
     }
 
     public String getImage() {
@@ -45,5 +38,11 @@ public class image {
     public void setImageId(String imageId) {
         this.imageId = imageId;
     }
+
+    @Override
+    public String toString() {
+        return "image{" + "image=" + image + ", imageId=" + imageId + '}';
+    }
+
     
 }
