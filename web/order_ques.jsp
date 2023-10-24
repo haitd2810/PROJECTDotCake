@@ -28,10 +28,10 @@
     </div>
 
     <div class="ques">
-        <div class="q1" onclick="toggleAns_q1(document.querySelector('.arrow'))">
+        <div class="q1" onclick="toggleAns_q1(document.querySelector('.arrow1'))">
             <p> Thời gian đặt bánh tối thiểu là bao lâu?
             </p>
-            <div class="arrow"></div>
+            <div class="arrow1"></div>
         </div>
 
 
