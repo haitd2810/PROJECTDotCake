@@ -50,57 +50,50 @@
                         </div>
 
                     </div>
-                    <form action="updateuser" method="post" class="col-lg-8">
+                    <form action="UpdatePass" method="post" class="col-lg-8">
                         <div >
                             <div class="card mb-4">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-lg-3">
-                                            <p class="mb-0">Full Name</p>
+                                            <p class="mb-0">Old Password</p>
                                         </div>
                                         <div class="col-lg-9">
-                                            <input class="text-muted mb-0" name="ten" type="text" value="${user.getName()}">
+                                            <input class="text-muted mb-0" name="oldPass" type="text">
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-lg-3">
-                                            <p class="mb-0">Email</p>
+                                            <p class="mb-0">New Password</p>
                                         </div>
                                         <div class="col-lg-9">
-                                            <input class="text-muted mb-0" name="mail" type="text" value="${user.getMail()}">
+                                            <input class="text-muted mb-0" name="newPass" type="text">
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-lg-3">
-                                            <p class="mb-0">Phone</p>
+                                            <p class="mb-0">Repeat new password:</p>
                                         </div>
                                         <div class="col-lg-9">
-                                            <input class="text-muted mb-0" name="sdt" type="text" value="${user.getPhone()}">
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-lg-3">
-                                            <p class="mb-0">Address</p>
-                                        </div>
-                                        <div class="col-lg-9">
-                                            <input class="text-muted mb-0" name="diachi" type="text" value="${user.getAddress()}">
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-lg-3"></div>
-                                        <div class="col-lg-9">
-                                            <a href="UpdatePassword.jsp">Change Password</a>
+                                            <input class="text-muted mb-0" name="repeatNewPass" type="text">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <input type="submit" value="Save" name="update">
-                            <a href="logout">Logout</a>
-
+                            <c:set var="success" value="${requestScope.success}"></c:set>
+                            <c:if test="${not empty success}">
+                                <a href="Hoang_SignIn.jsp">Login</a>
+                            </c:if>
+                            <c:if test="${empty success}">
+                                <input type="submit" value="Save" name="update">
+                                <a href="logout">Logout</a>
+                            </c:if>    
+                            <c:set var="msgUpdatePass" value="${sessionScope.UPDATEFAILED}"></c:set>
+                            <c:if test="${not empty msgUpdatePass}">
+                                <p style="color: red;">${msgUpdatePass}</p>
+                            </c:if>
                         </div>
                     </form>
                 </div>

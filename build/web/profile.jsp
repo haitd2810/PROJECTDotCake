@@ -89,7 +89,13 @@
                                             <input class="text-muted mb-0" name="diachi" type="text" value="${user.getAddress()}">
                                         </div>
                                     </div>
-
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-lg-3"></div>
+                                        <div class="col-lg-9">
+                                            <a href="UpdatePassword.jsp">Change Password</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <input type="submit" value="Save" name="update">

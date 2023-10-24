@@ -49,15 +49,16 @@ public class UserDAO extends MyDAO {
         }
         return null;
     }
-    public User getPhoneAccountByUser(String phonenumber){
+
+    public User getPhoneAccountByUser(String phonenumber) {
         xSql = "Select * from [User] where phone = '" + phonenumber + "'";
-        try{
+        try {
             ps = con.prepareStatement(xSql);
             rs = ps.executeQuery();
             int userid;
             String name, usern, pass, phone, address, email, avatar;
             int roleID;
-            while(rs.next()){
+            while (rs.next()) {
                 User user1 = new User();
                 userid = rs.getInt("UserID");
                 name = rs.getString("Name");
@@ -72,20 +73,21 @@ public class UserDAO extends MyDAO {
             }
             ps.close();
             rs.close();
-        }catch(Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         return null;
     }
-    public User getEmailAccountByUser(String mail1){
+
+    public User getEmailAccountByUser(String mail1) {
         xSql = "Select * from [User] where mail = '" + mail1 + "'";
-        try{
+        try {
             ps = con.prepareStatement(xSql);
             rs = ps.executeQuery();
             int userid;
             String name, usern, pass, phone, address, email, avatar;
             int roleID;
-            while(rs.next()){
+            while (rs.next()) {
                 User user1 = new User();
                 userid = rs.getInt("UserID");
                 name = rs.getString("Name");
@@ -95,12 +97,12 @@ public class UserDAO extends MyDAO {
                 address = rs.getString("address");
                 email = rs.getString("mail");
                 roleID = rs.getInt("roleid");
-                user1 = new User(userid, name, usern, pass, phone, address, email,  roleID);
+                user1 = new User(userid, name, usern, pass, phone, address, email, roleID);
                 return user1;
             }
             ps.close();
             rs.close();
-        }catch(Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         return null;
@@ -123,6 +125,7 @@ public class UserDAO extends MyDAO {
 //        }
 //        return 0;
 //    }
+
     public void createNewAccountUser(String Name, String Username, String Password, String Phone, String Email) {
 //        int id = getMaxID() + 1;
         xSql = "insert into [User] ([name],username,[password],phone,address,mail,roleID)"
@@ -170,7 +173,6 @@ public class UserDAO extends MyDAO {
         return null;
     }
 
-
     public boolean UpdateUser(String name, String email, String phone, String address, String username)
             throws SQLException, ClassNotFoundException {
         PreparedStatement stm = null;
@@ -200,8 +202,8 @@ public class UserDAO extends MyDAO {
         return false;
     }
 
-    
     List<User> admin = new ArrayList<>();
+
     public List<User> getAdmin() throws SQLException {
         PreparedStatement stm = null;
         ResultSet rs = null;
@@ -226,8 +228,9 @@ public class UserDAO extends MyDAO {
         }
         return admin;
     }
-    
+
     List<User> account = new ArrayList<>();
+
     public List<User> getAccountList() throws SQLException {
         PreparedStatement stm = null;
         ResultSet rs = null;
@@ -252,37 +255,62 @@ public class UserDAO extends MyDAO {
         }
         return admin;
     }
-    
-    public List<image> getIamge(String pid){
-        List<image> image=new ArrayList<>();
+
+    public List<image> getIamge(String pid) {
+        List<image> image = new ArrayList<>();
         try {
-            String sql="select * from productimg";
-            PreparedStatement pr=connection.prepareStatement(sql);
+            String sql = "select * from productimg";
+            PreparedStatement pr = connection.prepareStatement(sql);
             pr.setString(1, pid);
-            ResultSet rs=pr.executeQuery();
-            while(rs.next()){
+            ResultSet rs = pr.executeQuery();
+            while (rs.next()) {
                 image.add(new image(rs.getString(1), rs.getString(2), rs.getString(3)));
             }
         } catch (Exception e) {
         }
         return image;
     }
-    
-        public static void main(String[] args) {
+
+    public static void main(String[] args) {
         UserDAO userdao = new UserDAO();
     }
-        
-    public Product loadProduct(String id){
+
+    public Product loadProduct(String id) {
         try {
-            String sql="select * from product where productid = ? ";
-            PreparedStatement pr=connection.prepareStatement(sql);
+            String sql = "select * from product where productid = ? ";
+            PreparedStatement pr = connection.prepareStatement(sql);
             pr.setString(1, id);
-            ResultSet rs=pr.executeQuery();
-            while(rs.next()){
+            ResultSet rs = pr.executeQuery();
+            while (rs.next()) {
                 return new Product(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getDate(5), rs.getInt(6), rs.getString(7), rs.getString(8));
             }
         } catch (Exception e) {
         }
         return null;
+    }
+
+    public boolean UpdatePassword(String username, String newpassword) throws SQLException {
+        PreparedStatement stm = null;
+        
+        try {
+            if (con != null) {
+                String sql = "update [User] set password = ? where username = ? ";
+                stm = con.prepareStatement(sql);
+                stm.setString(1, newpassword);
+                stm.setString(2, username);
+                int row = stm.executeUpdate();
+                if(row > 0){
+                    return true;
+                }
+            }
+        } finally {
+            if (con != null) {
+                con.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+        }
+        return false;
     }
 }
