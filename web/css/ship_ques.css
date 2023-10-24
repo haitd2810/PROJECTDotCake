@@ -24,12 +24,12 @@
     width:200px;
 }
 .fee{
-    width:200px; 
- }
+    width:200px;
+}
 th{
     border:1px solid rgb(202, 200, 200);
     text-transform: uppercase;
-    letter-spacing: 1px;   
+    letter-spacing: 1px;
     height: 2.75rem;
     text-align: left;
     padding-left: .75rem;
@@ -39,10 +39,10 @@ th{
     font-size: larger;
 
 }
- 
+
 td{
     border:1px solid rgb(202, 200, 200);
-    letter-spacing: 1px;   
+    letter-spacing: 1px;
     height: 2.75rem;
     text-align: left;
     padding-left: .75rem;
@@ -63,7 +63,7 @@ h1{
     font-size: 48px;
 }
 h3{
-   
+
     line-height: 1.375;
     font-size: 20px;
     font-weight: 100;
@@ -95,7 +95,7 @@ h3{
 .chon button:hover {
     background-color: rgb(184, 179, 179);
     color: white;
-  }
+}
 .chon #giaohang{
     background-color:rgb(179, 178, 178);
 }
@@ -122,7 +122,7 @@ p{
     cursor: pointer;
     line-height: 1.75rem;
 }
-#ans,#ans_q2, #ans_q3,#ans_q4{
-    font-size: 1.125rem;
-    line-height: 1.75rem;
+#ans,#ans_q2, #ans_q3,#ans_q4,#ans_q1{
+    font-size: 2.125rem;
+    line-height: 2.75rem;
 }

@@ -69,5 +69,6 @@
             <h6 style="font-size: 1.75rem;">© 2023 DotCake Pastry.</h6>
         </div>
     </div>
+    <%@include file="footer.html" %>
     </body>
 </html>

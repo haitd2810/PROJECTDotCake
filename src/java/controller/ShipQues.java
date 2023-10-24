@@ -33,7 +33,12 @@ public class ShipQues extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<div class=\"q1\" onclick=\"toggleFeesTable(document.querySelector('.arrow'))\">\n"
+            out.println("<div class=\"chon\">\n"
+                    + "                <button id=\"giaohang\" onclick=\"ShipQues()\">VỀ GIAO HÀNG</button>\n"
+                    + "                <button onclick=\"OrderQues()\">VỀ ĐẶT HÀNG</button>\n"
+                    + "                <button onclick=\"ProductQues()\">VỀ SẢN PHẨM</button>\n"
+                    + "        </div>"
+                    + "<div class=\"q1\" onclick=\"toggleFeesTable(document.querySelector('.arrow'))\">\n"
                     + "            <p> Phí giao hàng của LaFuong được tính như thế nào?</p>\n"
                     + "            <div class=\"arrow\"></div>\n"
                     + "        </div>\n"

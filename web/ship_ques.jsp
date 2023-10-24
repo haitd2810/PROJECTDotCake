@@ -23,15 +23,27 @@
     <body>
         <%@include file="header.jsp" %>
         <%@include file="ship.jsp" %>
-        <h1>Câu hỏi thường gặp</h1>
-        <h3>Bạn có thể tìm câu trả lời cho những câu hỏi thường gặp ở dưới đây </h3>
-        <div class="chon">
-                <button onclick="ShipQues()">VỀ GIAO HÀNG</button>
+        <h1 style="
+            margin-top:10px;
+            margin-bottom: 0.75rem;
+            line-height: 1.375;
+            font-size: 50px;
+            font-style: italic;
+            font-weight: 100;
+            color: rgb(68, 68, 68);
+            text-align: center;">Câu hỏi thường gặp</h1>
+        <h3 style="margin-bottom: 0.75rem;
+            line-height: 1.375;
+            font-size: 20px;
+            font-weight: 100;
+            color: rgb(68, 68, 68);
+            text-align: center;">Bạn có thể tìm câu trả lời cho những câu hỏi thường gặp ở dưới đây </h3>
+        <div id = "content" class="ques">
+            <div class="chon">
+                <button id="giaohang" onclick="ShipQues()">VỀ GIAO HÀNG</button>
                 <button onclick="OrderQues()">VỀ ĐẶT HÀNG</button>
                 <button onclick="ProductQues()">VỀ SẢN PHẨM</button>
-        </div>
-
-        <div id = "content" class="ques">
+            </div>
             <div class="q1" onclick="toggleFeesTable(document.querySelector('.arrow'))">
                 <p> Phí giao hàng của LaFuong được tính như thế nào?</p>
                 <div class="arrow"></div>
@@ -250,6 +262,7 @@
             <hr />
 
         </div>
+        <%@include file="footer.html" %>
     </body>
 
 </html>

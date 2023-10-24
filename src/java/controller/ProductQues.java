@@ -33,7 +33,12 @@ public class ProductQues extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<div class=\"q1\" onclick=\"toggleAns_q1(document.querySelector('.arrow1'))\">\n"
+            out.println("<div class=\"chon\">\n"
+                    + "                <button onclick=\"ShipQues()\">VỀ GIAO HÀNG</button>\n"
+                    + "                <button onclick=\"OrderQues()\">VỀ ĐẶT HÀNG</button>\n"
+                    + "                <button id=\"giaohang\" onclick=\"ProductQues()\">VỀ SẢN PHẨM</button>\n"
+                    + "        </div>"
+                    + "<div class=\"q1\" onclick=\"toggleAns_q1(document.querySelector('.arrow1'))\">\n"
                     + "            <p> Cách bảo quản của các loại bánh thế nào? Thời gian sử dụng là bao lâu\n"
                     + "            </p>\n"
                     + "            <div class=\"arrow1\"></div>\n"
