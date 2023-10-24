@@ -125,8 +125,8 @@ public class UserDAO extends MyDAO {
 //    }
     public void createNewAccountUser(String Name, String Username, String Password, String Phone, String Email) {
 //        int id = getMaxID() + 1;
-        xSql = "insert into [User] ([name],username,[password],phone,address,mail,avatar,roleID)"
-                + "values (?,?,?,?,null,?,null,0)";
+        xSql = "insert into [User] ([name],username,[password],phone,address,mail,roleID)"
+                + "values (?,?,?,?,null,?,0)";
         try {
             ps = con.prepareStatement(xSql);
             ps.setString(1, Name);
