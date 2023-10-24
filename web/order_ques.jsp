@@ -101,8 +101,6 @@
             };
         </script>
         <hr />
-
-
         <div class="q3" onclick="toggleAns_q3(document.querySelector('.arrow2'))">
             <p> Tôi có thể thay đổi loại bánh sau khi đã hoàn tất đặt hàng không?
             </p>
