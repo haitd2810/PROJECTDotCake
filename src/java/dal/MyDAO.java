@@ -12,6 +12,7 @@ public class MyDAO extends DBContext {
   public MyDAO() {
      con = connection;
   }
+  @Override
   public void finalize() {
      try {
         if(con != null) con.close();

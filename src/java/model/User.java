@@ -16,13 +16,12 @@ public class User {
     private String phone;
     private String address;
     private String mail;
-    private String avatar;
     private int roleID;
 
     public User() {
     }
 
-    public User(int userID, String Name, String username, String password, String phone, String address, String mail, String avatar, int roleID) {
+    public User(int userID, String Name, String username, String password, String phone, String address, String mail, int roleID) {
         this.userID = userID;
         this.Name = Name;
         this.username = username;
@@ -30,7 +29,6 @@ public class User {
         this.phone = phone;
         this.address = address;
         this.mail = mail;
-        this.avatar = avatar;
         this.roleID = roleID;
     }
 
@@ -90,13 +88,7 @@ public class User {
         this.mail = mail;
     }
 
-    public String getAvatar() {
-        return avatar;
-    }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
 
     public int getRoleID() {
         return roleID;
@@ -108,7 +100,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "userID=" + userID + ", Name=" + Name + ", username=" + username + ", password=" + password + ", phone=" + phone + ", address=" + address + ", mail=" + mail + ", avatar=" + avatar + ", roleID=" + roleID + '}';
+        return "User{" + "userID=" + userID + ", Name=" + Name + ", username=" + username + ", password=" + password + ", phone=" + phone + ", address=" + address + ", mail=" + mail +  ", roleID=" + roleID + '}';
     }
 
     

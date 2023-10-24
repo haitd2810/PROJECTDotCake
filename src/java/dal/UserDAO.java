@@ -28,7 +28,7 @@ public class UserDAO extends MyDAO {
             ps = con.prepareStatement(xSql);
             rs = ps.executeQuery();
             int userid;
-            String name, usern, pass, phone, address, email, avatar;
+            String name, usern, pass, phone, address, email;
             int roleID;
             while (rs.next()) {
                 userid = rs.getInt("UserID");
@@ -38,9 +38,8 @@ public class UserDAO extends MyDAO {
                 phone = rs.getString("phone");
                 address = rs.getString("address");
                 email = rs.getString("mail");
-                avatar = rs.getString("avatar");
                 roleID = rs.getInt("roleid");
-                user = new User(userid, name, usern, pass, phone, address, email, avatar, roleID);
+                user = new User(userid, name, usern, pass, phone, address, email, roleID);
                 return user;
             }
             rs.close();
@@ -67,9 +66,8 @@ public class UserDAO extends MyDAO {
                 phone = rs.getString("phone");
                 address = rs.getString("address");
                 email = rs.getString("mail");
-                avatar = rs.getString("avatar");
                 roleID = rs.getInt("roleid");
-                user1 = new User(userid, name, usern, pass, phone, address, email, avatar, roleID);
+                user1 = new User(userid, name, usern, pass, phone, address, email, roleID);
                 return user1;
             }
             ps.close();
@@ -96,9 +94,8 @@ public class UserDAO extends MyDAO {
                 phone = rs.getString("phone");
                 address = rs.getString("address");
                 email = rs.getString("mail");
-                avatar = rs.getString("avatar");
                 roleID = rs.getInt("roleid");
-                user1 = new User(userid, name, usern, pass, phone, address, email, avatar, roleID);
+                user1 = new User(userid, name, usern, pass, phone, address, email,  roleID);
                 return user1;
             }
             ps.close();
@@ -161,9 +158,8 @@ public class UserDAO extends MyDAO {
                 phone = rs.getString("phone");
                 address = rs.getString("address");
                 email = rs.getString("mail");
-                avatar = rs.getString("avatar");
                 roleID = rs.getInt("roleid");
-                user1 = new User(userid, name, usern, pass, phone, address, email, avatar, roleID);
+                user1 = new User(userid, name, usern, pass, phone, address, email, roleID);
                 return user1;
             }
             ps.close();
@@ -221,9 +217,8 @@ public class UserDAO extends MyDAO {
                 String phone = rs.getString("phone");
                 String address = rs.getString("address");
                 String email = rs.getString("mail");
-                String avatar = rs.getString("avatar");
                 int roleID = rs.getInt("roleID");
-                User user = new User(userID, name, username, password, phone, address, email, avatar, roleID);
+                User user = new User(userID, name, username, password, phone, address, email, roleID);
                 admin.add(user);
             }
         } catch (Exception ex) {
@@ -248,9 +243,8 @@ public class UserDAO extends MyDAO {
                 String phone = rs.getString("phone");
                 String address = rs.getString("address");
                 String email = rs.getString("mail");
-                String avatar = rs.getString("avatar");
                 int roleID = rs.getInt("roleID");
-                User user = new User(userID, name, username, password, phone, address, email, avatar, roleID);
+                User user = new User(userID, name, username, password, phone, address, email, roleID);
                 admin.add(user);
             }
         } catch (Exception ex) {
