@@ -16,22 +16,6 @@
         <servlet-name>AccountList</servlet-name>
         <servlet-class>controller.AccountList</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>OrderList</servlet-name>
-        <servlet-class>controller.OrderList</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>BillList</servlet-name>
-        <servlet-class>controller.BillList</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ShipList</servlet-name>
-        <servlet-class>controller.ShipList</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CartList</servlet-name>
-        <servlet-class>controller.CartList</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>UpdateUser</servlet-name>
         <url-pattern>/updateuser</url-pattern>
@@ -47,22 +31,6 @@
     <servlet-mapping>
         <servlet-name>AccountList</servlet-name>
         <url-pattern>/AccountList</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>OrderList</servlet-name>
-        <url-pattern>/OrderList</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BillList</servlet-name>
-        <url-pattern>/BillList</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ShipList</servlet-name>
-        <url-pattern>/ShipList</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CartList</servlet-name>
-        <url-pattern>/CartList</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

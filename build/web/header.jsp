@@ -50,14 +50,14 @@
                         </c:if>
                     </div>
                     <div class="col-md-1 header_order" style="padding-top: 15px">
-                        <a title="order" href="Order.jsp">
+                        <a title="order" href="GoOrderPage">
                             <span>Order</span>
                         </a>
                     </div>
 
                     <c:if test="${empty user}">
                         <div class="col-md-1 header_login" style="padding-top: 15px">
-                            <a href="Hoang_SignIn.jsp"><span>Login</span></a>
+                            <a href="signin"><span>Login</span></a>
                         </div>
                     </c:if>
                     <c:if test="${ not empty user}">
@@ -71,17 +71,17 @@
 
             <div class = "row header_menu">
                 <div class = "navbar header_menu--items">
-                    <a href="index.jsp">Home</a>
-                    <a href="about.jsp">About</a>
+                    <a href="GoHomePage">Home</a>
+                    <a href="GoAboutPage">About</a>
                     <a href="product">Products</a>
-                    <a href="ship_ques.jsp">Services</a>
-                    <a href="contact.jsp">Contact</a> 
+                    <a href="GoServicePage">Services</a>
+                    <a href="GoContactPage">Contact</a> 
                     <c:set var="user" value = "${sessionScope.USER}"></c:set>
                     <c:if test="${user.getRoleID()==2}">
-                        <a href="Admin.jsp">Manage</a>
+                        <a href="GoAdminPage">Manage</a>
                     </c:if>
                     <c:if test="${user.getRoleID()==1}">
-                        <a href="Admin.jsp">Manage</a>
+                        <a href="GoAdminPage">Manage</a>
                     </c:if>
                 </div>
             </div>

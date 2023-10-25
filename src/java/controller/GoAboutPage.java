@@ -5,26 +5,20 @@
 
 package controller;
 
-import dal.CartDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import model.Cart;
-import dal.UserDAO;
 
 /**
  *
  * @author Duy Hai
  */
-public class CartList extends HttpServlet {
+@WebServlet(name="GoAboutPage", urlPatterns={"/GoAboutPage"})
+public class GoAboutPage extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -34,13 +28,9 @@ public class CartList extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException, SQLException {
+    throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession();
-        CartDAO dao = new CartDAO();
-        List<Cart> cart = dao.getCartList();
-        session.setAttribute("CARTLIST", cart);
-        response.sendRedirect("CartList.jsp");
+        
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -54,11 +44,7 @@ public class CartList extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(CartList.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       request.getRequestDispatcher("about.jsp").forward(request, response);
     } 
 
     /** 
@@ -71,11 +57,7 @@ public class CartList extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(CartList.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        request.getRequestDispatcher("about.jsp").forward(request, response);
     }
 
     /** 

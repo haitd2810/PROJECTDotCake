@@ -5,26 +5,20 @@
 
 package controller;
 
-import dal.ShipDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import model.Ship;
-import dal.UserDAO;
 
 /**
  *
  * @author Duy Hai
  */
-public class ShipList extends HttpServlet {
+@WebServlet(name="GoAdminPage", urlPatterns={"/GoAdminPage"})
+public class GoAdminPage extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -34,13 +28,9 @@ public class ShipList extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException, SQLException {
+    throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession();
-        ShipDAO dao = new ShipDAO();
-        List<Ship> ship = dao.getShipList();
-        session.setAttribute("SHIPLIST", ship);
-        response.sendRedirect("ShipList.jsp");
+        
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -54,11 +44,7 @@ public class ShipList extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(ShipList.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        request.getRequestDispatcher("Admin.jsp").forward(request, response);
     } 
 
     /** 
@@ -71,11 +57,7 @@ public class ShipList extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(ShipList.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        request.getRequestDispatcher("Admin.jsp").forward(request, response);
     }
 
     /** 

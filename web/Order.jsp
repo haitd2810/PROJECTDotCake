@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -34,85 +35,102 @@
         <div class="header_page">
             <%@include file="header.jsp" %>
         </div>
-        <div class="all_order container">
-            <div class="row body">
-                <div class="col-12">
-                    <div class="white_card card_height_100 mb_30">
-                        <div class="white_card_header">
-                            <div class="box_header m-0">
-                                <div class="main-title">
-                                    <h3 class="m-0">Order</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="white_card_body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="common_input mb_15">
-                                        <h5>Name:</h5>
-                                        <input type="text" name="NameOfCus">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="common_input mb_15">
-                                        <h5>Phone:</h5>
-                                        <input type="text" name="PhoneOfCus">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="common_input mb_15">
-                                        <h5>Date Receipt</h5>
-                                        <input type="text" name="AddressOfCus">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="common_input mb_15">
-                                        <h5>Date Receipt</h5>
-                                        <input type="date" name="DateReceipt">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="common_input mb_15">
-                                        <h5>Notes:</h5>
-                                        <input type="text" name="NoteOfCus">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="common_input mb_15">
-                                        <h5>Order Detail</h5>
-                                    </div>
-                                </div>
-                                <!-- vong lap for se o day de display cart -->
-                                <div class="col-lg-12">
-                                    <div class="common_input mb_15">
-                                        <div class="col-md-12">
-                                            <div class="IMGPRODUCT col-sm-2">
-                                                <img class="img-fluid" 
-                                                     width="100" height="100" src="https://s.net.vn/Rx3w" alt="">
-                                            </div>
-                                            <div class="col-sm-8">
-                                                <p>Product Name</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p>Cost Product</p>
-                                                <p>Shipp fee</p><br>
-                                                <p>Total Cost</p>
-                                            </div>
+        <c:set var="acc" value="${sessionScope.acc}"></c:set>
+        <c:if test="${not empty acc}">
+            <div class="all_order container">
+                <form>
+                    <div class="row body">
+                        <div class="col-12">
+                            <div class="white_card card_height_100 mb_30">
+                                <div class="white_card_header">
+                                    <div class="box_header m-0">
+                                        <div class="main-title">
+                                            <h3 class="m-0" style="font-size: 18px;font-style: italic;">Order</h3>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-12">
-                                    <div class="col-sm-8"></div>
-                                    <div class="create_report_btn mt_30 col-sm-4">
-                                        <input class="btn_1 button_order" type="submit" value="Order">
+                                <div class="white_card_body">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="common_input mb_15">
+                                                <h5 style="font-size: 18px;font-style: italic;">Name:</h5>
+                                                <input type="text" name="NameOfCus">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="common_input mb_15">
+                                                <h5 style="font-size: 18px;font-style: italic;">Phone:</h5>
+                                                <input type="text" name="PhoneOfCus">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="common_input mb_15">
+                                                <h5 style="font-size: 18px;font-style: italic;">Address:</h5>
+                                                <input type="text" name="AddressOfCu">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="common_input mb_15">
+                                                <h5 style="font-size: 18px;font-style: italic;">Date Receipt</h5>
+                                                <input type="date" name="DateReceipt">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="common_input mb_15">
+                                                <h5 style="font-size: 18px;font-style: italic;">Time Receipt</h5>
+                                                <select style="font-size: 18px;font-style: italic;">
+                                                    <option>--Please Choose--</option>
+                                                    <option>11h15-13h</option>
+                                                    <option>13h-15h</option>
+                                                    <option>15h-17h</option>
+                                                    <option>18h-20h</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="common_input mb_15">
+                                                <h5 style="font-size: 18px;font-style: italic;">Notes:</h5>
+                                                <input type="text" name="NoteOfCus">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="common_input mb_15">
+                                                <h5 style="font-size: 18px;font-style: italic;">Order Detail</h5>
+                                            </div>
+                                        </div>
+                                        <!-- vong lap for se o day de display cart -->
+                                        <div class="col-lg-12">
+                                            <div class="common_input mb_15">
+                                                <div class="col-md-12">
+                                                    <div class="IMGPRODUCT col-sm-2">
+                                                        <img class="img-fluid" 
+                                                             width="100" height="100" src="https://s.net.vn/Rx3w" alt="">
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <p style="font-size: 18px;font-style: italic;">Product Name</p>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <p>Cost Product</p>
+                                                        <p>Shipp fee</p><br>
+                                                        <p>Total Cost</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="col-sm-8"></div>
+                                            <div class="create_report_btn mt_30 col-sm-4">
+                                                <input style="font-size: 18px;font-style: italic;" class="btn_1 button_order" type="submit" value="Order">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    </section>
+                </form>
             </div>
-        </section>
-    </div>
-</body>
+        </c:if>
+    </body>
 </html>

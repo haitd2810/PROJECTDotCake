@@ -1,13 +1,10 @@
-package controller;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
+package controller;
 
-import dal.UserDAO;
-import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -15,21 +12,39 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.*;
+
 /**
  *
- * @author DELL
+ * @author Duy Hai
  */
-@WebServlet(urlPatterns={"/signin"})
-public class SignIn extends HttpServlet {
+@WebServlet(name="GoOrderPage", urlPatterns={"/GoOrderPage"})
+public class GoOrderPage extends HttpServlet {
+   
+    /** 
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        
+    } 
 
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /** 
+     * Handles the HTTP <code>GET</code> method.
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        RequestDispatcher rd = request.getRequestDispatcher("Hoang_SignIn.jsp");
-        rd.forward(request, response);
+        request.getRequestDispatcher("Order.jsp").forward(request, response);
     } 
 
     /** 
@@ -42,22 +57,7 @@ public class SignIn extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        String username = request.getParameter("user");
-        String password = request.getParameter("pass");
-        UserDAO userdao = new UserDAO();
-        User user = userdao.getUser(username, password);
-        if ( user == null ){
-            request.setAttribute("msg", "USERNAME or PASSWORD is incorrect");
-            request.getRequestDispatcher("Hoang_SignIn.jsp").forward(request, response);
-        }
-        else{
-            request.getSession().setAttribute("acc", username);
-            request.getSession().setAttribute("USER", user);
-//            User acc  = (User)request.getSession().getAttribute("acc");
-            response.sendRedirect("GoHomePage");
-        }
+        request.getRequestDispatcher("Order.jsp").forward(request, response);
     }
 
     /** 
