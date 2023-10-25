@@ -31,22 +31,30 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-md-7 header_title">
-                        <a href="index.jsp">
-                            <span>DotCake</span>
-                        </a>
-                    </div>
-                    <div class="col-md-1 header_buy" style="padding-top: 15px">
-                        <a title="Giỏ hàng" href="Hoang_Cart.html">
-                            <span class="glyphicon glyphicon-lock" style="color: grey; font-size: 28px"></span>
-                        </a>
+                    <c:set var="user" value="${sessionScope.acc}" ></c:set>
+                        <div class="col-md-7 header_title">
+                            <a href="index.jsp">
+                                <span>DotCake</span>
+                            </a>
+                        </div>
+                        <div class="col-md-1 header_buy" style="padding-top: 15px">
+                        <c:if test="${empty user}">
+                            <a title="Giỏ hàng" href="#">
+                                <span class="glyphicon glyphicon-lock" style="color: grey; font-size: 28px"></span>
+                            </a>
+                        </c:if>
+                        <c:if test="${ not empty user}">
+                            <a title="Giỏ hàng" href="Hoang_Cart.html">
+                                <span class="glyphicon glyphicon-shopping-cart" style="color: grey; font-size: 28px"></span>
+                            </a>
+                        </c:if>
                     </div>
                     <div class="col-md-1 header_order" style="padding-top: 15px">
-                        <a title="order" href="Hoang_Cart.html">
+                        <a title="order" href="Order.jsp">
                             <span>Order</span>
                         </a>
                     </div>
-                    <c:set var="user" value="${sessionScope.acc}" ></c:set>
+
                     <c:if test="${empty user}">
                         <div class="col-md-1 header_login" style="padding-top: 15px">
                             <a href="Hoang_SignIn.jsp"><span>Login</span></a>
