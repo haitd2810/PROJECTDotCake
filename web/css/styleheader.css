@@ -1,0 +1,89 @@
+header_page{
+    position: fixed; 
+    z-index: 1; 
+    width: 100vw; 
+    background-color: white;
+}
+.header {
+    border-bottom: 1px solid gray;
+    display: flex;
+    text-align: center;
+}
+.header span {
+    color: grey;
+    font-size: 26px;
+}
+
+.header div {
+    padding-top: 10px;
+    border-left: 1px solid gray;
+}
+
+.header_title span {
+    font-size: 32px;
+    font-family: Lucida Handwriting;
+}
+
+.header_menu span {
+    font-size: 24px;
+    font-family: Lucida Handwriting;
+}
+
+.header_order span {
+    font-size: 20px;
+    font-family: Lucida Handwriting;
+}
+
+.header_login span {
+    font-size: 20px;
+    font-family: Lucida Handwriting;
+}
+
+.header_buy {
+    padding-top: 15px;
+}
+
+.header_search {
+    text-align: left;
+    padding-top: 15px;
+    padding-right: 0px;
+}
+
+.search_tittle {
+    display: flex;
+    flex-direction: row;
+}
+
+.header_search-form {
+    padding: 0px;
+    margin: 0px;
+    margin-right: 20px;
+    font-size: 18px;
+}
+
+.header_search-form div {
+    padding-top: 0px;
+    border-left: none;
+    display: inline;
+}
+
+.header_menu {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 1px solid gray;
+    height: 50px;
+    margin: 0px;
+}
+.header_menu--items{
+    margin-left: 20px;
+    margin-right: 9%;
+    margin-bottom: 0px;
+}
+.header_menu--items a{
+    font-size: 18px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 30px;
+    color: gray;
+}
