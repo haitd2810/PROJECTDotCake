@@ -33,7 +33,7 @@
                     </div>
                     <c:set var="user" value="${sessionScope.acc}" ></c:set>
                         <div class="col-md-7 header_title">
-                            <a href="index.jsp">
+                            <a href="GoHomePage">
                                 <span>DotCake</span>
                             </a>
                         </div>
@@ -62,7 +62,7 @@
                     </c:if>
                     <c:if test="${ not empty user}">
                         <div class="col-md-1 header_login" style="padding-top: 15px">
-                            <a href="profile.jsp"><span>${user}</span></a>
+                            <a href="GoProfilePage"><span>${user}</span></a>
                         </div>
                     </c:if>
 

@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package controller;
+package DispathController;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,8 +17,8 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author Duy Hai
  */
-@WebServlet(name="GoOrderPage", urlPatterns={"/GoOrderPage"})
-public class GoOrderPage extends HttpServlet {
+@WebServlet(name="GoProfilePage", urlPatterns={"/GoProfilePage"})
+public class GoProfilePage extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -44,7 +44,7 @@ public class GoOrderPage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        request.getRequestDispatcher("Order.jsp").forward(request, response);
+        request.getRequestDispatcher("profile.jsp").forward(request, response);
     } 
 
     /** 
@@ -57,7 +57,7 @@ public class GoOrderPage extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        request.getRequestDispatcher("Order.jsp").forward(request, response);
+        request.getRequestDispatcher("profile.jsp").forward(request, response);
     }
 
     /** 

@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package controller;
+package DispathController;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,19 +12,13 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import model.User;
-import dal.UserDAO;
 
 /**
  *
  * @author Duy Hai
  */
-public class AdminList extends HttpServlet {
+@WebServlet(name="GoOrderPage", urlPatterns={"/GoOrderPage"})
+public class GoOrderPage extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -34,14 +28,9 @@ public class AdminList extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException, SQLException {
+    throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession();
-        UserDAO dao = new UserDAO();
-        List<User> user = dao.getAdmin();
-        session.setAttribute("ADMINLIST", user);
-//        response.sendRedirect("AdminList.jsp");
-        request.getRequestDispatcher("AdminList.jsp").forward(request, response);
+        
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -55,11 +44,7 @@ public class AdminList extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(AdminList.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        request.getRequestDispatcher("Order.jsp").forward(request, response);
     } 
 
     /** 
@@ -72,11 +57,7 @@ public class AdminList extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(AdminList.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        request.getRequestDispatcher("Order.jsp").forward(request, response);
     }
 
     /** 
