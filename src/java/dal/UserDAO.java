@@ -287,7 +287,88 @@ public class UserDAO extends MyDAO {
         }
         return image;
     }
-
+    /////////////////////////////////////////////////////
+    public User getAccountByFullName(String name) {
+        xSql = "Select * from [User] where  name = '" + name + "'";
+        try {
+            ps = con.prepareStatement(xSql);
+            rs = ps.executeQuery();
+            int userid;
+            String name1, usern, pass, phone, address, email;
+            int roleID;
+            while (rs.next()) {
+                User user1 = new User();
+                userid = rs.getInt("UserID");
+                name1 = rs.getString("Name");
+                usern = rs.getString("Username");
+                pass = rs.getString("Password");
+                phone = rs.getString("phone");
+                address = rs.getString("address");
+                email = rs.getString("mail");
+                roleID = rs.getInt("roleid");
+                user1 = new User(userid, name1, usern, pass, phone, address, email, roleID);
+                return user1;
+            }
+            ps.close();
+            rs.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+    public void isertNewAccount(User user){
+        xSql = "insert into [User] values(?,?,?,?,?,?,?)";
+        try{
+            ps = con.prepareStatement(xSql);
+            ps.setString(1, user.getName());
+            ps.setString(2, user.getUsername());
+            ps.setString(3, user.getPassword());
+            ps.setString(4, user.getPhone());
+            ps.setString(5, user.getAddress());
+            ps.setString(6, user.getMail());
+            ps.setInt(7, user.getRoleID());
+            ps.executeUpdate();
+            ps.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+    public void getDeleteAcc(String aId){
+         xSql = "delete from [User] where userID =?";
+        try {
+            ps = con.prepareStatement(xSql);
+            ps.setString(1, aId);
+            ps.executeUpdate();
+            ps.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public boolean getUpdateSeller(String Id){
+        PreparedStatement stm = null;
+        try {
+            //1. Connect DB
+            if (con != null) {
+                //2. Create SQL String
+                String sql = "Update [User] "
+                        + "SET roleID = 1"
+                        + "WHERE userID = ?";
+                //3. Create Statement
+                stm = con.prepareStatement(sql);
+                stm.setString(1,Id);
+                //4. Excute Query
+                int row = stm.executeUpdate();
+                if (row > 0) {
+                    return true;
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+    /////////////////////////////////////////////////////////////////////////
     public static void main(String[] args) {
         UserDAO userdao = new UserDAO();
         System.out.println(userdao.loadCategory());
