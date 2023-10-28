@@ -14,7 +14,8 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Embed css here-->
-        <link href="css/styleheader.css" rel="stylesheet" type="text/css"/>
+        <!--<link href="css/styleheader.css" rel="stylesheet" type="text/css"/>-->
+        <link href="css/styleindex.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="header_page">
