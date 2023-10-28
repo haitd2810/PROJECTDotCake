@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 import model.Bill;
 import model.Category;
+import model.Categoryimg;
 import model.Order;
 import model.Product;
 import model.Ship;
@@ -270,13 +271,29 @@ public class UserDAO extends MyDAO {
         }
         return image;
     }
+    public List<Categoryimg> loadProductByCate(String cid) {
+        List<Categoryimg> image = new ArrayList<>();
+        try {
+            String sql = "select * from productimg join Product on ProductIMG.productID=Product.productID join "
+                    + "Category on Category.categoryID=Product.categoryID where Product.categoryid = ? ";
+            PreparedStatement pr = connection.prepareStatement(sql);
+            pr.setString(1, cid);
+            ResultSet rs = pr.executeQuery();
+            while (rs.next()) {
+                image.add(  new Categoryimg(rs.getString(16),rs.getString(2), rs.getString(1), rs.getString(6),rs.getString(8),
+                rs.getInt(9),rs.getString(10),rs.getDate(11),rs.getInt(12),rs.getString(13),rs.getString(14)));
+            }
+        } catch (Exception e) {
+        }
+        return image;
+    }
 
     public static void main(String[] args) {
         UserDAO userdao = new UserDAO();
-        System.out.println(userdao.loadProduct("B01"));
+        System.out.println(userdao.loadCategory());
     }
 
-    public Category loadProduct(String id) {
+    public Categoryimg loadProduct(String id) {
         try {
             String sql = "select * from productimg join Product on ProductIMG.productID=Product.productID join "
                     + "Category on Category.categoryID=Product.categoryID where Product.productID = ? ";
@@ -284,12 +301,27 @@ public class UserDAO extends MyDAO {
             pr.setString(1, id);
             ResultSet rs = pr.executeQuery();
             while (rs.next()) {
-                return new Category(rs.getString(16),rs.getString(2), rs.getString(1), rs.getString(6),rs.getString(8),
+                return new Categoryimg(rs.getString(16),rs.getString(2), rs.getString(1), rs.getString(6),rs.getString(8),
                 rs.getInt(9),rs.getString(10),rs.getDate(11),rs.getInt(12),rs.getString(13),rs.getString(14));
             }
         } catch (Exception e) {
         }
         return null;
+    }
+
+    public List<Category> loadCategory() {
+        List<Category> category=new ArrayList<>();
+        try {
+            String sql = "select * from Category ";
+            PreparedStatement pr = connection.prepareStatement(sql);
+//            pr.setString(1, id);
+            ResultSet rs = pr.executeQuery();
+            while (rs.next()) {
+                category.add( new Category(rs.getString(2),rs.getString(1)));
+            }
+        } catch (Exception e) {
+        }
+        return category;
     }
 
     public boolean UpdatePassword(String username, String newpassword) throws SQLException {

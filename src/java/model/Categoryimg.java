@@ -4,20 +4,21 @@
  */
 package model;
 
+import java.util.Date;
+
 /**
  *
  * @author admin
  */
-public class Category {
+public class Categoryimg extends image{
     private String cname;
-    private String cid;
 
-    public Category() {
+    public Categoryimg() {
     }
 
-    public Category(String cname, String cid) {
+    public Categoryimg(String cname, String image, String imageId, String productID, String ProductName, int ProductPrice, String ProductDetail, Date CreateDate, int quantity, String categoryID, String status) {
+        super(image, imageId, productID, ProductName, ProductPrice, ProductDetail, CreateDate, quantity, categoryID, status);
         this.cname = cname;
-        this.cid = cid;
     }
 
     public String getCname() {
@@ -26,19 +27,6 @@ public class Category {
 
     public void setCname(String cname) {
         this.cname = cname;
-    }
-
-    public String getCid() {
-        return cid;
-    }
-
-    public void setCid(String cid) {
-        this.cid = cid;
-    }
-
-    @Override
-    public String toString() {
-        return "Category{" + "cname=" + cname + ", cid=" + cid + '}';
     }
     
 }
