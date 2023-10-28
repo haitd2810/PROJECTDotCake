@@ -16,6 +16,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
 import model.Category;
+import model.Categoryimg;
 import model.Product;
 
 /**
@@ -37,7 +38,7 @@ public class ProductDetail extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String pid=request.getParameter("pid");
         UserDAO dao=new UserDAO();
-        Category product=dao.loadProduct(pid);
+        Categoryimg product=dao.loadProduct(pid);
         request.setAttribute("product", product);
         request.getRequestDispatcher("productdetail.jsp").forward(request, response);
     } 

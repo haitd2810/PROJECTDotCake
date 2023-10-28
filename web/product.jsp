@@ -21,6 +21,27 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Embed css here-->
         <link rel="stylesheet" href="css/product.css">
+        <style>
+            .cate{
+                margin: 20px 0 20px 20px;
+            }
+
+            .cate button{
+                border-radius: 30px;
+                font-size: 20px;
+                margin-right: 10px;
+            }
+
+            .cate button a{
+                padding: 10px;
+                color: #000;
+                text-decoration: none;
+            }
+
+            .cate button a:hover{
+                opacity: 0.7;
+            }
+        </style>
     </head>
     <body>
         <div class="header_page">
@@ -36,11 +57,16 @@
                         <p>Sản phẩm đặc trưng của DotCake là dòng bánh lạnh cao cấp nhất của Pháp,
                             với sự hài hoà của các tầng hương vị và kết cấu đặc biệt trong từng chiếc bánh.</p>
                     </div>
+                    <div class="cate">
+                        <c:forEach var="o" items="${category}">
+                            <button><a href="product?cateid=${o.getCid()}">${o.getCname()}</a></button>
+                        </c:forEach>
+                    </div>
                     <div class="row product">
                         <c:forEach var="o" items="${image}">
-                            <c:if test="${not empty product}">
-                                <a href="ProductDetail?pid=${o.getProductID()}">
-                                    <div class="col-md-3 seller__item" style="padding: 0">
+                            <c:if test="${not empty image}">
+                                <a class="productlist" href="ProductDetail?pid=${o.getProductID()}">
+                                    <div class="col-md-3 seller__item" style="padding: 0; border-bottom: 1px solid #000; height: 450px">
                                         <img src="${o.getImage()}" alt="">
                                         <h1>${o.getProductName()}</h1>
                                         <p><span>${o.getProductPrice()}</span>VND</p>
@@ -57,16 +83,17 @@
             </div>
             <div class="text-center">
                 <ul class="pagination pagination-v2 ">
-                    <li><a href="#">Previous</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">Next</a></li>
+                    <li>Previous</li>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>Next</li>
                 </ul>
             </div>
         </div>
 
         <%@include file="footer.html" %>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="js/header.js"></script>
     </body>
 </html>
