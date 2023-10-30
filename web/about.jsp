@@ -101,7 +101,7 @@
             Bạn sẽ tìm thấy ở DotCake một chiếc bánh Entremet đặc biệt dành cho mọi dịp chúc mừng, 
             hoặc cũng có thể là một nửa chiếc bánh Entremet để thưởng thức mỗi ngày một cách đơn giản, mà không cần đợi đến dịp gì.
 		</p>
-        <a class="link_to_product" href="product.jsp">Xem Sản Phẩm</a>
+        <a class="link_to_product" href="product">Xem Sản Phẩm</a>
 		</div>
    </div>
         <%@include file="footer.html" %>
