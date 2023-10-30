@@ -54,31 +54,31 @@
                                         <div class="col-lg-12">
                                             <div class="common_input mb_15">
                                                 <h5 style="font-size: 18px;font-style: italic;">Name:</h5>
-                                                <input type="text" name="NameOfCus">
+                                                <input type="text" required name="NameOfCus">
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="common_input mb_15">
                                                 <h5 style="font-size: 18px;font-style: italic;">Phone:</h5>
-                                                <input type="text" name="PhoneOfCus">
+                                                <input type="text" required name="PhoneOfCus">
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="common_input mb_15">
                                                 <h5 style="font-size: 18px;font-style: italic;">Address:</h5>
-                                                <input type="text" name="AddressOfCu">
+                                                <input type="text" required name="AddressOfCu">
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="common_input mb_15">
                                                 <h5 style="font-size: 18px;font-style: italic;">Date Receipt</h5>
-                                                <input type="date" name="DateReceipt">
+                                                <input type="date" required name="DateReceipt">
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="common_input mb_15">
                                                 <h5 style="font-size: 18px;font-style: italic;">Time Receipt</h5>
-                                                <select style="font-size: 18px;font-style: italic;">
+                                                <select style="font-size: 15px;font-style: italic;width: 100%;padding: 5px;">
                                                     <option>--Please Choose--</option>
                                                     <option>11h15-13h</option>
                                                     <option>13h-15h</option>

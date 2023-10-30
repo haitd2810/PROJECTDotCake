@@ -12,18 +12,16 @@ import java.util.Date;
  */
 public class Order {
     private String orderID;
-    private Date createDate;
-    private int quantity;
-    private String cartID;
+    private String productID;
+    private double quantity;
 
-    public Order() {
+    public Order(String orderID, String productID, double quantity) {
+        this.orderID = orderID;
+        this.productID = productID;
+        this.quantity = quantity;
     }
 
-    public Order(String orderID, Date createDate, int quantity, String cartID) {
-        this.orderID = orderID;
-        this.createDate = createDate;
-        this.quantity = quantity;
-        this.cartID = cartID;
+    public Order() {
     }
 
     public String getOrderID() {
@@ -34,28 +32,20 @@ public class Order {
         this.orderID = orderID;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public String getProductID() {
+        return productID;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setProductID(String productID) {
+        this.productID = productID;
     }
 
-    public int getQuantity() {
+    public double getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(double quantity) {
         this.quantity = quantity;
-    }
-
-    public String getCartID() {
-        return cartID;
-    }
-
-    public void setCartID(String cartID) {
-        this.cartID = cartID;
     }
     
 }
