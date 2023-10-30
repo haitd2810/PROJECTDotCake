@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 import model.Bill;
 import model.Category;
+import model.Categoryimg;
 import model.Order;
 import model.Product;
 import model.Ship;
@@ -270,13 +271,110 @@ public class UserDAO extends MyDAO {
         }
         return image;
     }
-
+    public List<Categoryimg> loadProductByCate(String cid) {
+        List<Categoryimg> image = new ArrayList<>();
+        try {
+            String sql = "select * from productimg join Product on ProductIMG.productID=Product.productID join "
+                    + "Category on Category.categoryID=Product.categoryID where Product.categoryid = ? ";
+            PreparedStatement pr = connection.prepareStatement(sql);
+            pr.setString(1, cid);
+            ResultSet rs = pr.executeQuery();
+            while (rs.next()) {
+                image.add(  new Categoryimg(rs.getString(16),rs.getString(2), rs.getString(1), rs.getString(6),rs.getString(8),
+                rs.getInt(9),rs.getString(10),rs.getDate(11),rs.getInt(12),rs.getString(13),rs.getString(14)));
+            }
+        } catch (Exception e) {
+        }
+        return image;
+    }
+    /////////////////////////////////////////////////////
+    public User getAccountByFullName(String name) {
+        xSql = "Select * from [User] where  name = '" + name + "'";
+        try {
+            ps = con.prepareStatement(xSql);
+            rs = ps.executeQuery();
+            int userid;
+            String name1, usern, pass, phone, address, email;
+            int roleID;
+            while (rs.next()) {
+                User user1 = new User();
+                userid = rs.getInt("UserID");
+                name1 = rs.getString("Name");
+                usern = rs.getString("Username");
+                pass = rs.getString("Password");
+                phone = rs.getString("phone");
+                address = rs.getString("address");
+                email = rs.getString("mail");
+                roleID = rs.getInt("roleid");
+                user1 = new User(userid, name1, usern, pass, phone, address, email, roleID);
+                return user1;
+            }
+            ps.close();
+            rs.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+    public void isertNewAccount(User user){
+        xSql = "insert into [User] values(?,?,?,?,?,?,?)";
+        try{
+            ps = con.prepareStatement(xSql);
+            ps.setString(1, user.getName());
+            ps.setString(2, user.getUsername());
+            ps.setString(3, user.getPassword());
+            ps.setString(4, user.getPhone());
+            ps.setString(5, user.getAddress());
+            ps.setString(6, user.getMail());
+            ps.setInt(7, user.getRoleID());
+            ps.executeUpdate();
+            ps.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+    public void getDeleteAcc(String aId){
+         xSql = "delete from [User] where userID =?";
+        try {
+            ps = con.prepareStatement(xSql);
+            ps.setString(1, aId);
+            ps.executeUpdate();
+            ps.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public boolean getUpdateSeller(String Id){
+        PreparedStatement stm = null;
+        try {
+            //1. Connect DB
+            if (con != null) {
+                //2. Create SQL String
+                String sql = "Update [User] "
+                        + "SET roleID = 1"
+                        + "WHERE userID = ?";
+                //3. Create Statement
+                stm = con.prepareStatement(sql);
+                stm.setString(1,Id);
+                //4. Excute Query
+                int row = stm.executeUpdate();
+                if (row > 0) {
+                    return true;
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+    /////////////////////////////////////////////////////////////////////////
     public static void main(String[] args) {
         UserDAO userdao = new UserDAO();
-        System.out.println(userdao.loadProduct("B01"));
+        System.out.println(userdao.loadCategory());
     }
 
-    public Category loadProduct(String id) {
+    public Categoryimg loadProduct(String id) {
         try {
             String sql = "select * from productimg join Product on ProductIMG.productID=Product.productID join "
                     + "Category on Category.categoryID=Product.categoryID where Product.productID = ? ";
@@ -284,12 +382,27 @@ public class UserDAO extends MyDAO {
             pr.setString(1, id);
             ResultSet rs = pr.executeQuery();
             while (rs.next()) {
-                return new Category(rs.getString(16),rs.getString(2), rs.getString(1), rs.getString(6),rs.getString(8),
+                return new Categoryimg(rs.getString(16),rs.getString(2), rs.getString(1), rs.getString(6),rs.getString(8),
                 rs.getInt(9),rs.getString(10),rs.getDate(11),rs.getInt(12),rs.getString(13),rs.getString(14));
             }
         } catch (Exception e) {
         }
         return null;
+    }
+
+    public List<Category> loadCategory() {
+        List<Category> category=new ArrayList<>();
+        try {
+            String sql = "select * from Category ";
+            PreparedStatement pr = connection.prepareStatement(sql);
+//            pr.setString(1, id);
+            ResultSet rs = pr.executeQuery();
+            while (rs.next()) {
+                category.add( new Category(rs.getString(2),rs.getString(1)));
+            }
+        } catch (Exception e) {
+        }
+        return category;
     }
 
     public boolean UpdatePassword(String username, String newpassword) throws SQLException {

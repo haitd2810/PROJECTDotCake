@@ -11,7 +11,6 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Management Admin</title>
-
         <link href="css/bootstrap1.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/metisMenu.css" rel="stylesheet" type="text/css"/>
         <link href="css/style1.css" rel="stylesheet" type="text/css"/>
@@ -24,8 +23,6 @@
         </c:if>
         <c:if test="${not empty user}">
             <%@include file="MenuAdmin.jsp" %>
-
-
             <div class="row body">
                 <div class="col-12">
                     <div class="white_card card_height_100 mb_30">
@@ -40,52 +37,67 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="white_card_body">
+                                        <form action="addaccount" method="post">
+                                              <div class="white_card_body">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="common_input mb_15">
-                                            <input type="text" placeholder="Username">
+                                            <input type="text" placeholder="Username" name="Username" required>
+                                            <div style="color: red">
+                                            ${msg1}
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="common_input mb_15">
-                                            <input type="text" placeholder="Password">
+                                            <input type="text" placeholder="Password" name="Password" required>
+                                            <div style="color: red">
+                                            ${msg2}
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="common_input mb_15">
-                                            <input type="text" placeholder="FullName">
+                                            <input type="text" placeholder="FullName" name="FullName" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="common_input mb_15">
-                                            <input type="text" placeholder="Address">
+                                            <input type="text" placeholder="Address" name="Address" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="common_input mb_15">
-                                            <input type="text" placeholder="Mobile No">
+                                            <input type="text" placeholder="MobileNo" name="MobileNo" required>
+                                            <div style="color: red">
+                                            ${msg3}
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="common_input mb_15">
-                                            <input type="text" placeholder="Email">
+                                            <input type="text" placeholder="Email" name="Email" required>
+                                            <div style="color: red">
+                                            ${msg4}
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div> 
-                                            <input type="radio" name="role" value="Admin">Admin
-                                            <input type="radio" name="role" value="Seller">Seller
-                                            <input type="radio" name="role" value="Customer">Customer
+                                            <input type="radio" name="role" value="2">Admin
+                                            <input type="radio" name="role" value="1">Seller
+                                            <input type="radio" name="role" value="0" checked>Customer
                                         </div>
                                     </div>
-
+                                    <center style="color: red">
+                                        ${msg}
                                     <div class="col-12">
                                         <div class="create_report_btn mt_30">
-                                            <input class="btn_1 radius_btn d-block text-center" type="submit" value="Add Admin">
+                                            <input class="btn_1 radius_btn d-block text-center" type="submit" value="Add Account">
                                         </div>
                                     </div>
                                 </div>
+                                        </form>
                             </div>
                         </div>
                     </div>

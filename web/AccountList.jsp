@@ -45,6 +45,7 @@
                                     </div>
                                 </div>
                             </div>
+                                        <form action="deleteaccount" method="post">
                             <div class="white_card_body">
                                 <div class="row">
                                     <c:set var="account" value="${sessionScope.ACCOUNTLIST}"></c:set>
@@ -60,11 +61,12 @@
                                                     <th>Address</th>
                                                     <th>Mail</th>
                                                     <th>role</th>
+                                                    <th>Delete</th>
+                                                    <th>Update Account</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <c:forEach var="dto" items="${account}" varStatus = "counter">
-                                                <form action="">
+                                                <c:forEach var="dto" items="${account}" varStatus = "counter">                                          
                                                     <tr>
                                                         <td style="border: grey 1px solid;">${dto.getUserID()}</td>
                                                         <td style="border: grey 1px solid;">${dto.getName()}</td>
@@ -79,14 +81,35 @@
                                                         <c:if test="${dto.getRoleID()==1}">
                                                             <td style="border: grey 1px solid;">Seller</td> 
                                                         </c:if>
+                                                            <td style="border: grey 1px solid">
+                                                                <input type="checkbox" id="myCheckbox" name="iduser" value="${dto.userID}">
+                                                            <label for="myCheckbox"></label>
+                                                            </td>
+                                                        <c:if test="${dto.roleID == 0}">
+                                                            <td style="border: grey 1px solid">
+                                                <!--<a href="updateaccountseller?id=${dto.userID}" style="border: grey 2px solid"> Update Seller </a>-->
+                                                                <button type="Submit" name="button" value="${dto.userID}">Update Seller</button>
+                                                            </td>
+                                                        </c:if>
+                                                        <c:if test="${dto.roleID == 1}">
+                                                            <td style="border: grey 1px solid"></td>
+                                                        </c:if>
                                                     </tr>
                                                 </form>
                                             </c:forEach>
                                             </tbody>
+                                            <td></td><td></td><td></td><td></td>
+                                            <td></td><td></td><td></td><td></td>
+                                            <td>
+                                        <div class="delete">
+                                        <input type="submit" value="Submit"/>
+                                        </div>
+                                            </td>
                                         </table>
                                     </c:if>
                                 </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -15,6 +15,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
+import model.Category;
+import model.Categoryimg;
 import model.Product;
 import model.image;
 
@@ -37,10 +39,11 @@ public class ProductServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         ProductDAO dao=new ProductDAO();
         UserDAO user=new UserDAO();
-        List<Product> listP=dao.getProduct();
-        String productid=request.getParameter("productid");
+        String cateid=request.getParameter("cateid");
+        List<Category> cate=user.loadCategory();
         List<image> ListI=user.getIamge();
-        request.setAttribute("product", listP);
+        List<Categoryimg> ListCP =user.loadProductByCate(cateid);
+        request.setAttribute("category", cate);
         request.setAttribute("image", ListI);
         request.getRequestDispatcher("product.jsp").forward(request, response);
     } 
