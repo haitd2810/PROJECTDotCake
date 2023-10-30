@@ -30,6 +30,7 @@
                 border-radius: 30px;
                 font-size: 20px;
                 margin-right: 10px;
+                padding: 5px;
             }
 
             .cate button a{
@@ -38,8 +39,14 @@
                 text-decoration: none;
             }
 
-            .cate button a:hover{
+            .cate button:hover{
                 opacity: 0.7;
+            }
+
+            a.active{
+                color: #fff;
+                background: #000;
+                font-weight: bold;
             }
         </style>
     </head>
@@ -59,41 +66,93 @@
                     </div>
                     <div class="cate">
                         <c:forEach var="o" items="${category}">
-                            <button><a href="product?cateid=${o.getCid()}">${o.getCname()}</a></button>
+                            <button value="${o.getCid()}" onclick="LoadProbyCate(this)">${o.getCname()}</button>
                         </c:forEach>
                     </div>
-                    <div class="row product">
+                    <div id="productlist" class="row product">
                         <c:forEach var="o" items="${image}">
-                            <c:if test="${not empty image}">
-                                <a class="productlist" href="ProductDetail?pid=${o.getProductID()}">
-                                    <div class="col-md-3 seller__item" style="padding: 0; border-bottom: 1px solid #000; height: 450px">
-                                        <img src="${o.getImage()}" alt="">
-                                        <h1>${o.getProductName()}</h1>
-                                        <p><span>${o.getProductPrice()}</span>VND</p>
-                                        <div class="seller__btn">
-                                            <button class="order"><a href="">Order</a></button>
-                                            <button class="cart"><a href="">Cart</a></button>
-                                        </div>
+                            <div class="product_load col-md-3 seller__item" style="padding: 0; border-bottom: 1px solid #000; height: 450px">
+                                <a href="ProductDetail?pid=${o.getProductID()}">
+                                    <img src="${o.getImage()}" alt="">
+                                    <h1>${o.getProductName()}</h1>
+                                    <p><span>${o.getProductPrice()}</span>VND</p>
+                                    <div class="seller__btn">
+                                        <button class="order"><a href="">Order</a></button>
+                                        <button class="cart"><a href="">Cart</a></button>
                                     </div>
                                 </a>
-                            </c:if>
+                            </div>
                         </c:forEach>
                     </div>
                 </div>
             </div>
             <div class="text-center">
                 <ul class="pagination pagination-v2 ">
-                    <li>Previous</li>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>Next</li>
+                    <c:if test="${tag>1}">
+                        <li><a href="product?index=${tag-1}">Previous</a></li>
+                        </c:if>
+                        <c:forEach begin="1" end="${endP}" var="i">
+                        <li onclick="pagingProduct()" class="${tag == i?"active":""}"><a  href="product?index=${i}">${i}</a></li>
+                        </c:forEach>
+                        <%--<c:if test="${tag}<${endP}">--%>
+                        <li><a href="product?index=${tag+1}">Next</a></li>
+                        <%--</c:if>--%> 
                 </ul>
             </div>
         </div>
 
         <%@include file="footer.html" %>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="js/header.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+
+                            function LoadProbyCate(param) {
+                                var value=param.value;
+                                $.ajax({
+                                    url: "/prjweb/SearchByCate",
+                                    type: "get",
+                                    data:{
+                                        cateid: value
+                                    },
+                                    success: function (data) {
+                                        var product = document.getElementById("productlist");
+                                        product.innerHTML = data;
+                                    }
+                                });
+                            }
+
+                            function pagingProduct() {
+                                var amount = document.getElementsByClassName("product_load").length;
+                                $.ajax({
+                                    url: "/prjweb/ProductAjax",
+                                    type: "get",
+                                    data: {
+                                        total: amount
+                                    },
+                                    success: function (data) {
+                                        var product = document.getElementById("productlist");
+                                        product.innerHTML = data;
+                                    }
+                                });
+                            }
+
+                            function searchProduct(param) {
+                                var txt = param.value;
+                                $.ajax({
+                                    url: "/prjweb/search",
+                                    type: "get",
+                                    data: {
+                                        search: txt
+                                    },
+                                    success: function (data) {
+                                        var row = document.getElementById("productlist");
+                                        row.innerHTML = data;
+                                    }
+                                });
+                            }
+
+
+        </script>
+
     </body>
 </html>

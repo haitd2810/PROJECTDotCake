@@ -14,16 +14,16 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Embed css here-->
-        <!--<link href="css/styleheader.css" rel="stylesheet" type="text/css"/>-->
-        <link href="css/styleindex.css" rel="stylesheet" type="text/css"/>
+        <link href="css/styleheader.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="header_page">
             <div class="container-fluid">
                 <div class="row header">
                     <div class="col-md-2 header_search" >
-                        <form class="navbar-form navbar-right header_search-form" role="search">
-                            <div style="display: flex;"> <input type="text" class="form-control" placeholder="Search" style="font-size: 15px">
+                        <form class="navbar-form navbar-right header_search-form" role="search" action="SearchByName" method="post">
+                            <div style="display: flex;">
+                                <input type="text" oninput="searchProduct(this)"  value="${search}" class="form-control" placeholder="Search" name="search" style="font-size: 15px">
                                 <button type="submit" class="btn btn-default">
                                     <a title="search" href="#">
                                         <span class="glyphicon glyphicon-search" style="color: grey; font-size: 14px">
