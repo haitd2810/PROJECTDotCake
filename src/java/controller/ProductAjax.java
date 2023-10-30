@@ -5,7 +5,6 @@
 
 package controller;
 
-import dal.ProductDAO;
 import dal.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,17 +14,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
-import model.Category;
-import model.Categoryimg;
-import model.Product;
 import model.image;
 
 /**
  *
  * @author admin
  */
-@WebServlet(name="ProductServlet", urlPatterns={"/product"})
-public class ProductServlet extends HttpServlet {
+@WebServlet(name="ProductAjax", urlPatterns={"/ProductAjax"})
+public class ProductAjax extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -37,27 +33,27 @@ public class ProductServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String indexpage=request.getParameter("index");
-        String cid=request.getParameter("cid");
-        if(indexpage==null){
-            indexpage="1";
+        PrintWriter out = response.getWriter();
+        String amount = request.getParameter("total");
+        if(amount==null){
+            amount="1";
         }
-        int index=Integer.parseInt(indexpage);
-        UserDAO dao=new UserDAO();
-        int count=dao.getTotalProduct();
-        int endPage=count/12;
-        if(count % 12 != 0){
-            endPage++;
+        int index = Integer.parseInt(amount);
+        UserDAO dao = new UserDAO();
+        List<image> listP = dao.pagingProduct(index);
+        for (image o : listP) {
+            out.print("<div class=\" product_load col-md-3 seller__item\" style=\"padding: 0; border-bottom: 1px solid #000; height: 450px\">\n"
+                    + "                                    <a  href=\"ProductDetail?pid=" + o.getProductID() + "\">\n"
+                    + "                                        <img src=\"" + o.getImage() + "\" alt=\"\">\n"
+                    + "                                        <h1>" + o.getProductName() + "</h1>\n"
+                    + "                                        <p><span>" + o.getProductPrice() + "</span>VND</p>\n"
+                    + "                                        <div class=\"seller__btn\">\n"
+                    + "                                            <button class=\"order\"><a href=\"\">Order</a></button>\n"
+                    + "                                            <button class=\"cart\"><a href=\"\">Cart</a></button>\n"
+                    + "                                        </div>\n"
+                    + "                                    </a>\n"
+                    + "                                </div>");
         }
-        List<Category> cate=dao.loadCategory();
-        List<image> listP=dao.pagingProduct(index);
-        List<Categoryimg> image=dao.loadProductByCate(cid);
-        request.setAttribute("image", image);
-        request.setAttribute("image", listP);
-        request.setAttribute("tag", index);
-        request.setAttribute("endP", endPage);
-        request.setAttribute("category", cate);
-        request.getRequestDispatcher("product.jsp").forward(request, response);
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

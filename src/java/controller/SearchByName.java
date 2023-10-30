@@ -5,7 +5,6 @@
 
 package controller;
 
-import dal.ProductDAO;
 import dal.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,17 +14,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
-import model.Category;
-import model.Categoryimg;
-import model.Product;
 import model.image;
 
 /**
  *
  * @author admin
  */
-@WebServlet(name="ProductServlet", urlPatterns={"/product"})
-public class ProductServlet extends HttpServlet {
+@WebServlet(name="SearchByName", urlPatterns={"/SearchByName"})
+public class SearchByName extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -37,26 +33,12 @@ public class ProductServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String indexpage=request.getParameter("index");
-        String cid=request.getParameter("cid");
-        if(indexpage==null){
-            indexpage="1";
-        }
-        int index=Integer.parseInt(indexpage);
-        UserDAO dao=new UserDAO();
-        int count=dao.getTotalProduct();
-        int endPage=count/12;
-        if(count % 12 != 0){
-            endPage++;
-        }
-        List<Category> cate=dao.loadCategory();
-        List<image> listP=dao.pagingProduct(index);
-        List<Categoryimg> image=dao.loadProductByCate(cid);
-        request.setAttribute("image", image);
+        request.setCharacterEncoding("UTF-8");
+        String search = request.getParameter("search");
+        UserDAO dao = new UserDAO();
+        List<image> listP = dao.searchByName(search);
+        request.setAttribute("search", search);
         request.setAttribute("image", listP);
-        request.setAttribute("tag", index);
-        request.setAttribute("endP", endPage);
-        request.setAttribute("category", cate);
         request.getRequestDispatcher("product.jsp").forward(request, response);
     } 
 

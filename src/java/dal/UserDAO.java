@@ -256,7 +256,7 @@ public class UserDAO extends MyDAO {
         }
         return admin;
     }
-    
+
     public List<image> getIamge() {
         List<image> image = new ArrayList<>();
         try {
@@ -264,13 +264,30 @@ public class UserDAO extends MyDAO {
             PreparedStatement pr = connection.prepareStatement(sql);
             ResultSet rs = pr.executeQuery();
             while (rs.next()) {
-                image.add( new image(rs.getString(2), rs.getString(1), rs.getString(6),rs.getString(8),
-                rs.getInt(9),rs.getString(10),rs.getDate(11),rs.getInt(12),rs.getString(13),rs.getString(14)));
+                image.add(new image(rs.getString(2), rs.getString(1), rs.getString(6), rs.getString(8),
+                        rs.getInt(9), rs.getString(10), rs.getDate(11), rs.getInt(12), rs.getString(13), rs.getString(14)));
             }
         } catch (Exception e) {
         }
         return image;
     }
+
+    public List<image> searchByName(String name) {
+        List<image> image = new ArrayList<>();
+        try {
+            String sql = "select * from productimg join Product on ProductIMG.productID=Product.productID where productName like ?  ";
+            PreparedStatement pr = connection.prepareStatement(sql);
+            pr.setString(1, "%" + name + "%");
+            ResultSet rs = pr.executeQuery();
+            while (rs.next()) {
+                image.add(new image(rs.getString(2), rs.getString(1), rs.getString(6), rs.getString(8),
+                        rs.getInt(9), rs.getString(10), rs.getDate(11), rs.getInt(12), rs.getString(13), rs.getString(14)));
+            }
+        } catch (Exception e) {
+        }
+        return image;
+    }
+
     public List<Categoryimg> loadProductByCate(String cid) {
         List<Categoryimg> image = new ArrayList<>();
         try {
@@ -280,13 +297,31 @@ public class UserDAO extends MyDAO {
             pr.setString(1, cid);
             ResultSet rs = pr.executeQuery();
             while (rs.next()) {
-                image.add(  new Categoryimg(rs.getString(16),rs.getString(2), rs.getString(1), rs.getString(6),rs.getString(8),
-                rs.getInt(9),rs.getString(10),rs.getDate(11),rs.getInt(12),rs.getString(13),rs.getString(14)));
+                image.add(new Categoryimg(rs.getString(16), rs.getString(2), rs.getString(1), rs.getString(6), rs.getString(8),
+                        rs.getInt(9), rs.getString(10), rs.getDate(11), rs.getInt(12), rs.getString(13), rs.getString(14)));
             }
         } catch (Exception e) {
         }
         return image;
     }
+
+    public List<Categoryimg> searchByCate(String cname) {
+        List<Categoryimg> image = new ArrayList<>();
+        try {
+            String sql = "select * from productimg join Product on ProductIMG.productID=Product.productID join \n"
+                    + "                   Category on Category.categoryID=Product.categoryID where Product.categoryID = ? ";
+            PreparedStatement pr = connection.prepareStatement(sql);
+            pr.setString(1, cname);
+            ResultSet rs = pr.executeQuery();
+            while (rs.next()) {
+                image.add(new Categoryimg(rs.getString(16), rs.getString(2), rs.getString(1), rs.getString(6), rs.getString(8),
+                        rs.getInt(9), rs.getString(10), rs.getDate(11), rs.getInt(12), rs.getString(13), rs.getString(14)));
+            }
+        } catch (Exception e) {
+        }
+        return image;
+    }
+
     /////////////////////////////////////////////////////
     public User getAccountByFullName(String name) {
         xSql = "Select * from [User] where  name = '" + name + "'";
@@ -316,9 +351,10 @@ public class UserDAO extends MyDAO {
         }
         return null;
     }
-    public void isertNewAccount(User user){
+
+    public void isertNewAccount(User user) {
         xSql = "insert into [User] values(?,?,?,?,?,?,?)";
-        try{
+        try {
             ps = con.prepareStatement(xSql);
             ps.setString(1, user.getName());
             ps.setString(2, user.getUsername());
@@ -329,12 +365,13 @@ public class UserDAO extends MyDAO {
             ps.setInt(7, user.getRoleID());
             ps.executeUpdate();
             ps.close();
-        }catch(Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
-    public void getDeleteAcc(String aId){
-         xSql = "delete from [User] where userID =?";
+
+    public void getDeleteAcc(String aId) {
+        xSql = "delete from [User] where userID =?";
         try {
             ps = con.prepareStatement(xSql);
             ps.setString(1, aId);
@@ -344,8 +381,8 @@ public class UserDAO extends MyDAO {
             e.printStackTrace();
         }
     }
-    
-    public boolean getUpdateSeller(String Id){
+
+    public boolean getUpdateSeller(String Id) {
         PreparedStatement stm = null;
         try {
             //1. Connect DB
@@ -356,7 +393,7 @@ public class UserDAO extends MyDAO {
                         + "WHERE userID = ?";
                 //3. Create Statement
                 stm = con.prepareStatement(sql);
-                stm.setString(1,Id);
+                stm.setString(1, Id);
                 //4. Excute Query
                 int row = stm.executeUpdate();
                 if (row > 0) {
@@ -368,6 +405,7 @@ public class UserDAO extends MyDAO {
         }
         return false;
     }
+
     /////////////////////////////////////////////////////////////////////////
     public static void main(String[] args) {
         UserDAO userdao = new UserDAO();
@@ -382,8 +420,8 @@ public class UserDAO extends MyDAO {
             pr.setString(1, id);
             ResultSet rs = pr.executeQuery();
             while (rs.next()) {
-                return new Categoryimg(rs.getString(16),rs.getString(2), rs.getString(1), rs.getString(6),rs.getString(8),
-                rs.getInt(9),rs.getString(10),rs.getDate(11),rs.getInt(12),rs.getString(13),rs.getString(14));
+                return new Categoryimg(rs.getString(16), rs.getString(2), rs.getString(1), rs.getString(6), rs.getString(8),
+                        rs.getInt(9), rs.getString(10), rs.getDate(11), rs.getInt(12), rs.getString(13), rs.getString(14));
             }
         } catch (Exception e) {
         }
@@ -391,23 +429,53 @@ public class UserDAO extends MyDAO {
     }
 
     public List<Category> loadCategory() {
-        List<Category> category=new ArrayList<>();
+        List<Category> category = new ArrayList<>();
         try {
             String sql = "select * from Category ";
             PreparedStatement pr = connection.prepareStatement(sql);
 //            pr.setString(1, id);
             ResultSet rs = pr.executeQuery();
             while (rs.next()) {
-                category.add( new Category(rs.getString(2),rs.getString(1)));
+                category.add(new Category(rs.getString(2), rs.getString(1)));
             }
         } catch (Exception e) {
         }
         return category;
     }
 
+    public int getTotalProduct() {
+        String sql = "select count(*) from productimg join Product on ProductIMG.productID=Product.productID";
+        try {
+            PreparedStatement pr = connection.prepareStatement(sql);
+            ResultSet rs = pr.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+    
+    public List<image> pagingProduct(int index) {
+        List<image> image = new ArrayList<>();
+        try {
+            String sql = "select * from productimg join Product on ProductIMG.productID=Product.productID\n"
+                    + "order by Product.productID OFFSET ? \n"
+                    + "rows fetch next 12 rows only;";
+            PreparedStatement pr = connection.prepareStatement(sql);
+            pr.setInt(1, (index-1)*12);
+            ResultSet rs = pr.executeQuery();
+            while (rs.next()) {
+                image.add(new image(rs.getString(2), rs.getString(1), rs.getString(6), rs.getString(8),
+                        rs.getInt(9), rs.getString(10), rs.getDate(11), rs.getInt(12), rs.getString(13), rs.getString(14)));
+            }
+        } catch (Exception e) {
+        }
+        return image;
+    }
     public boolean UpdatePassword(String username, String newpassword) throws SQLException {
         PreparedStatement stm = null;
-        
+
         try {
             if (con != null) {
                 String sql = "update [User] set password = ? where username = ? ";
@@ -415,7 +483,7 @@ public class UserDAO extends MyDAO {
                 stm.setString(1, newpassword);
                 stm.setString(2, username);
                 int row = stm.executeUpdate();
-                if(row > 0){
+                if (row > 0) {
                     return true;
                 }
             }
