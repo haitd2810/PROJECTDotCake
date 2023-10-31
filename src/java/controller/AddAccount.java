@@ -12,11 +12,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import dal.*;
+import jakarta.servlet.annotation.WebServlet;
 import model.*;
 /**
  *
  * @author DELL
  */
+@WebServlet(name = "AddAccount", urlPatterns = {"/addaccount"})
 public class AddAccount extends HttpServlet {
 
     @Override
@@ -64,8 +66,8 @@ public class AddAccount extends HttpServlet {
             request.setAttribute("msg2", "Password is too weak!");
         } else if (user.equals(pass)){
             request.setAttribute("msg1", "Username and Password do not orverlap!");
-        } else if (phone == null || !phone.matches("\\d{10}")){
-            request.setAttribute("msg3", "Phone No number must be exactly 10 digits");
+        } else if (phone.length() != 10 || !phone.matches("[0]{1}[0-9]{9}")){
+            request.setAttribute("msg3", "Phone No number must be exactly 10 digits and start by 0");
         } else if (!email.matches("[a-zA-Z0-9]+[@][a-zA-Z]+[.][a-z]+") && !email.matches("[a-zA-Z0-9]+[@][a-zA-Z]+[.][a-z]+[.][a-z]+")){
             request.setAttribute("msg4", "Email is invalid!");
         }

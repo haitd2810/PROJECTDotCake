@@ -68,27 +68,31 @@ public class UpdatePass extends HttpServlet {
         User user = (User) request.getSession().getAttribute("USER");
         if(!oldpassword.equals(user.getPassword())){
             request.getSession().setAttribute("UPDATEFAILED", "Wrong oldpassword");
+            response.sendRedirect("UpdatePassword.jsp");
         }else{
             String newpassword = request.getParameter("newPass");
             String repeatnewPass = request.getParameter("repeatNewPass");
             if(!newpassword.equals(repeatnewPass)){
                 request.getSession().setAttribute("UPDATEFAILED", "new password and repeat new password have to be same");
+                response.sendRedirect("UpdatePassword.jsp");
             }else{
                 UserDAO dao = new UserDAO();
                 try {
                     boolean result = dao.UpdatePassword(user.getUsername(), newpassword);
                     if(result){
                         request.setAttribute("success","success");
-                        request.getSession().setAttribute("UPDATEFAILED", "Update success. Please login again.");
+                        request.setAttribute("msg", "Update success. Please Login again");
                         request.getSession().removeAttribute("USER");
+                        request.getRequestDispatcher("Hoang_SignIn.jsp").forward(request, response);
                     }
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
             }
         }
-        RequestDispatcher rd = request.getRequestDispatcher("UpdatePassword.jsp");
-        rd.forward(request, response);
+//        RequestDispatcher rd = request.getRequestDispatcher("signin");
+//        rd.forward(request, response);
+          
         
     }
 
