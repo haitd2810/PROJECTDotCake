@@ -10,7 +10,7 @@ import java.util.Date;
  *
  * @author Duy Hai
  */
-public class Ship extends Order{
+public class Ship{
     private int shipID;
     private int userID;
     private String CusName;
@@ -21,11 +21,7 @@ public class Ship extends Order{
     private Double totalCost;
     private String status;
 
-    public Ship() {
-    }
-
-    public Ship(int shipID, int userID, String CusName, String phone, String address, Date RequireDate, String RequireTime, Double totalCost, String status, String orderID, String productID, double quantity) {
-        super(orderID, productID, quantity);
+    public Ship(int shipID, int userID, String CusName, String phone, String address, Date RequireDate, String RequireTime, Double totalCost, String status) {
         this.shipID = shipID;
         this.userID = userID;
         this.CusName = CusName;
@@ -35,6 +31,9 @@ public class Ship extends Order{
         this.RequireTime = RequireTime;
         this.totalCost = totalCost;
         this.status = status;
+    }
+
+    public Ship() {
     }
 
     public int getShipID() {
@@ -108,5 +107,7 @@ public class Ship extends Order{
     public void setStatus(String status) {
         this.status = status;
     }
+    
+    
     
 }

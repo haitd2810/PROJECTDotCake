@@ -10,26 +10,19 @@ import java.util.Date;
  *
  * @author Duy Hai
  */
-public class Order {
-    private String orderID;
+public class Order extends Ship{
     private String productID;
     private double quantity;
 
-    public Order(String orderID, String productID, double quantity) {
-        this.orderID = orderID;
+    public Order(String productID, double quantity, int shipID, int userID, String CusName, String phone, String address, Date RequireDate, String RequireTime, Double totalCost, String status) {
+        super(shipID, userID, CusName, phone, address, RequireDate, RequireTime, totalCost, status);
         this.productID = productID;
         this.quantity = quantity;
     }
 
-    public Order() {
-    }
-
-    public String getOrderID() {
-        return orderID;
-    }
-
-    public void setOrderID(String orderID) {
-        this.orderID = orderID;
+    public Order(String productID, double quantity) {
+        this.productID = productID;
+        this.quantity = quantity;
     }
 
     public String getProductID() {
@@ -47,5 +40,7 @@ public class Order {
     public void setQuantity(double quantity) {
         this.quantity = quantity;
     }
+
+    
     
 }
