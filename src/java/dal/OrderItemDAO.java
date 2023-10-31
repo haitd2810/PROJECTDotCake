@@ -14,14 +14,15 @@ import model.DBContext;
  */
 public class OrderItemDAO extends DBContext {
 
-    boolean InsertOrderItem( String productID, String quantity) {
+    boolean InsertOrderItem(String shippingID, String productID, String quantity) {
         PreparedStatement stm = null;
         try {
             if (connection != null) {
-                String sql = "insert into Order_Items productID,quantity) values ( ? , ? )";
+                String sql = "insert into Order_Items (shippingID,productID,quantity) values ( ? , ? )";
                 stm = connection.prepareStatement(sql);
-                stm.setString(1, productID);
-                stm.setString(2, quantity);
+                stm.setString(1, shippingID);
+                stm.setString(2, productID);
+                stm.setString(3,quantity);
                 stm.executeUpdate();
                 return true;
             }

@@ -56,7 +56,7 @@
 	    Hãy một lần nếm thử bánh của DotCake để cảm nhận những tình cảm và nỗ lực của chúng tôi, tất cả nằm ở sự hoà quyện của hương vị và kết cấu đặc biệt trong từng chiếc bánh.
 		</p>
 		<div>
-			<button class = "button button_about"><a href="#"><span>About DeCake</span></a></button>
+			<button class = "button button_about"><a href="GoAboutPage"><span>About DeCake</span></a></button>
 		</div>
 		</div>
 	    <div class="col-md-6 image_about" style="padding:0;">
@@ -66,7 +66,7 @@
    <div class = "flex-center flex-col py-16 px-8 text-center">
        <h2 class="font-serif text-[44px] leading-tight 2xl:text-[48px]">Products</h2>
 	   <p>Sản phẩm đặc trưng của DotCake Pastry là bánh Entremet – dòng bánh lạnh cao cấp nhất của Pháp, với sự hài hòa của các tầng hương vị và kết cấu đặc biệt trong từng chiếc bánh. </p>
-       <button class = "button button_products">Products</button>
+           <button class = "button button_products"><a href="product">Products</a></button>
 	</div>
         <%@include file="footer.html" %>
 

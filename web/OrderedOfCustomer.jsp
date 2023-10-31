@@ -44,10 +44,19 @@
                                                         <img class="img-fluid" 
                                                              width="100" height="100" src="https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/395615368_1430423234173912_8606768457890717166_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=blJoIInXZvcAX_BLS16&_nc_ht=scontent.fhan19-1.fna&oh=00_AfBFotukQ7EHbqMOcOeqUTCIfayLdx3a0lBGa9EejtDnTA&oe=654613AA" alt="">
                                                     </div>
-                                                    <div class="col-sm-8">
-                                                        <p style="font-size: 18px;font-style: italic;">Product Name</p>
-                                                        <p>Quantity: </p>
-                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <p style="font-size: 18px;font-style: italic;">Product Name <sup>x1</sup></p>
+                                                <p>create by account: </p>
+                                                <p>Ship to: </p>
+                                                <p>Time: </p>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <p style="font-size: 18px;font-style: italic;">Info</p>
+                                                <p>Name: </p>
+                                                <p>phone: </p>
+                                                <p>address: </p>
+                                                
+                                            </div>
 
                                                     <div class="col-sm-2">
                                                         <p>Cost Product</p>
