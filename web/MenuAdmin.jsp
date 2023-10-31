@@ -152,8 +152,9 @@
                                     <img src="https://png.pngtree.com/png-vector/20190417/ourlarge/pngtree-vector-business-men-icon-png-image_947324.jpg" alt="#">
                                     <div class="profile_info_iner">
                                         <div class="profile_author_name">
-                                            <p>Neurologist </p>
-                                            <h5>Dr. Robar Smith</h5>
+                                            <c:set var="user" value = "${sessionScope.USER}"></c:set>
+                                            <p>Hello </p>
+                                            <h5>${user.getName()}</h5>
                                         </div>
                                         <div class="profile_info_details">
                                             <a href="profile.jsp">My Profile </a>

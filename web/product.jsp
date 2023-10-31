@@ -21,6 +21,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Embed css here-->
         <link rel="stylesheet" href="css/product.css">
+        <link rel="stylesheet" href="css/styleindex.css">
         <style>
             .cate{
                 margin: 20px 0 20px 20px;
