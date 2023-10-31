@@ -31,14 +31,9 @@
                         <div class="col-lg-4">
                             <div class="card mb-4">
                                 <div class="card-body text-center">
-                                <c:if test="${empty user.getAvatar()}"> 
                                     <img src="https://png.pngtree.com/png-vector/20190417/ourlarge/pngtree-vector-business-men-icon-png-image_947324.jpg" alt="avatar"
                                          class="rounded-circle img-fluid" style="width: 150px;height: 150px;">
-                                </c:if>
-                                <c:if test="${not empty user.getAvatar()}"> 
-                                    <img src="${ user.getAvatar()}" alt="avatar"
-                                         class="rounded-circle img-fluid" style="width: 150px;height: 150px;">
-                                </c:if>
+                                
                                 <h5 class="my-3">${user.getName()}</h5>
                                 <c:if test="${user.getRoleID()==2}">
                                     <p class="text-muted mb-1">Admin account</p>

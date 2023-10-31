@@ -95,7 +95,6 @@
                                                             <td style="border: grey 1px solid"></td>
                                                         </c:if>
                                                     </tr>
-                                                </form>
                                             </c:forEach>
                                             </tbody>
                                             <td></td><td></td><td></td><td></td>

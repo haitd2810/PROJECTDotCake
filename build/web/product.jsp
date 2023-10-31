@@ -77,7 +77,6 @@
                                     <h1>${o.getProductName()}</h1>
                                     <p><span>${o.getProductPrice()}</span>VND</p>
                                     <div class="seller__btn">
-                                        <button class="order"><a href="">Order</a></button>
                                         <button class="cart"><a href="">Cart</a></button>
                                     </div>
                                 </a>

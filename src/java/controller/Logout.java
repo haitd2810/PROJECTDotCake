@@ -32,6 +32,7 @@ public class Logout extends HttpServlet {
         HttpSession session = request.getSession();
         session.removeAttribute("USER");
         session.removeAttribute("acc");
+        session.removeAttribute("UPDATEFAILED");
         response.sendRedirect("index.jsp");
     } 
 

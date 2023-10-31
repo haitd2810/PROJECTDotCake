@@ -73,7 +73,6 @@
                                                     </ul>-->
                         </div>
                         <div class="seller__btn">
-                            <button class="order"><a href="">Order</a></button>
                             <button class="cart"><a href="">Cart</a></button>
                         </div>
                     </div>

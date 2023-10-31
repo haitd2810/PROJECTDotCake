@@ -14,21 +14,20 @@ import model.DBContext;
  */
 public class ShipDAO extends DBContext {
 
-    boolean insertShip(String orderID, String userID, String CusName, String phone, String address, String RequireDate, String RequireTime, String totalCost, String status, String productID, String quantity) {
+    boolean insertShip( String userID, String CusName, String phone, String address, String RequireDate, String RequireTime, String totalCost, String status) {
         PreparedStatement stm = null;
         if (connection != null) {
             try {
-                String sql = " insert into Shipping (orderID,userID,[name],phone,[address],RequireDate,RequireTime,totalcost,status) "
-                        + " values (?  ? , ? , ? , ? , ? , ? , ? , 'preparing')";
+                String sql = " insert into Shipping (userID,[name],phone,[address],RequireDate,RequireTime,totalcost,status) "
+                        + " values ( ? , ? , ? , ? , ? , ? , ? , 'preparing')";
                 stm = connection.prepareStatement(sql);
-                stm.setString(1, orderID);
-                stm.setString(2, userID);
-                stm.setString(3, CusName);
-                stm.setString(4, phone);
-                stm.setString(5, address);
-                stm.setString(6, RequireDate);
-                stm.setString(7, RequireTime);
-                stm.setString(8, totalCost);
+                stm.setString(1, userID);
+                stm.setString(2, CusName);
+                stm.setString(3, phone);
+                stm.setString(4, address);
+                stm.setString(5, RequireDate);
+                stm.setString(6, RequireTime);
+                stm.setString(7, totalCost);
                 stm.executeUpdate();
                 return true;
             } catch (SQLException ex) {

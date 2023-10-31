@@ -47,7 +47,7 @@
                             <ul class="mm-collapse" style="height: 5px;">
                                 <li><a href="AdminList">Admin List</a></li>
                                 <li><a href="AddAccount.jsp" class="active">Add New Account</a></li>
-                                <li><a href="AccountList" class="active">Account List</a></li>
+                                <li><a href="AccountList.jsp" class="active">Account List</a></li>
                             </ul>
                         </li>
                         <li class="">
@@ -89,7 +89,7 @@
                                 </div>
                             </a>
                             <ul class="mm-collapse" style="height: 5px;">
-                                <li><a href="BillList">Bill List</a></li>
+                                <li><a href="BillList.jsp" class="active">Bill List</a></li>
                             </ul>
                         </li>
                         <li class="">
@@ -103,19 +103,6 @@
                             </a>
                             <ul class="mm-collapse" style="height: 5px;">
                                 <li><a href="ShipList">Ship List</a></li>
-                            </ul>
-                        </li>
-                        <li class="">
-                            <a class="has-arrow" href="#" aria-expanded="false">
-                                <div class="nav_icon_small">
-                                    <img src=".\photo\20.svg" alt="">
-                                </div>
-                                <div class="nav_title">
-                                    <span>ShoppingCart</span>
-                                </div>
-                            </a>
-                            <ul class="mm-collapse" style="height: 5px;">
-                                <li><a href="CartList">ShoppingCart List</a></li>
                             </ul>
                         </li>
                     </c:if>

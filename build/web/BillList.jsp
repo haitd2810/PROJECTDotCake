@@ -49,30 +49,18 @@
                                     <c:set var="bill" value="${sessionScope.BILLIST}"></c:set>
                                     <c:if test="${not empty bill}">
                                         <table border="1">
-                                            <thead>
                                                 <tr>
-                                                    <th>No.</th>
                                                     <th>BillID</th>
-                                                    <th>Ship fee</th>
-                                                    <th>Shipment Date</th>
+                                                    <th>ShippingID</th>
                                                     <th>status</th>
-                                                    <th>orderID</th>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
                                                 <c:forEach var="dto" items="${bill}" varStatus = "counter">
-                                                <form action="">
                                                     <tr>
-                                                        <td style="border: grey 1px solid;">${counter.count}</td>
                                                         <td style="border: grey 1px solid;">${dto.getBillID()}</td>
-                                                        <td style="border: grey 1px solid;">${dto.getShipfee()}</td>
-                                                        <td style="border: grey 1px solid;">${dto.getShipDate()}</td>
+                                                        <td style="border: grey 1px solid;">${dto.getShippingID()}</td>
                                                         <td style="border: grey 1px solid;">${dto.getStatus()}</td>
-                                                        <td style="border: grey 1px solid;">${dto.getOrderID()}</td>
                                                     </tr>
-                                                </form>
                                             </c:forEach>
-                                            </tbody>
                                         </table>
                                     </c:if>
                                 </div>
