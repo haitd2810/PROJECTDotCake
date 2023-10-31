@@ -109,7 +109,7 @@
                             function LoadProbyCate(param) {
                                 var value=param.value;
                                 $.ajax({
-                                    url: "/prjweb/SearchByCate",
+                                    url: "/PRJDOTCAKE/SearchByCate",
                                     type: "get",
                                     data:{
                                         cateid: value
@@ -124,7 +124,7 @@
                             function pagingProduct() {
                                 var amount = document.getElementsByClassName("product_load").length;
                                 $.ajax({
-                                    url: "/prjweb/ProductAjax",
+                                    url: "/PRJDOTCAKE/ProductAjax",
                                     type: "get",
                                     data: {
                                         total: amount
@@ -139,7 +139,7 @@
                             function searchProduct(param) {
                                 var txt = param.value;
                                 $.ajax({
-                                    url: "/prjweb/search",
+                                    url: "/PRJDOTCAKE/search",
                                     type: "get",
                                     data: {
                                         search: txt
