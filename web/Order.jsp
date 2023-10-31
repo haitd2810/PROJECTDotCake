@@ -38,7 +38,7 @@
         <c:set var="acc" value="${sessionScope.acc}"></c:set>
         <c:if test="${not empty acc}">
             <div class="all_order container">
-                <form>
+                <form action="" method="">
                     <div class="row body">
                         <div class="col-12">
                             <div class="white_card card_height_100 mb_30">

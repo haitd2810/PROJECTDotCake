@@ -51,8 +51,8 @@
                         </c:if>
                     </div>
                     <div class="col-md-1 header_order" style="padding-top: 15px">
-                        <a title="order" href="GoOrderPage">
-                            <span>Order</span>
+                        <a title="order" href="goListOrderOfCustomer">
+                            <span>Ordered</span>
                         </a>
                     </div>
 

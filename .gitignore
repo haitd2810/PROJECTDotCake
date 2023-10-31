@@ -1,2 +1,11 @@
 /build/
 /dist/
+nbproject/build-impl.xml
+nbproject/build-impl.xml
+*.xml
+nbproject/build-impl.xml
+*.xml
+nbproject/project.xml
+*.xml
+*.properties
+*.properties
