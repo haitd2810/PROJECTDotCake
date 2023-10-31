@@ -54,7 +54,6 @@
                                                     <th>ShippingID</th>
                                                     <th>Status</th>
                                                 </tr>
-                                        
                                                 <c:forEach var="dto" items="${msg}" varStatus = "counter">
                                                     <tr>
                                                         <td style="border: grey 1px solid;">${dto.getBillID()}</td>
