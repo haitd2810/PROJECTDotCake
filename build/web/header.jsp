@@ -33,38 +33,67 @@
                         </form>
                     </div>
                     <c:set var="user" value="${sessionScope.acc}" ></c:set>
+                    <c:if test="${empty user}">
                         <div class="col-md-7 header_title">
                             <a href="GoHomePage">
                                 <span>DotCake</span>
                             </a>
                         </div>
                         <div class="col-md-1 header_buy" style="padding-top: 15px">
-                        <c:if test="${empty user}">
                             <a title="Giỏ hàng" href="#">
                                 <span class="glyphicon glyphicon-lock" style="color: grey; font-size: 28px"></span>
                             </a>
-                        </c:if>
-                        <c:if test="${ not empty user}">
-                            <a title="Giỏ hàng" href="Hoang_Cart.html">
-                                <span class="glyphicon glyphicon-shopping-cart" style="color: grey; font-size: 28px"></span>
+                        </div>
+                        <div class="col-md-1 header_order" style="padding-top: 15px">
+                            <a title="order" href="goListOrderOfCustomer">
+                                <span>Ordered</span>
                             </a>
-                        </c:if>
-                    </div>
-                    <div class="col-md-1 header_order" style="padding-top: 15px">
-                        <a title="order" href="goListOrderOfCustomer">
-                            <span>Ordered</span>
-                        </a>
-                    </div>
-
-                    <c:if test="${empty user}">
+                        </div>
                         <div class="col-md-1 header_login" style="padding-top: 15px">
                             <a href="signin"><span>Login</span></a>
                         </div>
                     </c:if>
                     <c:if test="${ not empty user}">
-                        <div class="col-md-1 header_login" style="padding-top: 15px">
-                            <a href="GoProfilePage"><span>${user}</span></a>
-                        </div>
+                        <c:if test="${user.length()<=7}">
+                            <div class="col-md-7 header_title">
+                                <a href="GoHomePage">
+                                    <span>DotCake</span>
+                                </a>
+                            </div>
+                            <div class="col-md-1 header_buy" style="padding-top: 15px">
+                                <a title="Giỏ hàng" href="Hoang_Cart.html">
+                                    <span class="glyphicon glyphicon-shopping-cart" style="color: grey; font-size: 28px"></span>
+                                </a>
+                            </div>
+                            <div class="col-md-1 header_order" style="padding-top: 15px">
+                                <a title="order" href="goListOrderOfCustomer">
+                                    <span>Ordered</span>
+                                </a>
+                            </div>
+                            <div class="col-md-1 header_login" style="padding-top: 15px">
+                                <a href="GoProfilePage"><span>${user}</span></a>
+                            </div>
+                        </c:if>
+                        <c:if test="${user.length()>7}">
+                            <div class="col-md-6 header_title">
+                                <a href="GoHomePage">
+                                    <span>DotCake</span>
+                                </a>
+                            </div>
+                            <div class="col-md-1 header_buy" style="padding-top: 15px">
+                                <a title="Giỏ hàng" href="Hoang_Cart.html">
+                                    <span class="glyphicon glyphicon-shopping-cart" style="color: grey; font-size: 28px"></span>
+                                </a>
+                            </div>
+                            <div class="col-md-1 header_order" style="padding-top: 15px">
+                                <a title="order" href="goListOrderOfCustomer">
+                                    <span>Ordered</span>
+                                </a>
+                            </div>
+                            <div class="col-md-2 header_login" style="padding-top: 15px">
+                                <a href="GoProfilePage"><span>${user}</span></a>
+                            </div>
+                        </c:if>
                     </c:if>
 
                 </div>

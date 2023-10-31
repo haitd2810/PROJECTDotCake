@@ -14,7 +14,7 @@ import java.util.List;
 import model.Bill;
 import model.Category;
 import model.Categoryimg;
-import model.Order;
+import model.OrderItem;
 import model.Product;
 import model.Ship;
 import model.User;

@@ -5,8 +5,12 @@
 package dal;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import model.DBContext;
+import model.Ship;
 
 /**
  *
@@ -14,7 +18,7 @@ import model.DBContext;
  */
 public class ShipDAO extends DBContext {
 
-    boolean insertShip( String userID, String CusName, String phone, String address, String RequireDate, String RequireTime, String totalCost, String status) {
+    boolean insertShip(String userID, String CusName, String phone, String address, String RequireDate, String RequireTime, String totalCost, String status) {
         PreparedStatement stm = null;
         if (connection != null) {
             try {
@@ -37,8 +41,8 @@ public class ShipDAO extends DBContext {
 
         return false;
     }
-    
-    boolean deleteShip(String ShipID){
+
+    boolean deleteShip(String ShipID) {
         PreparedStatement stm = null;
         if (connection != null) {
             try {
@@ -53,5 +57,28 @@ public class ShipDAO extends DBContext {
         }
 
         return false;
+    }
+
+    List<Ship> listShipOfCus = new ArrayList<>();
+
+    public List<Ship> getShipOfCus(String userID) {
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        if (connection != null) {
+            try {
+                String sql = "select * from Ship join Order_Items on Order_Items.shippingID=Ship.shippingID and userID = ? ";
+                stm = connection.prepareStatement(sql);
+                stm.setString(1, userID);
+                rs = stm.executeQuery();
+                while(rs.next()){
+                    listShipOfCus.add(new Ship(rs.getInt("shippingID"),rs.getInt("userID"),rs.getString("name"),
+                    rs.getString("phone"),rs.getString("address"),rs.getDate("RequireDate"),
+                    rs.getString("RequireTime"),rs.getDouble("totalcost"),rs.getString("status"),rs.getDouble("quantity")));
+                }
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        return listShipOfCus;
     }
 }
