@@ -80,7 +80,7 @@ public class UpdateUser extends HttpServlet {
                 //check format of mail
                 if ((mail.matches("[a-zA-Z0-9]+[@][a-zA-Z]+[.][a-z]+") || mail.matches("[a-zA-Z0-9]+[@][a-zA-Z]+[.][a-z]+[.][a-z]+"))) {
                     //check format of phone
-                    if (phone.length() == 10 || phone.matches("[0]{1}[0-9]{9}") || phone.length() == 0) {
+                    if (phone.length() == 10 && phone.matches("[0]{1}[0-9]{9}")) {
                         UserDAO dao = new UserDAO();
                         boolean result = dao.UpdateUser(name, mail, phone, address, username);
                         //check update is success or not

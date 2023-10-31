@@ -105,19 +105,6 @@
                                 <li><a href="ShipList">Ship List</a></li>
                             </ul>
                         </li>
-                        <li class="">
-                            <a class="has-arrow" href="#" aria-expanded="false">
-                                <div class="nav_icon_small">
-                                    <img src=".\photo\20.svg" alt="">
-                                </div>
-                                <div class="nav_title">
-                                    <span>ShoppingCart</span>
-                                </div>
-                            </a>
-                            <ul class="mm-collapse" style="height: 5px;">
-                                <li><a href="CartList">ShoppingCart List</a></li>
-                            </ul>
-                        </li>
                     </c:if>
                     <c:if test="${user.getRoleID()==1}">
                         <li class="">

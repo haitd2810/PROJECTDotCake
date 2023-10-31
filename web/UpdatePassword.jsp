@@ -59,7 +59,7 @@
                                             <p class="mb-0">Old Password</p>
                                         </div>
                                         <div class="col-lg-9">
-                                            <input class="text-muted mb-0" name="oldPass" type="text">
+                                            <input class="text-muted mb-0" name="oldPass" required="" type="text" value="${param.oldPass}">
                                         </div>
                                     </div>
                                     <hr>
@@ -68,7 +68,7 @@
                                             <p class="mb-0">New Password</p>
                                         </div>
                                         <div class="col-lg-9">
-                                            <input class="text-muted mb-0" name="newPass" type="text">
+                                            <input class="text-muted mb-0" name="newPass" required="" type="text" values="${param.newPass}">
                                         </div>
                                     </div>
                                     <hr>
@@ -77,7 +77,7 @@
                                             <p class="mb-0">Repeat new password:</p>
                                         </div>
                                         <div class="col-lg-9">
-                                            <input class="text-muted mb-0" name="repeatNewPass" type="text">
+                                            <input class="text-muted mb-0" name="repeatNewPass" required="" type="text" values="${param.repeatNewPass}">
                                         </div>
                                     </div>
                                 </div>

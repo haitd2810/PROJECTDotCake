@@ -13,11 +13,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.*;
 import dal.*;
+import jakarta.servlet.annotation.WebServlet;
 
 /**
  *
  * @author DELL
  */
+@WebServlet(name = "DeleteAccount", urlPatterns = {"/deleteaccount"})
 public class DeleteAccount extends HttpServlet {
     
     @Override
