@@ -44,17 +44,18 @@
                                     </div>
                                 </div>
                             </div>
+                            <form>
                             <div class="white_card_body">
                                 <div class="row">
                                     <c:set var="bill" value="${sessionScope.BILLIST}"></c:set>
-                                    <c:if test="${not empty bill}">
                                         <table border="1">
                                                 <tr>
                                                     <th>BillID</th>
                                                     <th>ShippingID</th>
-                                                    <th>status</th>
+                                                    <th>Status</th>
                                                 </tr>
-                                                <c:forEach var="dto" items="${bill}" varStatus = "counter">
+                                        
+                                                <c:forEach var="dto" items="${msg}" varStatus = "counter">
                                                     <tr>
                                                         <td style="border: grey 1px solid;">${dto.getBillID()}</td>
                                                         <td style="border: grey 1px solid;">${dto.getShippingID()}</td>
@@ -62,9 +63,10 @@
                                                     </tr>
                                             </c:forEach>
                                         </table>
-                                    </c:if>
+                                    
                                 </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -45,7 +45,7 @@
                                     </div>
                                 </div>
                             </div>
-                                        <form action="deleteaccount" method="post">
+                            <form action="deleteaccount" method="post">
                             <div class="white_card_body">
                                 <div class="row">
                                     <c:set var="account" value="${sessionScope.ACCOUNTLIST}"></c:set>
