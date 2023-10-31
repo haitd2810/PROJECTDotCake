@@ -47,7 +47,7 @@
                             <ul class="mm-collapse" style="height: 5px;">
                                 <li><a href="AdminList">Admin List</a></li>
                                 <li><a href="AddAccount.jsp" class="active">Add New Account</a></li>
-                                <li><a href="AccountList" class="active">Account List</a></li>
+                                <li><a href="AccountList.jsp" class="active">Account List</a></li>
                             </ul>
                         </li>
                         <li class="">
@@ -89,7 +89,7 @@
                                 </div>
                             </a>
                             <ul class="mm-collapse" style="height: 5px;">
-                                <li><a href="BillList">Bill List</a></li>
+                                <li><a href="BillList.jsp" class="active">Bill List</a></li>
                             </ul>
                         </li>
                         <li class="">

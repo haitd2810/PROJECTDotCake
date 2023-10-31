@@ -12,11 +12,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import dal.*;
+import jakarta.servlet.annotation.WebServlet;
 import model.*;
 /**
  *
  * @author DELL
  */
+@WebServlet(name = "AddAccount", urlPatterns = {"/addaccount"})
 public class AddAccount extends HttpServlet {
 
     @Override

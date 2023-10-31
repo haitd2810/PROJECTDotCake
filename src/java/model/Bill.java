@@ -12,20 +12,16 @@ import java.util.Date;
  */
 public class Bill {
     private String BillID;
-    private int shipfee;
-    private Date shipDate;
+    private String shippingID;
     private String status;
-    private String orderID;
 
     public Bill() {
     }
 
-    public Bill(String BillID, int shipfee, Date shipDate, String status, String orderID) {
+    public Bill(String BillID, String shippingID, String status) {
         this.BillID = BillID;
-        this.shipfee = shipfee;
-        this.shipDate = shipDate;
+        this.shippingID = shippingID;
         this.status = status;
-        this.orderID = orderID;
     }
 
     public String getBillID() {
@@ -36,20 +32,12 @@ public class Bill {
         this.BillID = BillID;
     }
 
-    public int getShipfee() {
-        return shipfee;
+    public String getShippingID() {
+        return shippingID;
     }
 
-    public void setShipfee(int shipfee) {
-        this.shipfee = shipfee;
-    }
-
-    public Date getShipDate() {
-        return shipDate;
-    }
-
-    public void setShipDate(Date shipDate) {
-        this.shipDate = shipDate;
+    public void setShippingID(String shippingID) {
+        this.shippingID = shippingID;
     }
 
     public String getStatus() {
@@ -60,12 +48,9 @@ public class Bill {
         this.status = status;
     }
 
-    public String getOrderID() {
-        return orderID;
-    }
-
-    public void setOrderID(String orderID) {
-        this.orderID = orderID;
+    @Override
+    public String toString() {
+        return "Bill{" + "BillID=" + BillID + ", shippingID=" + shippingID + ", status=" + status + '}';
     }
     
 }
