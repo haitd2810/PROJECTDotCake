@@ -7,14 +7,15 @@ package dal;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import model.DBContext;
+import model.Ship;
 
 /**
  *
  * @author Duy Hai
  */
 public class OrderItemDAO extends DBContext {
-
-    boolean InsertOrderItem(String shippingID, String productID, String quantity) {
+    
+    public boolean InsertOrderItem(String shippingID, String productID, String quantity) {
         PreparedStatement stm = null;
         try {
             if (connection != null) {
