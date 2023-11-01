@@ -73,7 +73,7 @@ public class ShipDAO extends DBContext {
                 while(rs.next()){
                     listShipOfCus.add(new Ship(rs.getInt("shippingID"),rs.getInt("userID"),rs.getString("name"),
                     rs.getString("phone"),rs.getString("address"),rs.getDate("RequireDate"),
-                    rs.getString("RequireTime"),rs.getDouble("totalcost"),rs.getString("status"),rs.getDouble("quantity")));
+                    rs.getString("RequireTime"),rs.getDouble("totalcost"),rs.getString("status"),rs.getDouble("quantity"),rs.getString("productID")));
                 }
             } catch (Exception e) {
                 System.out.println(e);
