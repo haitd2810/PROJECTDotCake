@@ -7,12 +7,26 @@ package dal;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import model.DBContext;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import model.Bill;
+import model.Category;
+import model.Categoryimg;
+import model.OrderItem;
+import model.Product;
+import model.Ship;
+import model.User;
+import model.image;
 /**
  *
  * @author Duy Hai
  */
-public class OrderItemDAO extends DBContext {
+public class OrderItemDAO extends MyDAO {
 
     boolean InsertOrderItem(String shippingID, String productID, String quantity) {
         PreparedStatement stm = null;
@@ -33,20 +47,21 @@ public class OrderItemDAO extends DBContext {
         }
         return false;
     }
-    boolean deleteOrder(String orderID){
-        PreparedStatement stm = null;
-        if (connection != null) {
-            try {
-                String sql = " delete Order_Items where orderID = ? ";
-                stm = connection.prepareStatement(sql);
-                stm.setString(1, orderID);
-                stm.executeUpdate();
-                return true;
-            } catch (SQLException ex) {
-                System.out.println(ex);
-            }
+    public void deleteOrder(String shipID){
+        xSql = "delete from Order_Items where shippingID = ?";
+        try {
+            ps = con.prepareStatement(xSql);
+            ps.setString(1, shipID);
+            ps.executeUpdate();
+            ps.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-        return false;
     }
+    public static void main(String[] args) {
+        OrderItemDAO order = new OrderItemDAO();
+//        order.deleteOrder("33");
+
+    }
+    
 }

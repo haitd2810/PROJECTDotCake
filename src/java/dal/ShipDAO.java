@@ -61,14 +61,14 @@ public class ShipDAO extends DBContext {
 
     List<Ship> listShipOfCus = new ArrayList<>();
 
-    public List<Ship> getShipOfCus(String userID) {
+    public List<Ship> getShipOfCus(int userID) {
         PreparedStatement stm = null;
         ResultSet rs = null;
         if (connection != null) {
             try {
                 String sql = "  select Shipping.*,Order_Items.productID,Order_Items.quantity from Shipping join Order_Items on Order_Items.shippingID=Shipping.shippingID and userID = ?";
                 stm = connection.prepareStatement(sql);
-                stm.setString(1, userID);
+                stm.setInt(1, userID);
                 rs = stm.executeQuery();
                 while(rs.next()){
                     listShipOfCus.add(new Ship(rs.getInt("shippingID"),rs.getInt("userID"),rs.getString("name"),
