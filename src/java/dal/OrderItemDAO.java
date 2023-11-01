@@ -18,7 +18,7 @@ public class OrderItemDAO extends DBContext {
         PreparedStatement stm = null;
         try {
             if (connection != null) {
-                String sql = "insert into Order_Items (shippingID,productID,quantity) values ( ? , ? )";
+                String sql = "insert into Order_Items (shippingID,productID,quantity) values (? , ? , ? )";
                 stm = connection.prepareStatement(sql);
                 stm.setString(1, shippingID);
                 stm.setString(2, productID);

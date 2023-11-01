@@ -12,15 +12,21 @@ import java.util.Date;
  */
 public class OrderItem extends image{
     private double quantityBuy;
+    private String productID;
 
-    public OrderItem(double quantityBuy) {
-        this.quantityBuy = quantityBuy;
+    public String getProductID() {
+        return productID;
     }
 
-    public OrderItem(double quantityBuy, String image, String imageId, String productID, String ProductName, int ProductPrice, String ProductDetail, Date CreateDate, int quantity, String categoryID, String status) {
-        super(image, imageId, productID, ProductName, ProductPrice, ProductDetail, CreateDate, quantity, categoryID, status);
-        this.quantityBuy = quantityBuy;
+    public void setProductID(String productID) {
+        this.productID = productID;
     }
+
+    public OrderItem(double quantityBuy, String productID) {
+        this.quantityBuy = quantityBuy;
+        this.productID = productID;
+    }
+    
 
     public double getQuantityBuy() {
         return quantityBuy;

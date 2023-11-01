@@ -56,7 +56,7 @@
 	    Hãy một lần nếm thử bánh của DotCake để cảm nhận những tình cảm và nỗ lực của chúng tôi, tất cả nằm ở sự hoà quyện của hương vị và kết cấu đặc biệt trong từng chiếc bánh.
 		</p>
 		<div>
-			<button class = "button button_about"><a href="GoAboutPage"><span>About DeCake</span></a></button>
+			<button class = "button button_about"><a href="DispathController?page=about"><span>About DeCake</span></a></button>
 		</div>
 		</div>
 	    <div class="col-md-6 image_about" style="padding:0;">

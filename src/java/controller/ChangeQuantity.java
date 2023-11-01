@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package DispathController;
+package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,13 +12,17 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.Iterator;
+import java.util.List;
+import model.CartItem;
+import model.CartObject;
 
 /**
  *
- * @author Duy Hai
+ * @author kieup
  */
-@WebServlet(name="GoHomePage", urlPatterns={"/GoHomePage"})
-public class GoHomePage extends HttpServlet {
+@WebServlet(name="ChangeQuantity", urlPatterns={"/change"})
+public class ChangeQuantity extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -30,7 +34,18 @@ public class GoHomePage extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ChangQuantity</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ChangQuantity at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -44,7 +59,42 @@ public class GoHomePage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+                      String action = request.getParameter("num");
+    String id = request.getParameter("id");
+    String name = request.getParameter("name");
+    CartObject cart = (CartObject) request.getSession().getAttribute("cart");
+    List<CartItem> cartItem = cart.getItem();
+    
+    if (action != null && id != null) {
+        if (cartItem != null) {
+            Iterator<CartItem> iterator = cartItem.iterator();
+            
+            while (iterator.hasNext()) {
+                CartItem c = iterator.next();
+                
+                if (c.getProductID().equalsIgnoreCase(id)) {
+                    int quantity = c.getIquantity();
+                    
+                    if (action.equals("inc")) {
+                        quantity++;
+                    } else if (action.equals("dec") && quantity >= 1) {
+                        if (quantity == 1) {
+                            iterator.remove(); // Remove the item from the list
+                        } else {
+                            quantity--;
+                        }
+                    }
+                    
+                    c.setIquantity(quantity);
+                }
+            }
+        }
+    }
+    
+    cart.setItem(cartItem);
+    request.getSession().setAttribute("size", cart.getItem().size());
+    request.getSession().setAttribute("cart", cart);
+    response.sendRedirect("cart.jsp");
     } 
 
     /** 

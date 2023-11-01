@@ -60,9 +60,8 @@ public class ListOrderForCustomer extends HttpServlet {
         for(int i=0; i <listShipOfCus.size();i++){
             imagedao.getImageOfProOrder(listShipOfCus.get(i).getProductID());
         }
-        List<image> listImageOfCus = imagedao.getListimageOfCus();
         ShipObject ship = new ShipObject();
-        ship.AddtoList(listImageOfCus, listShipOfCus);
+        ship.AddtoList(imagedao.getListimageOfCus(), listShipOfCus);
         request.getSession().setAttribute("LISTORDERED", ship);
         response.sendRedirect("OrderedOfCustomer.jsp");
     } 
