@@ -84,7 +84,7 @@ public class SignUp extends HttpServlet {
         else if (!email.matches("[a-zA-Z0-9]+[@][a-zA-Z]+[.][a-z]+") && !email.matches("[a-zA-Z0-9]+[@][a-zA-Z]+[.][a-z]+[.][a-z]+")) {
             request.setAttribute("msg", "EMAIL does not exist ");
             request.getRequestDispatcher("Hoang_SignUp.jsp").forward(request, response);
-        }else if (phone == null || !phone.matches("\\d{10}")) {
+        }else if (phone.length() !=10  || !phone.matches("[0]{1}[0-9]{9}")) {
             request.setAttribute("msg", "Phone number must be exactly 10 digits");
             request.getRequestDispatcher("Hoang_SignUp.jsp").forward(request, response);
         }

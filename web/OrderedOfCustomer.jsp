@@ -5,6 +5,11 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="model.User" %>
+<%@page import="model.ShipObject" %>
+<%@page import="model.Ship" %>
+<%@page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -20,65 +25,77 @@
         <div class="header_page">
             <%@include file="header.jsp" %>
         </div>
-        <c:set var="acc" value="${sessionScope.acc}"></c:set>
-        <c:if test="${not empty acc}">
-            <div class="all_order container">
-                <form>
-                    <div class="row body">
-                        <div class="col-12">
-                            <div class="white_card card_height_100 mb_30">
-                                <div class="white_card_header">
-                                    <div class="box_header m-0">
-                                        <div class="main-title" style="width: 100%;">
-                                            <h3 class="m-0" style="font-size: 30px;font-style: italic;text-align: center;">List Order Of Your Account</h3>
-                                        </div>
+        <% User user = (User) request.getSession().getAttribute("USER");
+        if(user!=null){
+        %>
+        <div class="all_order container">
+            <form>
+                <div class="row body">
+                    <div class="col-12">
+                        <div class="white_card card_height_100 mb_30">
+                            <div class="white_card_header">
+                                <div class="box_header m-0">
+                                    <div class="main-title" style="width: 100%;">
+                                        <h3 class="m-0" style="font-size: 30px;font-style: italic;text-align: center;">List Order Of Your Account</h3>
                                     </div>
                                 </div>
-                                <div class="white_card_body">
-                                    <div class="row">
-                                        <!-- vong lap for se o day de display cart -->
-                                        <div class="col-lg-12">
-                                            <div class="common_input mb_15">
-                                                <div class="col-md-12">
-                                                    <div class="IMGPRODUCT col-sm-2">
-                                                        <img class="img-fluid" 
-                                                             width="100" height="100" src="https://scontent.fhan19-1.fna.fbcdn.net/v/t39.30808-6/395615368_1430423234173912_8606768457890717166_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=blJoIInXZvcAX_BLS16&_nc_ht=scontent.fhan19-1.fna&oh=00_AfBFotukQ7EHbqMOcOeqUTCIfayLdx3a0lBGa9EejtDnTA&oe=654613AA" alt="">
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <p style="font-size: 18px;font-style: italic;">Product Name <sup>x1</sup></p>
-                                                <p>create by account: </p>
-                                                <p>Ship to: </p>
-                                                <p>Time: </p>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <p style="font-size: 18px;font-style: italic;">Info</p>
-                                                <p>Name: </p>
-                                                <p>phone: </p>
-                                                <p>address: </p>
-                                                
-                                            </div>
+                            </div>
+                            <%ShipObject ship = (ShipObject) request.getSession().getAttribute("LISTORDERED");%>
+                            <% List<List<Ship>> listorder = ship.getListShipOfCus(); %>
+                            <% if(listorder!=null){ %>
+                            <% for(int i=0; i < listorder.size();i++){ %>
 
-                                                    <div class="col-sm-2">
-                                                        <p>Cost Product</p>
-                                                    </div>
+                            <div class="white_card_body" >
+                                <div class="row" style="border: grey 2px solid;padding:3%;border-radius: 2%;">
+                                    <!-- vong lap for se o day de display cart -->
+                                    <%for(int j=0;j < listorder.get(i).size();j++){%>
+                                    <div class="col-lg-12">
+                                        <div class="common_input mb_15">
+                                            <div class="col-md-12">
+                                                <div class="IMGPRODUCT col-sm-2">
+                                                    <img class="img-fluid" 
+                                                         width="100" height="100" src="<%=listorder.get(i).get(j).getImage()%>" alt="">
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <p style="font-size: 18px;font-style: italic;">Product Name: <%=listorder.get(i).get(j).getProductID()%> <sup>x${order.getQuantityBuy()}</sup></p>
+                                                    <p>create by account: <%=listorder.get(i).get(j).getUserID()%> </p>
+                                                    <p>Ship to: <%=listorder.get(i).get(j).getAddress()%> </p>
+                                                    <p>Time: <%=listorder.get(i).get(j).getRequireDate()%> <%=listorder.get(i).get(j).getRequireTime()%> </p>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <p style="font-size: 18px;font-style: italic;">Info</p>
+                                                    <p>Name: <%=listorder.get(i).get(j).getCusName()%> </p>
+                                                    <p>phone: <%=listorder.get(i).get(j).getPhone()%> </p>
+
+                                                </div>
+
+                                                <div class="col-sm-2">
+                                                    <!--<p>Cost Product: <%=listorder.get(i).get(j).getTotalCost()%></p>-->
+                                                    <p>Cost Product: <%=listorder.get(i).get(j).getProductPrice()%></p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12">
-                                            <div class="col-sm-9"></div>
-                                            <div class="create_report_btn mt_30 col-sm-3">
-                                                <h4>Ordered</h4>
-                                                <input style="font-size: 15px;font-style: italic;" class="btn_1 button_order" type="submit" value="request cancellation">
-                                            </div>
+                                    </div>
+                                    <%}%>
+
+                                    <div class="col-lg-12">
+                                        <div class="col-sm-9"></div>
+                                        <div class="create_report_btn mt_30 col-sm-3">
+                                            <h4>Ordered</h4>
+                                            <input style="font-size: 15px;font-style: italic;" class="btn_1 button_order" type="submit" value="request cancellation">
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <%}%>
+                            <%}%>
                         </div>
                     </div>
-                    </section>
-                </form>
-            </div>
-        </c:if>
+                </div>
+                </section>
+            </form>
+        </div>
+        <% } %>
     </body>
 </html>

@@ -7,6 +7,7 @@
         <title>Service</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="./css/ship_ques.css">
+        <link rel="stylesheet" href="css/styleindex.css">
         <style>
             #ans_q3{
                 display: none;

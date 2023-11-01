@@ -20,18 +20,14 @@ import model.*;
  *
  * @author DELL
  */
-@WebServlet(name = "Billist", urlPatterns = {"/billlist"})
+@WebServlet(name = "Billist", urlPatterns = {"/Billist"})
     public class BillList extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        request.setAttribute("bill", new BillDAO().getAll());
-        BillDAO bill = new BillDAO();
-                ArrayList<Bill> List = bill.getAll();
-                out.print(List);
-//        request.getRequestDispatcher("BillList.jsp").forward(request, response);     
-        
+        request.setAttribute("msg", new BillDAO().getAll());   
+        request.getRequestDispatcher("BillList.jsp").forward(request, response);
     }    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

@@ -10,7 +10,7 @@ import java.util.Date;
  *
  * @author Duy Hai
  */
-public class Ship{
+public class Ship extends OrderItem{
     private int shipID;
     private int userID;
     private String CusName;
@@ -19,9 +19,10 @@ public class Ship{
     private Date RequireDate;
     private String RequireTime;
     private Double totalCost;
-    private String status;
+    private String statusShip;
 
-    public Ship(int shipID, int userID, String CusName, String phone, String address, Date RequireDate, String RequireTime, Double totalCost, String status) {
+    public Ship(int shipID, int userID, String CusName, String phone, String address, Date RequireDate, String RequireTime, Double totalCost, String statusShip, double quantityBuy) {
+        super(quantityBuy);
         this.shipID = shipID;
         this.userID = userID;
         this.CusName = CusName;
@@ -30,12 +31,24 @@ public class Ship{
         this.RequireDate = RequireDate;
         this.RequireTime = RequireTime;
         this.totalCost = totalCost;
-        this.status = status;
+        this.statusShip = statusShip;
     }
 
-    public Ship() {
+    public Ship(int shipID, int userID, String CusName, String phone, String address, Date RequireDate, String RequireTime, Double totalCost, String statusShip, double quantityBuy, String image, String imageId, String productID, String ProductName, int ProductPrice, String ProductDetail, Date CreateDate, int quantity, String categoryID, String status) {
+        super(quantityBuy, image, imageId, productID, ProductName, ProductPrice, ProductDetail, CreateDate, quantity, categoryID, status);
+        this.shipID = shipID;
+        this.userID = userID;
+        this.CusName = CusName;
+        this.phone = phone;
+        this.address = address;
+        this.RequireDate = RequireDate;
+        this.RequireTime = RequireTime;
+        this.totalCost = totalCost;
+        this.statusShip = statusShip;
     }
 
+    
+        
     public int getShipID() {
         return shipID;
     }
@@ -100,14 +113,35 @@ public class Ship{
         this.totalCost = totalCost;
     }
 
-    public String getStatus() {
-        return status;
+    public String getStatusShip() {
+        return statusShip;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatusShip(String statusShip) {
+        this.statusShip = statusShip;
     }
-    
-    
-    
+
+    @Override
+    public String getProductID() {
+        return super.getProductID(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+    @Override
+    public String getProductName() {
+        return super.getProductName(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    @Override
+    public double getQuantityBuy() {
+        return super.getQuantityBuy(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    @Override
+    public String getImage() {
+        return super.getImage(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    @Override
+    public int getProductPrice() {
+        return super.getProductPrice(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
 }

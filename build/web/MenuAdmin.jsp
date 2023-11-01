@@ -47,7 +47,7 @@
                             <ul class="mm-collapse" style="height: 5px;">
                                 <li><a href="AdminList">Admin List</a></li>
                                 <li><a href="AddAccount.jsp" class="active">Add New Account</a></li>
-                                <li><a href="AccountList.jsp" class="active">Account List</a></li>
+                                <li><a href="AccountList" class="active">Account List</a></li>
                             </ul>
                         </li>
                         <li class="">
@@ -89,7 +89,7 @@
                                 </div>
                             </a>
                             <ul class="mm-collapse" style="height: 5px;">
-                                <li><a href="BillList.jsp" class="active">Bill List</a></li>
+                                <li><a href="Billist" class="active">Bill List</a></li>
                             </ul>
                         </li>
                         <li class="">
@@ -152,8 +152,9 @@
                                     <img src="https://png.pngtree.com/png-vector/20190417/ourlarge/pngtree-vector-business-men-icon-png-image_947324.jpg" alt="#">
                                     <div class="profile_info_iner">
                                         <div class="profile_author_name">
-                                            <p>Neurologist </p>
-                                            <h5>Dr. Robar Smith</h5>
+                                            <c:set var="user" value = "${sessionScope.USER}"></c:set>
+                                            <p>Hello </p>
+                                            <h5>${user.getName()}</h5>
                                         </div>
                                         <div class="profile_info_details">
                                             <a href="profile.jsp">My Profile </a>
@@ -166,6 +167,5 @@
                     </div>
                 </div>
             </c:if> 
-
     </body>
 </html>
