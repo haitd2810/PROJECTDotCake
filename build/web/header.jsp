@@ -35,7 +35,7 @@
                     <c:set var="user" value="${sessionScope.USER}" ></c:set>
                     <c:if test="${empty user}">
                         <div class="col-md-7 header_title">
-                            <a href="GoHomePage">
+                            <a href="DispathController?page=home">
                                 <span>DotCake</span>
                             </a>
                         </div>
@@ -101,17 +101,17 @@
 
             <div class = "row header_menu">
                 <div class = "navbar header_menu--items">
-                    <a href="GoHomePage">Home</a>
-                    <a href="GoAboutPage">About</a>
+                    <a href="DispathController?page=home">Home</a>
+                    <a href="DispathController?page=about">About</a>
                     <a href="product">Products</a>
-                    <a href="GoServicePage">Services</a>
-                    <a href="GoContactPage">Contact</a> 
+                    <a href="DispathController?page=service">Services</a>
+                    <a href="DispathController?page=contact">Contact</a> 
                     <c:set var="user" value = "${sessionScope.USER}"></c:set>
                     <c:if test="${user.getRoleID()==2}">
-                        <a href="GoAdminPage">Manage</a>
+                        <a href="DispathController?page=admin">Manage</a>
                     </c:if>
                     <c:if test="${user.getRoleID()==1}">
-                        <a href="GoAdminPage">Manage</a>
+                        <a href="DispathController?page=admin">Manage</a>
                     </c:if>
                 </div>
             </div>

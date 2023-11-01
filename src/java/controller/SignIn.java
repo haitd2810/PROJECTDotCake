@@ -56,7 +56,7 @@ public class SignIn extends HttpServlet {
             request.getSession().setAttribute("acc", username);
             request.getSession().setAttribute("USER", user);
 //            User acc  = (User)request.getSession().getAttribute("acc");
-            response.sendRedirect("GoHomePage");
+            response.sendRedirect("DispathController?page=home");
         }
     }
 
