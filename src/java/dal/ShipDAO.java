@@ -18,7 +18,7 @@ import model.Ship;
  */
 public class ShipDAO extends DBContext {
 
-    boolean insertShip(String userID, String CusName, String phone, String address, String RequireDate, String RequireTime, String totalCost, String status) {
+    public boolean insertShip(String userID, String CusName, String phone, String address, String RequireDate, String RequireTime, String totalCost) {
         PreparedStatement stm = null;
         if (connection != null) {
             try {
@@ -40,6 +40,25 @@ public class ShipDAO extends DBContext {
         }
 
         return false;
+    }
+
+    public String getNewShip() {
+        String ShipID = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        if (connection != null) {
+            try {
+                String sql = "select top (1) * FROM Shipping order by shippingID desc";
+                stm = connection.prepareStatement(sql);
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    ShipID = rs.getString("shippingID");
+                }
+            }catch(Exception e){
+                System.out.println(e);
+            }
+        }
+        return ShipID;
     }
 
     boolean deleteShip(String ShipID) {
@@ -70,10 +89,10 @@ public class ShipDAO extends DBContext {
                 stm = connection.prepareStatement(sql);
                 stm.setString(1, userID);
                 rs = stm.executeQuery();
-                while(rs.next()){
-                    listShipOfCus.add(new Ship(rs.getInt("shippingID"),rs.getInt("userID"),rs.getString("name"),
-                    rs.getString("phone"),rs.getString("address"),rs.getDate("RequireDate"),
-                    rs.getString("RequireTime"),rs.getDouble("totalcost"),rs.getString("status"),rs.getDouble("quantity"),rs.getString("productID")));
+                while (rs.next()) {
+                    listShipOfCus.add(new Ship(rs.getInt("shippingID"), rs.getInt("userID"), rs.getString("name"),
+                            rs.getString("phone"), rs.getString("address"), rs.getDate("RequireDate"),
+                            rs.getString("RequireTime"), rs.getDouble("totalcost"), rs.getString("status"), rs.getDouble("quantity"), rs.getString("productID")));
                 }
             } catch (Exception e) {
                 System.out.println(e);
