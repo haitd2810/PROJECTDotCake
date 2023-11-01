@@ -120,7 +120,28 @@ public class Ship extends OrderItem{
     public void setStatusShip(String statusShip) {
         this.statusShip = statusShip;
     }
-    
-    
-    
+
+    @Override
+    public String getProductID() {
+        return super.getProductID(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+    @Override
+    public String getProductName() {
+        return super.getProductName(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    @Override
+    public double getQuantityBuy() {
+        return super.getQuantityBuy(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    @Override
+    public String getImage() {
+        return super.getImage(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    @Override
+    public int getProductPrice() {
+        return super.getProductPrice(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
 }

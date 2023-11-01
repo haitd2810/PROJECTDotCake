@@ -32,7 +32,7 @@
                             </div>
                         </form>
                     </div>
-                    <c:set var="user" value="${sessionScope.acc}" ></c:set>
+                    <c:set var="user" value="${sessionScope.USER}" ></c:set>
                     <c:if test="${empty user}">
                         <div class="col-md-7 header_title">
                             <a href="GoHomePage">
@@ -45,7 +45,7 @@
                             </a>
                         </div>
                         <div class="col-md-1 header_order" style="padding-top: 15px">
-                            <a title="order" href="goListOrderOfCustomer">
+                            <a title="order" href="ListOrderForCustomer?userID=${user.getUserID()}">
                                 <span>Ordered</span>
                             </a>
                         </div>
@@ -54,7 +54,7 @@
                         </div>
                     </c:if>
                     <c:if test="${ not empty user}">
-                        <c:if test="${user.length()<=7}">
+                        <c:if test="${user.getName().length()<=7}">
                             <div class="col-md-7 header_title">
                                 <a href="GoHomePage">
                                     <span>DotCake</span>
@@ -66,15 +66,15 @@
                                 </a>
                             </div>
                             <div class="col-md-1 header_order" style="padding-top: 15px">
-                                <a title="order" href="goListOrderOfCustomer">
+                                <a title="order" href="ListOrderForCustomer?userID=${user.getUserID()}">
                                     <span>Ordered</span>
                                 </a>
                             </div>
                             <div class="col-md-1 header_login" style="padding-top: 15px">
-                                <a href="GoProfilePage"><span>${user}</span></a>
+                                <a href="GoProfilePage"><span>${user.getName()}</span></a>
                             </div>
                         </c:if>
-                        <c:if test="${user.length()>7}">
+                        <c:if test="${user.getName().length()>7}">
                             <div class="col-md-6 header_title">
                                 <a href="GoHomePage">
                                     <span>DotCake</span>
@@ -86,12 +86,12 @@
                                 </a>
                             </div>
                             <div class="col-md-1 header_order" style="padding-top: 15px">
-                                <a title="order" href="goListOrderOfCustomer">
+                                <a title="order" href="ListOrderForCustomer?userID=${user.getUserID()}">
                                     <span>Ordered</span>
                                 </a>
                             </div>
                             <div class="col-md-2 header_login" style="padding-top: 15px">
-                                <a href="GoProfilePage"><span>${user}</span></a>
+                                <a href="GoProfilePage"><span>${user.getName()}</span></a>
                             </div>
                         </c:if>
                     </c:if>

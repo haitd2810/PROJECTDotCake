@@ -66,7 +66,7 @@ public class ShipDAO extends DBContext {
         ResultSet rs = null;
         if (connection != null) {
             try {
-                String sql = "select * from Ship join Order_Items on Order_Items.shippingID=Ship.shippingID and userID = ? ";
+                String sql = "  select Shipping.*,Order_Items.productID,Order_Items.quantity from Shipping join Order_Items on Order_Items.shippingID=Shipping.shippingID and userID = ?";
                 stm = connection.prepareStatement(sql);
                 stm.setString(1, userID);
                 rs = stm.executeQuery();
