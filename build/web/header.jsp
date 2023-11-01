@@ -81,9 +81,17 @@
                                 </a>
                             </div>
                             <div class="col-md-1 header_buy" style="padding-top: 15px">
-                                <a title="Giỏ hàng" href="cart.jsp">
-                                    <span class="glyphicon glyphicon-shopping-cart" style="color: grey; font-size: 28px"></span>
-                                </a>
+                                <c:if test="${empty user}">
+                                    <a title="Giỏ hàng" href="#">
+                                        <span class="glyphicon glyphicon-lock" style="color: grey; font-size: 28px"></span>
+                                    </a>
+                                </c:if>
+                                <c:if test="${ not empty user}">
+                                    <c:set var="size" value="${sessionScope.size}"/>
+                                    <a title="Giỏ hàng" href="cart.jsp">
+                                        <span class="glyphicon glyphicon-shopping-cart" style="color: grey; font-size: 28px">${size}</span>
+                                    </a>
+                                </c:if>
                             </div>
                             <div class="col-md-1 header_order" style="padding-top: 15px">
                                 <a title="order" href="ListOrderForCustomer?userID=${user.getUserID()}">

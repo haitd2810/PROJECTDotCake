@@ -73,7 +73,7 @@
                                                     </ul>-->
                         </div>
                         <div class="seller__btn">
-                            <button class="cart"><a href="">Cart</a></button>
+                            <button class="cart"><a href="add?id=${product.getProductID()}&image=${product.getImage()}&name=${product.getProductName()}&price=${product.getProductPrice()}">Cart</a></button>
                         </div>
                     </div>
                 </div>
