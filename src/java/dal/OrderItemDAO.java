@@ -22,13 +22,10 @@ import model.Product;
 import model.Ship;
 import model.User;
 import model.image;
-/**
- *
- * @author Duy Hai
- */
+import model.Ship;
 public class OrderItemDAO extends MyDAO {
 
-    boolean InsertOrderItem(String shippingID, String productID, String quantity) {
+    public boolean InsertOrderItem(String shippingID, String productID, String quantity) {
         PreparedStatement stm = null;
         try {
             if (connection != null) {
@@ -57,11 +54,6 @@ public class OrderItemDAO extends MyDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    public static void main(String[] args) {
-        OrderItemDAO order = new OrderItemDAO();
-//        order.deleteOrder("33");
-
     }
     
 }
