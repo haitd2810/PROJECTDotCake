@@ -56,7 +56,7 @@
                     <c:if test="${ not empty user}">
                         <c:if test="${user.getName().length()<=7}">
                             <div class="col-md-7 header_title">
-                                <a href="GoHomePage">
+                                <a href="DispathController?page=home">
                                     <span>DotCake</span>
                                 </a>
                             </div>
@@ -76,7 +76,7 @@
                         </c:if>
                         <c:if test="${user.getName().length()>7}">
                             <div class="col-md-6 header_title">
-                                <a href="GoHomePage">
+                                <a href="DispathController?page=home">
                                     <span>DotCake</span>
                                 </a>
                             </div>
@@ -91,7 +91,7 @@
                                 </a>
                             </div>
                             <div class="col-md-2 header_login" style="padding-top: 15px">
-                                <a href="GoProfilePage"><span>${user.getName()}</span></a>
+                                <a href="DispathController?page=profile"><span>${user.getName()}</span></a>
                             </div>
                         </c:if>
                     </c:if>
