@@ -78,7 +78,7 @@
                                     <h1>${o.getProductName()}</h1>
                                     <p><span>${o.getProductPrice()}</span>VND</p>
                                     <div class="seller__btn">
-                                        <button class="cart"><a href="">Cart</a></button>
+                                        <button class="cart"><a href="add?id=${o.getProductID()}&img=${o.getImage()}&name=${o.getProductName()}&price=${o.getProductPrice()}">Cart</a></button>
                                     </div>
                                 </a>
                             </div>

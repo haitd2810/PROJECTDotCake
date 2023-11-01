@@ -56,7 +56,7 @@
                     <c:if test="${ not empty user}">
                         <c:if test="${user.getName().length()<=7}">
                             <div class="col-md-7 header_title">
-                                <a href="GoHomePage">
+                                <a href="DispathController?page=home">
                                     <span>DotCake</span>
                                 </a>
                             </div>
@@ -76,14 +76,22 @@
                         </c:if>
                         <c:if test="${user.getName().length()>7}">
                             <div class="col-md-6 header_title">
-                                <a href="GoHomePage">
+                                <a href="DispathController?page=home">
                                     <span>DotCake</span>
                                 </a>
                             </div>
                             <div class="col-md-1 header_buy" style="padding-top: 15px">
-                                <a title="Giỏ hàng" href="cart.jsp">
-                                    <span class="glyphicon glyphicon-shopping-cart" style="color: grey; font-size: 28px"></span>
-                                </a>
+                                <c:if test="${empty user}">
+                                    <a title="Giỏ hàng" href="#">
+                                        <span class="glyphicon glyphicon-lock" style="color: grey; font-size: 28px"></span>
+                                    </a>
+                                </c:if>
+                                <c:if test="${ not empty user}">
+                                    <c:set var="size" value="${sessionScope.size}"/>
+                                    <a title="Giỏ hàng" href="cart.jsp">
+                                        <span class="glyphicon glyphicon-shopping-cart" style="color: grey; font-size: 28px">${size}</span>
+                                    </a>
+                                </c:if>
                             </div>
                             <div class="col-md-1 header_order" style="padding-top: 15px">
                                 <a title="order" href="ListOrderForCustomer?userID=${user.getUserID()}">
@@ -91,7 +99,7 @@
                                 </a>
                             </div>
                             <div class="col-md-2 header_login" style="padding-top: 15px">
-                                <a href="GoProfilePage"><span>${user.getName()}</span></a>
+                                <a href="DispathController?page=profile"><span>${user.getName()}</span></a>
                             </div>
                         </c:if>
                     </c:if>

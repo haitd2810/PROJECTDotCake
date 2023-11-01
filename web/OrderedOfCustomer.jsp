@@ -54,10 +54,10 @@
                                             <div class="col-md-12">
                                                 <div class="IMGPRODUCT col-sm-2">
                                                     <img class="img-fluid" 
-                                                         width="100" height="100" src="<%=listorder.get(i).get(j).getImage()%>" alt="">
+                                                         width="200" height="200" src="<%=listorder.get(i).get(j).getImage()%>" alt="">
                                                 </div>
                                                 <div class="col-sm-4">
-                                                    <p style="font-size: 18px;font-style: italic;">Product Name: <%=listorder.get(i).get(j).getProductName()%> <sup>x${order.getQuantityBuy()}</sup></p>
+                                                    <p style="font-size: 18px;font-style: italic;">Product Name: <%=listorder.get(i).get(j).getProductName()%> <sup>x<%= (int)listorder.get(i).get(j).getQuantityBuy()%></sup></p>
                                                     <p>create by account: <%=user.getUsername()%> </p>
                                                     <p>Ship to: <%=listorder.get(i).get(j).getAddress()%> </p>
                                                     <p>Time: <%=listorder.get(i).get(j).getRequireDate()%> <%=listorder.get(i).get(j).getRequireTime()%> </p>
@@ -76,6 +76,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <hr>
                                     <%}%>
 
                                     <div class="col-lg-12">
