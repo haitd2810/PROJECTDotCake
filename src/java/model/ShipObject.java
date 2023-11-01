@@ -45,20 +45,21 @@ public class ShipObject {
                 }
             }
         }
-        Collections.sort(listShip, new Comparator<Ship>() {
-            @Override
-            public int compare(Ship o1, Ship o2) {
-                return o1.getShipID()-o2.getShipID(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        for(int i=0; i < listShip.size();i++){
+            for(int j=i+1; j < listShip.size();j++){
+                if(listShip.get(i).getShipID()>listShip.get(j).getShipID()){
+                    Collections.swap(listShip, i, j);
+                }
             }
-        });
+        }
         for (int i = 0; i < listShip.size(); i++) {
             List<Ship> ProductIn1Order = new ArrayList<>();
             ProductIn1Order.add(listShip.get(i));
-            for (int k = i + 1; k < listShip.size(); k++) {
+            for (int k = i; k < listShip.size(); k++) {
                 if (listShip.get(i).getShipID() == listShip.get(k).getShipID()) {
                     ProductIn1Order.add(listShip.get(k));
                 } else {
-                    i = k-1;
+                    i = k;
                     break;
                 }
             }

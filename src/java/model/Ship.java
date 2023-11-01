@@ -34,6 +34,10 @@ public class Ship extends OrderItem{
         this.statusShip = statusShip;
     }
 
+    public Ship(double quantityBuy, String productID) {
+        super(quantityBuy, productID);
+    }
+    
     
 
     
