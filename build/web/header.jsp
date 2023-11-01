@@ -61,7 +61,7 @@
                                 </a>
                             </div>
                             <div class="col-md-1 header_buy" style="padding-top: 15px">
-                                <a title="Giỏ hàng" href="Hoang_Cart.html">
+                                <a title="Giỏ hàng" href="cart.jsp">
                                     <span class="glyphicon glyphicon-shopping-cart" style="color: grey; font-size: 28px"></span>
                                 </a>
                             </div>
@@ -81,7 +81,7 @@
                                 </a>
                             </div>
                             <div class="col-md-1 header_buy" style="padding-top: 15px">
-                                <a title="Giỏ hàng" href="Hoang_Cart.html">
+                                <a title="Giỏ hàng" href="cart.jsp">
                                     <span class="glyphicon glyphicon-shopping-cart" style="color: grey; font-size: 28px"></span>
                                 </a>
                             </div>
