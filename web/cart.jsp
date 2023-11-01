@@ -36,24 +36,24 @@
     </head> 
     <body>
         <div style="width: 100%">
-        <%@include file="header.jsp" %>
+            <%@include file="header.jsp" %>
         </div>
         <div style="width: 100%; text-align: center;color: grey;margin: 30px 30px ">
             <h3 style="font-size: 32px;font-family: Lucida Handwriting;">YOUR CART</h3>
         </div>
-    <div class="row itemcart">
-         <table class="table table-hover"style="color: #787f85;">
-             <thead>
+        <div class="row itemcart">
+            <table class="table table-hover"style="color: #787f85;">
+                <thead>
                     <tr><th style="width: 10px;">No</th>
-                    <th style="width: 20%;">Product</th>
-                    <th style="width: 30%;">Name</th>
-                    <th style="width: 15%;">Price</th>
-                    <th style="width: 10%;">Quantity</th>
-                    <th style="width: 15%;">UnitPrice</th>
-                    <th>Action</th>
+                        <th style="width: 20%;">Product</th>
+                        <th style="width: 30%;">Name</th>
+                        <th style="width: 15%;">Price</th>
+                        <th style="width: 10%;">Quantity</th>
+                        <th style="width: 15%;">UnitPrice</th>
+                        <th>Action</th>
                     </tr>
-                    </thead>
-                    <c:if test="${not empty cart.getItem()}">
+                </thead>
+                <c:if test="${not empty cart.getItem()}">
                     <c:set var="listcart" value="${cart.getItem()}"/>
                     <tbody>
                         <c:set var="t" value="0" /> 
@@ -81,34 +81,35 @@
                         </td>    
                         </tbody>
                     </c:forEach>
-                    </c:if>
-                </table>
-    </div>
-    <div class="row total_cart" style="margin-left: 15px;margin-right: 29px">
-        <c:if test="${not empty cart.getItem()}">
-        <c:set var="total" value="0" />
-        <c:forEach items="${cart.getItem()}" var="item">
-        <c:set var="subtotal" value="${item.getIquantity() * item.getPrice()}" />
-        <c:set var="total" value="${total + subtotal}" />
-        </c:forEach>
-        <h4 style="font-size: 18px;margin: 15px 0px;margin-left: 30px">Total Money: <fmt:formatNumber pattern="##.#" value="${total}" /></h4>
-        </c:if>
-    </div>
-        
+                </c:if>
+            </table>
+        </div>
+        <div class="row total_cart" style="margin-left: 15px;margin-right: 29px">
+            <c:if test="${not empty cart.getItem()}">
+                <c:set var="total" value="0" />
+                <c:forEach items="${cart.getItem()}" var="item">
+                    <c:set var="subtotal" value="${item.getIquantity() * item.getPrice()}" />
+                    <c:set var="total" value="${total + subtotal}" />
+                </c:forEach>
+                <h4 style="font-size: 18px;margin: 15px 0px;margin-left: 30px">Total Money: <fmt:formatNumber pattern="##.#" value="${total}" /></h4>
+            </c:if>
+        </div>
+
         <div class = "row button_action">
-             <c:if test="${not empty cart.getItem()}">
-            <div class="order">
-                <form action="order" method="post">
-                    <input type="submit" value="Order"/>
-                </form>
-            </div>
+            <c:if test="${not empty cart.getItem()}">
+                <div class="order" style="display: flex;">
+                        <a href="DispathController?page=order" style="text-decoration: none;font-size: 18px;
+                           color: white;
+                           margin: auto;
+                           font-family: cursive;">Order</a>
+                </div>
             </c:if>
             <div class="continue">
                 <form>
                     <a href="product"><span>Continue Shopping</span></a>
                 </form>
             </div>
-            
+
         </div>
     </body>
 </html>
