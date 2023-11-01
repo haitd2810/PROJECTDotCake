@@ -22,7 +22,7 @@ public class image extends Product{
         this.image = image;
         this.imageId = imageId;
     }
-
+    
     public String getImage() {
         return image;
     }

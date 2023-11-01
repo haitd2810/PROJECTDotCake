@@ -57,8 +57,8 @@
                                                          width="100" height="100" src="<%=listorder.get(i).get(j).getImage()%>" alt="">
                                                 </div>
                                                 <div class="col-sm-4">
-                                                    <p style="font-size: 18px;font-style: italic;">Product Name: <%=listorder.get(i).get(j).getProductID()%> <sup>x${order.getQuantityBuy()}</sup></p>
-                                                    <p>create by account: <%=listorder.get(i).get(j).getUserID()%> </p>
+                                                    <p style="font-size: 18px;font-style: italic;">Product Name: <%=listorder.get(i).get(j).getProductName()%> <sup>x${order.getQuantityBuy()}</sup></p>
+                                                    <p>create by account: <%=user.getUsername()%> </p>
                                                     <p>Ship to: <%=listorder.get(i).get(j).getAddress()%> </p>
                                                     <p>Time: <%=listorder.get(i).get(j).getRequireDate()%> <%=listorder.get(i).get(j).getRequireTime()%> </p>
                                                 </div>

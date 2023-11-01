@@ -17,8 +17,8 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author Duy Hai
  */
-@WebServlet(name="GoContactPage", urlPatterns={"/GoContactPage"})
-public class GoContactPage extends HttpServlet {
+@WebServlet(name="DispathController", urlPatterns={"/DispathController"})
+public class DispathController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -30,7 +30,6 @@ public class GoContactPage extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -41,10 +40,41 @@ public class GoContactPage extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    private final String Home = "index.jsp";
+    private final String About = "about.jsp";
+    private final String Admin = "Admin.jsp";
+    private final String Contact = "contact.jsp";
+    private final String Order = "Order.jsp";
+    private final String Profile = "profile.jsp";
+    private final String Service = "ship_ques.jsp";
+    private final String ListOrder = "OrderedOfCustomer.jsp";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        request.getRequestDispatcher("contact.jsp").forward(request, response);
+        String page = request.getParameter("page");
+        String url = Home;
+        if(page.equals("about")){
+            url=About;
+        }
+        if(page.equals("admin")){
+            url=Admin;
+        }
+        if(page.equals("contact")){
+            url=Contact;
+        }
+        if(page.equals("order")){
+            url=Order;
+        }
+        if(page.equals("profile")){
+            url=Profile;
+        }
+        if(page.equals("service")){
+            url=Service;
+        }
+        if(page.equals("ordered")){
+            url=ListOrder;
+        }
+        request.getRequestDispatcher(url).forward(request, response);
     } 
 
     /** 
@@ -57,7 +87,7 @@ public class GoContactPage extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        request.getRequestDispatcher("contact.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /** 

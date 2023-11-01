@@ -1,0 +1,82 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Oct 31, 2023, 11:50:46 AM
+    Author     : kieup
+*/
+
+body{
+    overflow-x: hidden;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.itemcart{
+    margin-left: 0px;
+    font-size: 18px;
+    width: 100%;
+}
+.table {
+    width: 100%;
+    width: 100%;
+    padding: 10px 10px;
+    margin: 0px 100px;
+}
+.button_action{
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  text-align: center;
+}
+.order{
+  width: 15%;
+    margin: 20px 10px;
+    background-color: grey;
+    border-radius: 10px;
+}
+.continue{
+  width: 15%;
+  margin: 20px 20px;
+  background-color:grey;
+  text-align: center;
+  border-radius: 10px;
+}
+.continue a{
+  text-decoration: none;
+  width: 100%;
+}
+.button_action input[type=submit]{
+  width: 100%;
+  font-size: 18px;
+  background-color:grey;
+  color: white;
+  margin: 10px 0px;
+  border: 0;
+  font-family: cursive;
+}
+.continue span{
+width: 100%;
+color: white;
+font-size: 18px;
+color: white;
+margin: 10px 20px;
+font-family: cursive;
+}
+.continue form{
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  
+}
+.total_cart{
+    width: 15%;
+    float: right;
+    background-color:grey;
+    color: white;
+    margin: 10px 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+

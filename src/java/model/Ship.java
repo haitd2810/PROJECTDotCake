@@ -21,8 +21,8 @@ public class Ship extends OrderItem{
     private Double totalCost;
     private String statusShip;
 
-    public Ship(int shipID, int userID, String CusName, String phone, String address, Date RequireDate, String RequireTime, Double totalCost, String statusShip, double quantityBuy) {
-        super(quantityBuy);
+    public Ship(int shipID, int userID, String CusName, String phone, String address, Date RequireDate, String RequireTime, Double totalCost, String statusShip, double quantityBuy, String productID) {
+        super(quantityBuy, productID);
         this.shipID = shipID;
         this.userID = userID;
         this.CusName = CusName;
@@ -34,18 +34,7 @@ public class Ship extends OrderItem{
         this.statusShip = statusShip;
     }
 
-    public Ship(int shipID, int userID, String CusName, String phone, String address, Date RequireDate, String RequireTime, Double totalCost, String statusShip, double quantityBuy, String image, String imageId, String productID, String ProductName, int ProductPrice, String ProductDetail, Date CreateDate, int quantity, String categoryID, String status) {
-        super(quantityBuy, image, imageId, productID, ProductName, ProductPrice, ProductDetail, CreateDate, quantity, categoryID, status);
-        this.shipID = shipID;
-        this.userID = userID;
-        this.CusName = CusName;
-        this.phone = phone;
-        this.address = address;
-        this.RequireDate = RequireDate;
-        this.RequireTime = RequireTime;
-        this.totalCost = totalCost;
-        this.statusShip = statusShip;
-    }
+    
 
     
         

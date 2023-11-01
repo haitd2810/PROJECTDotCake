@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package DispathController;
+package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,13 +12,16 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import model.CartItem;
+import model.CartObject;
 
 /**
  *
- * @author Duy Hai
+ * @author kieup
  */
-@WebServlet(name="GoAdminPage", urlPatterns={"/GoAdminPage"})
-public class GoAdminPage extends HttpServlet {
+@WebServlet(name = "AddItemToCart", urlPatterns = {"/add"})
+public class AddItemToCart extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -30,7 +33,29 @@ public class GoAdminPage extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+        response.setContentType("text/html;charset=UTF-8");
+        HttpSession session = request.getSession();
+        CartObject cart = (CartObject)session.getAttribute("cart");
+        try  {
+          if(cart == null){
+              cart = new CartObject();
+          }
+          String productName = request.getParameter("name");
+          String productId = request.getParameter("id");
+          String productIMG = request.getParameter("img");
+          CartItem item = new CartItem();
+          item.setProductID(productId);
+          item.setImage(productIMG);
+          item.setProductName(productName);
+          item.setIquantity(1);
+          item.setPrice(Double.parseDouble(request.getParameter("price")));
+          cart.addItemToCart(item);  
+        }
+        finally{  
+        }
+        session.setAttribute("size", cart.getItem().size());
+        session.setAttribute("cart", cart);
+        response.sendRedirect("product");
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -44,7 +69,7 @@ public class GoAdminPage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        request.getRequestDispatcher("Admin.jsp").forward(request, response);
+        processRequest(request, response);
     } 
 
     /** 
@@ -57,7 +82,7 @@ public class GoAdminPage extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        request.getRequestDispatcher("Admin.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /** 
