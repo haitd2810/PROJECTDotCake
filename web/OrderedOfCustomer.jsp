@@ -29,7 +29,7 @@
         if(user!=null){
         %>
         <div class="all_order container">
-            <form action="requestcancellation" method="post">
+            <form>
                 <div class="row body">
                     <div class="col-12">
                         <div class="white_card card_height_100 mb_30">
@@ -66,7 +66,9 @@
                                                     <p style="font-size: 18px;font-style: italic;">Info</p>
                                                     <p>Name: <%=listorder.get(i).get(j).getCusName()%> </p>
                                                     <p>phone: <%=listorder.get(i).get(j).getPhone()%> </p>
+
                                                 </div>
+
                                                 <div class="col-sm-2">
                                                     <!--<p>Cost Product: <%=listorder.get(i).get(j).getTotalCost()%></p>-->
                                                     <p>Cost Product: <%=listorder.get(i).get(j).getProductPrice()%></p>
@@ -75,16 +77,18 @@
                                         </div>
                                     </div>
                                     <hr>
+                                    <%}%>
+
                                     <div class="col-lg-12">
                                         <div class="col-sm-9"></div>
                                         <div class="create_report_btn mt_30 col-sm-3">
                                             <h4>Ordered</h4>
-                                            <button style="font-size: 15px;font-style: italic;" value="<%=listorder.get(i).get(j).getShipID()%>" name="request" class="btn_1 button_order" type="submit">request cancellation</button>
+                                            <input style="font-size: 15px;font-style: italic;" class="btn_1 button_order" type="submit" value="request cancellation">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                               <%}%>
+
                             <%}%>
                             <%}%>
                         </div>
