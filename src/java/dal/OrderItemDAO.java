@@ -55,5 +55,4 @@ public class OrderItemDAO extends MyDAO {
             e.printStackTrace();
         }
     }
-    
 }
