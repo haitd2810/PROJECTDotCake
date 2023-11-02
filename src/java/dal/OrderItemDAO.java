@@ -44,12 +44,11 @@ public class OrderItemDAO extends MyDAO {
         }
         return false;
     }
-    public void deleteOrder(String shipID,String proID){
-        xSql = "delete from Order_Items where shippingID = ? and productID=?";
+    public void deleteOrder(String shipID){
+        xSql = "delete from Order_Items where shippingID = ?";
         try {
             ps = con.prepareStatement(xSql);
             ps.setString(1, shipID);
-            ps.setString(2, proID);
             ps.executeUpdate();
             ps.close();
         } catch (Exception e) {
