@@ -45,7 +45,7 @@
                             </a>
                         </div>
                         <div class="col-md-1 header_order" style="padding-top: 15px">
-                            <a title="order" href="ListOrderForCustomer?userID=${user.getUserID()}">
+                            <a title="order" href="#">
                                 <span>Ordered</span>
                             </a>
                         </div>
@@ -94,7 +94,7 @@
                                 </c:if>
                             </div>
                             <div class="col-md-1 header_order" style="padding-top: 15px">
-                                <a title="order" href="ListOrderForCustomer?userID=${user.getUserID()}">
+                                <a title="order" href="ListOrderForCustomer">
                                     <span>Ordered</span>
                                 </a>
                             </div>

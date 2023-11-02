@@ -45,24 +45,37 @@ public class ShipObject {
                 }
             }
         }
-        Collections.sort(listShip, new Comparator<Ship>() {
-            @Override
-            public int compare(Ship o1, Ship o2) {
-                return o1.getShipID()-o2.getShipID(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-            }
-        });
         for (int i = 0; i < listShip.size(); i++) {
-            List<Ship> ProductIn1Order = new ArrayList<>();
-            ProductIn1Order.add(listShip.get(i));
-            for (int k = i + 1; k < listShip.size(); k++) {
-                if (listShip.get(i).getShipID() == listShip.get(k).getShipID()) {
-                    ProductIn1Order.add(listShip.get(k));
-                } else {
-                    i = k-1;
-                    break;
+            for (int j = i + 1; j < listShip.size(); j++) {
+                if (listShip.get(i).getShipID() > listShip.get(j).getShipID()) {
+                    Collections.swap(listShip, i, j);
                 }
             }
-            listShipOfCus.add(ProductIn1Order);
         }
+        for (int i = 0; i < listShip.size(); i++) {
+            List<Ship> ProductIn1Order = new ArrayList<>();
+            for (int k = i; k < listShip.size(); k++) {
+                if (listShip.get(i).getShipID() == listShip.get(k).getShipID()) {
+                    if (CheckElementExist(listShipOfCus, listShip.get(k).getShipID()) == false) {
+                        ProductIn1Order.add(listShip.get(k));
+                    }
+                }
+            }
+            if (ProductIn1Order.size() != 0) {
+                listShipOfCus.add(ProductIn1Order);
+            }
+
+        }
+    }
+
+    public boolean CheckElementExist(List<List<Ship>> list, int shipID) {
+        for (int i = 0; i < list.size(); i++) {
+            for (int j = 0; j < list.get(i).size(); j++) {
+                if (list.get(i).get(j).getShipID() == shipID) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

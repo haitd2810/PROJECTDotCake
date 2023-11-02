@@ -17,6 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
 import model.Ship;
 import model.ShipObject;
+import model.User;
 import model.image;
 
 /**
@@ -52,11 +53,9 @@ public class ListOrderForCustomer extends HttpServlet {
     throws ServletException, IOException {
         
         ShipDAO shipdao = new ShipDAO();
-        String userID = request.getParameter("userID");
-        List<Ship> listShipOfCus = shipdao.getShipOfCus(userID);
-        
-        ImageDAO imagedao = new ImageDAO();
-        
+        User user = (User)request.getSession().getAttribute("USER");
+        List<Ship> listShipOfCus = shipdao.getShipOfCus(user.getUserID());   
+        ImageDAO imagedao = new ImageDAO();    
         for(int i=0; i <listShipOfCus.size();i++){
             imagedao.getImageOfProOrder(listShipOfCus.get(i).getProductID());
         }
