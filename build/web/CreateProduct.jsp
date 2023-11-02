@@ -40,61 +40,67 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="white_card_body">
-                                <div class="row">
-                                    <div class="">
-                                        <div class="common_input mb_15">
-                                            <input type="text" placeholder="ProductID">
+
+                            <h3>${sessionScope.error}</h3>
+                            <form action="addProduct" >               
+                                <div class="white_card_body">
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="common_input mb_15">
+                                                <input type="text" placeholder="ProductID" name="productid">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="">
-                                        <div class="common_input mb_15">
-                                            <input type="text" placeholder="ProductName">
+                                        <div class="">
+                                            <div class="common_input mb_15">
+                                                <input type="text" placeholder="ProductName" name="productname">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="">
-                                        <div class="common_input mb_15">
-                                            <input type="text" placeholder="ProductPrice">
+                                        <div class="">
+                                            <div class="common_input mb_15">
+                                                <input type="number" placeholder="ProductPrice" name="productprice">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="">
-                                        <div class="common_input mb_15">
-                                            <input type="text" placeholder="Detail">
+                                        <div class="">
+                                            <div class="common_input mb_15">
+                                                <input type="text" placeholder="Detail" name="detail">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="">
-                                        <div class="common_input mb_15">
-                                            <input type="text" placeholder="CreateDate">
+                                        <div class="">
+                                            <div class="common_input mb_15">
+                                                <input type="date" placeholder="CreateDate" name="createdate">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="">
-                                        <div class="common_input mb_15">
-                                            <input type="text" placeholder="Quatity">
+                                        <div class="">
+                                            <div class="common_input mb_15">
+                                                <input type="number" placeholder="Quantity" name="quantity">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="">
-                                        <div class="common_input mb_15">
-                                            <input type="text" placeholder="Status">
+
+
+                                        <div class="col-12">
+                                            <div class="common_input mb_15">
+                                                <select placeholder="Categories" class="category" name="categoryID" >
+                                                    <option value="">--Choose Categories ID--</option>
+                                                    <option value="B">B</option>
+                                                    <option value="A">A</option>
+                                                    <option value="D">D</option>
+                                                    <option value="PK">PK</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="common_input mb_15">
-                                            <select placeholder="Categories" class="category">
-                                                <option value="">--Choose Categorite ID--</option>
-                                                <option value="">B</option>
-                                                <option value="">A</option>
-                                                <option value="">D</option>
-                                                <option value="">PK</option>
-                                            </select>
+                                        <div class="">
+                                            <div class="common_input mb_15">
+                                                <input type="text" placeholder="Status" name="status">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="create_report_btn mt_30">
-                                            <input class="btn_1 radius_btn d-block text-center" type="submit" value="Add Product">
+                                        <div class="col-12">
+                                            <div class="create_report_btn mt_30">
+                                                <input class="btn_1 radius_btn d-block text-center" type="submit" value="Add Product">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
