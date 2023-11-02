@@ -55,4 +55,15 @@ public class OrderItemDAO extends MyDAO {
             e.printStackTrace();
         }
     }
+    public void deleteOrder1(String shipID1){
+        xSql = "delete from Shipping where shippingID = ?";
+        try {
+            ps = con.prepareStatement(xSql);
+            ps.setString(1, shipID1);
+            ps.executeUpdate();
+            ps.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

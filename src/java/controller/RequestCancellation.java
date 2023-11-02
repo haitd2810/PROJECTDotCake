@@ -32,6 +32,7 @@ public class RequestCancellation extends HttpServlet {
         String Cancell = request.getParameter("request");
         OrderItemDAO order = new OrderItemDAO();
         order.deleteOrder(Cancell);
+        order.deleteOrder1(Cancell);
    //     request.getRequestDispatcher("ListOrderForCustomer").forward(request, response);
        response.sendRedirect("ListOrderForCustomer");
 //        out.print(Cancell);
