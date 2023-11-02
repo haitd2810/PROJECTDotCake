@@ -44,7 +44,6 @@
                             <% List<List<Ship>> listorder = ship.getListShipOfCus(); %>
                             <% if(listorder!=null){ %>
                             <% for(int i=0; i < listorder.size();i++){ %>
-
                             <div class="white_card_body" >
                                 <div class="row" style="border: grey 2px solid;padding:3%;border-radius: 2%;">
                                     <!-- vong lap for se o day de display cart -->
@@ -62,32 +61,29 @@
                                                     <p>Ship to: <%=listorder.get(i).get(j).getAddress()%> </p>
                                                     <p>Time: <%=listorder.get(i).get(j).getRequireDate()%> <%=listorder.get(i).get(j).getRequireTime()%> </p>
                                                 </div>
-                                                <div class="col-sm-4">
+<!--                                                <div class="col-sm-4">
                                                     <p style="font-size: 18px;font-style: italic;">Info</p>
                                                     <p>Name: <%=listorder.get(i).get(j).getCusName()%> </p>
                                                     <p>phone: <%=listorder.get(i).get(j).getPhone()%> </p>
-
-                                                </div>
-
+                                                </div>-->
                                                 <div class="col-sm-2">
                                                     <!--<p>Cost Product: <%=listorder.get(i).get(j).getTotalCost()%></p>-->
                                                     <p>Cost Product: <%=listorder.get(i).get(j).getProductPrice()%></p>
                                                 </div>
+                                                <div class="col-sm-4">
+                                                   <div class="create_report_btn mt_30 col-sm-3">
+                                            <h4>Ordered</h4>
+                                            <button style="font-size: 15px;font-style: italic;" value="<%=listorder.get(i).get(j).getShipID()%>&&<%=listorder.get(i).get(j).getProductID()%>&&<%=listorder.get(i).size()%>" name="request"  class="btn_1 button_order" type="submit" >request cancellation</button>
+                                        </div>  
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <hr>
-                                    <div class="col-lg-12">
-                                        <div class="col-sm-9"></div>
-                                        <div class="create_report_btn mt_30 col-sm-3">
-                                            <h4>Ordered</h4>
-                                            <button style="font-size: 15px;font-style: italic;" value="<%=listorder.get(i).get(j).getShipID()%>" name="request"  class="btn_1 button_order" type="submit" >request cancellation</button>
-                                        </div>
-                                    </div>
+                                    <hr>                         
+                                        <%}%>
+                                        <%}%>
                                 </div>
-                            </div>
-                            <%}%>
-                            <%}%>
+                            </div>                                                    
                             <%}%>
                         </div>
                     </div>

@@ -30,9 +30,16 @@ public class RequestCancellation extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String Cancell = request.getParameter("request");
+        String[]chuoiID = Cancell.split("&&");
+        String shipID = chuoiID[0];
+        String proID = chuoiID[1];
+        int total = Integer.parseInt(chuoiID[2]);
         OrderItemDAO order = new OrderItemDAO();
-        order.deleteOrder(Cancell);
-        order.deleteOrder1(Cancell);
+        order.deleteOrder(shipID,proID);
+        if(total==1){
+            order.deleteOrder1(shipID);
+        }
+        //order.deleteOrder1(Cancell);
    //     request.getRequestDispatcher("ListOrderForCustomer").forward(request, response);
        response.sendRedirect("ListOrderForCustomer");
 //        out.print(Cancell);
