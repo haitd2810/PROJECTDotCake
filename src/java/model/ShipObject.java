@@ -45,25 +45,37 @@ public class ShipObject {
                 }
             }
         }
-        for(int i=0; i < listShip.size();i++){
-            for(int j=i+1; j < listShip.size();j++){
-                if(listShip.get(i).getShipID()>listShip.get(j).getShipID()){
+        for (int i = 0; i < listShip.size(); i++) {
+            for (int j = i + 1; j < listShip.size(); j++) {
+                if (listShip.get(i).getShipID() > listShip.get(j).getShipID()) {
                     Collections.swap(listShip, i, j);
                 }
             }
         }
         for (int i = 0; i < listShip.size(); i++) {
             List<Ship> ProductIn1Order = new ArrayList<>();
-            ProductIn1Order.add(listShip.get(i));
             for (int k = i; k < listShip.size(); k++) {
                 if (listShip.get(i).getShipID() == listShip.get(k).getShipID()) {
-                    ProductIn1Order.add(listShip.get(k));
-                } else {
-                    i = k;
-                    break;
+                    if (CheckElementExist(listShipOfCus, listShip.get(k).getShipID()) == false) {
+                        ProductIn1Order.add(listShip.get(k));
+                    }
                 }
             }
-            listShipOfCus.add(ProductIn1Order);
+            if (ProductIn1Order.size() != 0) {
+                listShipOfCus.add(ProductIn1Order);
+            }
+
         }
+    }
+
+    public boolean CheckElementExist(List<List<Ship>> list, int shipID) {
+        for (int i = 0; i < list.size(); i++) {
+            for (int j = 0; j < list.get(i).size(); j++) {
+                if (list.get(i).get(j).getShipID() == shipID) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
