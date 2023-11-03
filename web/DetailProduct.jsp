@@ -1,7 +1,7 @@
 <%-- 
     Document   : AddAccount
     Created on : Oct 18, 2023, 8:07:17 PM
-    Author     : Duy Hai
+    Author     : quynhh
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -23,9 +23,9 @@
             .white_card_body{
                 line-height: 40px;
             }
-
+        
         </style>
-
+        
     </head>
     <body class="crm_body_bg">
         <c:set var="user" value = "${sessionScope.USER}"></c:set>
@@ -45,7 +45,7 @@
                             <div class="white_card_header">
                                 <div class="box_header m-0">
                                     <div class="main-title">
-                                        <h2 class="m-0">Product List </h2>
+                                        <h2 class="m-0">Product Detail </h3>
                                     </div>
                                 </div>
                             </div>
@@ -53,16 +53,16 @@
                                 <div class="row">
                                     <c:set var="product" value="${sessionScope.PRODUCTLIST}"></c:set>
                                     <c:if test="${not empty product}">
-                                        <table border="1" >
+                                        <table border="1">
                                             <thead>
                                                 <tr>
                                                     <th ><h4>No.</h4></th>
-                                                    <th style="border: grey 1px solid;"><h4>CategoryID</h4></th>
                                                     <th style="border: grey 1px solid;"><h4>ProductID</h4></th>
                                                     <th style="border: grey 1px solid;"><h4>ProductName</h4></th>
-                                                    <th style="border: grey 1px solid;"><h4>ProductPrice</h4></th>
-                                                    <th style="border: grey 1px solid;"><h4>Status</h4></th>
-                                                    <th style="border: grey 1px solid;"><h4>Action</h4></th>
+                                                    <th style="border: grey 1px solid;"><h4>Detail</h4></th>
+                                                    <th style="border: grey 1px solid;" ><h4>CreateDate</h4></th>
+                                                    <!--dùng để thêm cột createby-->
+                                                    <th style="border: grey 1px solid;">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -70,12 +70,11 @@
                                                 <form action="">
                                                     <tr >
                                                         <td style="border: grey 1px solid;">${counter.count}</td>
-                                                        <td style="border: grey 1px solid;">${dto.getCategoryID()}</td>
                                                         <td style="border: grey 1px solid;">${dto.getProductID()}</td>
                                                         <td style="border: grey 1px solid;">${dto.getProductName()}</td>
-                                                        <td style="border: grey 1px solid;">${dto.getProductPrice()}</td>
-                                                        <td style="border: grey 1px solid;">${dto.getStatus()}</td> 
-                                                        <td style="border: grey 1px solid;">
+                                                        <td style="border: grey 1px solid;">${dto.getProductDetail()}</td>
+                                                        <td style="border: grey 1px solid;">${dto.getCreateDate()}</td>
+                                                          <td style="border: grey 1px solid;">
                                                             <a href="updateProduct?productid=${dto.productID}">Update</a> &nbsp;&nbsp;&nbsp;
                                                             <a href="#">Delete</a>                          
                                                         </td>

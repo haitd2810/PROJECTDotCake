@@ -16,7 +16,7 @@ import model.Product;
 
 /**
  *
- * @author admin
+ * @author quynhh
  */
 public class SellerDAO extends DBContext {
 
@@ -66,9 +66,9 @@ public class SellerDAO extends DBContext {
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
                 Product p = new Product(rs.getString("productID"),
-                        rs.getString("ProductName"),
-                        rs.getInt("ProductPrice"),
-                        rs.getString("ProductDetail"),
+                        rs.getString("productName"),
+                        rs.getInt("productPrice"),
+                        rs.getString("detail"),
                         rs.getDate("CreateDate"),
                         rs.getInt("quantity"),
                         rs.getString("categoryID"),
@@ -99,6 +99,34 @@ public class SellerDAO extends DBContext {
 
         }
         return list;
+    }
+
+    //update a products
+    public void updateProduct(Product p) {
+        String sql = "UPDATE [dbo].[Product]\n"
+                + "   SET [productName] = ?\n"
+                + "      ,[productPrice] = ?\n"
+                + "      ,[detail] = ? \n"
+                + "      ,[CreateDate] = ?\n"
+                + "      ,[quantity] = ?\n"
+                + "      ,[categoryID] = ?\n"
+                + "      ,[status] = ?\n"
+                + " WHERE productID=?";
+        try{
+            PreparedStatement st= connection.prepareStatement(sql);
+            st.setString(1, p.getProductName());
+            st.setInt(2, p.getProductPrice());
+            st.setString(3, p.getProductDetail());
+            st.setDate(4, (Date) p.getCreateDate());
+            st.setInt(5, p.getQuantity());
+            st.setString(6, p.getCategoryID());
+            st.setString(7, p.getStatus());
+            st.setString(8, p.getProductID());
+            
+            st.executeUpdate();
+        }catch(SQLException e){
+            System.out.println(e);
+        }
     }
 
 }

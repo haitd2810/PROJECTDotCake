@@ -41,7 +41,7 @@
                                 </div>
                             </div>
 
-                            <h3>${sessionScope.error}</h3>
+                                        <h3 style="color: red; margin: auto; text-align: center">${requestScope.error}</h3>
                             <form action="addProduct" >               
                                 <div class="white_card_body">
                                     <div class="row">

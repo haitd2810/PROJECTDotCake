@@ -62,7 +62,7 @@
                             <ul class="mm-collapse" style="height: 5px;">
                                 <li><a href="listproduct">Product List</a></li>
                                 <li><a href="CreateProduct.jsp" class="active">Add New Product</a></li>
-                                <li><a href="#" class="active">Update Product</a></li>
+                                <li><a href="UpdateProduct.jsp" class="active">Update Product</a></li>
                                 <li><a href="#" class="active">Delete Product</a></li>
                             </ul>
                         </li>
@@ -118,8 +118,9 @@
                             </a>
                             <ul class="mm-collapse" style="height: 5px;">
                                 <li><a href="listproduct">Product List</a></li>
+                                <li><a href="DetailProduct.jsp">Product Detail</a></li>
                                 <li><a href="CreateProduct.jsp" class="active">Add New Product</a></li>
-                                <li><a href="#" class="active">Update Product</a></li>
+                                <li><a href="UpdateProduct.jsp" class="active">Update Product</a></li>
                                 <li><a href="#" class="active">Delete Product</a></li>
                             </ul>
                         </li>
