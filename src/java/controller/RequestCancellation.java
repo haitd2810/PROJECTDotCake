@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-
 package controller;
 
 import java.io.IOException;
@@ -14,28 +13,34 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import dal.*;
 import model.User;
+
 /**
  *
  * @author DELL
  */
-@WebServlet(name="RequestCancellation", urlPatterns={"/requestcancellation"})
+@WebServlet(name = "RequestCancellation", urlPatterns = {"/requestcancellation"})
 public class RequestCancellation extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-    } 
+            throws ServletException, IOException {
+    }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String Cancell = request.getParameter("request");
+        String ShipID = request.getParameter("request");
         OrderItemDAO order = new OrderItemDAO();
-        order.deleteOrder(Cancell);
-   //     request.getRequestDispatcher("ListOrderForCustomer").forward(request, response);
-       response.sendRedirect("ListOrderForCustomer");
+        order.deleteOrder(ShipID);
+        ShipDAO ship = new ShipDAO();
+        ship.deleteShip(ShipID);
+        response.sendRedirect("ListOrderForCustomer");
+        //     request.getRequestDispatcher("ListOrderForCustomer").forward(request, response);
 //        out.print(Cancell);
     }
+
     @Override
     public String getServletInfo() {
         return "Short description";

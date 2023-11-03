@@ -27,7 +27,7 @@
         <c:if test="${user.getRoleID()==1 || user.getRoleID()==2 }">
             <nav class="sidebar">
                 <div class="logo d-flex justify-content-between" style="padding: 22px;">
-                    <a class="large_logo" href="DisplathController?page=home" style="font-size: 24px;margin-left: 50px;">DotCake</a>
+                    <a class="large_logo" href="DispathController?page=home" style="font-size: 24px;margin-left: 50px;">DotCake</a>
                     <div class="sidebar_close_icon d-lg-none">
                         <i class="ti-close"></i>
                     </div>
