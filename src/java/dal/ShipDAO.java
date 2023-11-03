@@ -61,7 +61,7 @@ public class ShipDAO extends DBContext {
         return ShipID;
     }
 
-    boolean deleteShip(String ShipID) {
+    public void deleteShip(String ShipID) {
         PreparedStatement stm = null;
         if (connection != null) {
             try {
@@ -69,13 +69,11 @@ public class ShipDAO extends DBContext {
                 stm = connection.prepareStatement(sql);
                 stm.setString(1, ShipID);
                 stm.executeUpdate();
-                return true;
             } catch (SQLException ex) {
                 System.out.println(ex);
             }
         }
 
-        return false;
     }
 
     List<Ship> listShipOfCus = new ArrayList<>();

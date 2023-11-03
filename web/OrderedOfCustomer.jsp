@@ -29,74 +29,85 @@
         if(user!=null){
         %>
         <div class="all_order container">
-            <form action="requestcancellation" method="post">
-                <div class="row body">
-                    <div class="col-12">
-                        <div class="white_card card_height_100 mb_30">
-                            <div class="white_card_header">
-                                <div class="box_header m-0">
-                                    <div class="main-title" style="width: 100%;">
-                                        <h3 class="m-0" style="font-size: 30px;font-style: italic;text-align: center;">List Order Of Your Account</h3>
-                                    </div>
+
+            <div class="row body">
+                <div class="col-12">
+                    <div class="white_card card_height_100 mb_30">
+                        <div class="white_card_header">
+                            <div class="box_header m-0">
+                                <div class="main-title" style="width: 100%;">
+                                    <h3 class="m-0" style="font-size: 30px;font-style: italic;text-align: center;">List Order Of Your Account</h3>
                                 </div>
                             </div>
-                            <%ShipObject ship = (ShipObject) request.getSession().getAttribute("LISTORDERED");%>
-                            <% List<List<Ship>> listorder = ship.getListShipOfCus(); %>
-                            <% if(listorder!=null){ %>
-                            <% for(int i=0; i < listorder.size();i++){ %>
-                            <%int ShipingID=0;%>
-                            <div class="white_card_body" >
-                                <div class="row" style="border: grey 2px solid;padding:3%;border-radius: 2%;">
-                                    <!-- vong lap for se o day de display cart -->
-                                    <%for(int j=0;j < listorder.get(i).size();j++){%>
-                                    <div class="col-lg-12">
-                                        <div class="common_input mb_15">
-                                            <div class="col-md-12">
-                                                <div class="IMGPRODUCT col-sm-2">
-                                                    <img class="img-fluid" 
-                                                         width="200" height="200" src="<%=listorder.get(i).get(j).getImage()%>" alt="">
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <p style="font-size: 18px;font-style: italic;">Product Name: <%=listorder.get(i).get(j).getProductName()%> <sup>x<%= (int)listorder.get(i).get(j).getQuantityBuy()%></sup></p>
-                                                    <p>create by account: <%=user.getUsername()%> </p>
-                                                    <p>Ship to: <%=listorder.get(i).get(j).getAddress()%> </p>
-                                                    <p>Time: <%=listorder.get(i).get(j).getRequireDate()%> <%=listorder.get(i).get(j).getRequireTime()%> </p>
-                                                </div>
-<!--                                                <div class="col-sm-4">
-                                                    <p style="font-size: 18px;font-style: italic;">Info</p>
-                                                    <p>Name: <%=listorder.get(i).get(j).getCusName()%> </p>
-                                                   <p>phone: <%=listorder.get(i).get(j).getPhone()%> </p>
-                                                </div>-->
-                                                <div class="col-sm-2">
-                                                    <!--<p>Cost Product: <%=listorder.get(i).get(j).getTotalCost()%></p>-->
-                                                    <p>Cost Product: <%=listorder.get(i).get(j).getProductPrice()%></p>
-                                                    <%  ShipingID = listorder.get(i).get(j).getShipID() ; %>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                   <div class="create_report_btn mt_30 col-sm-3">
-                                            <h4>Ordered</h4>
-<!--                                            <a href="duongdan?stringID=&proID=">delete</a>-->
-                                                   </div>  
-                                                </div>
+                        </div>
+                        <%ShipObject ship = (ShipObject) request.getSession().getAttribute("LISTORDERED");
+                            double total = 0;
+                        %>
+                        <% List<List<Ship>> listorder = ship.getListShipOfCus(); %>
+                        <% if(listorder!=null){ %>
+                        <% for(int i=0; i < listorder.size();i++){ %>
+
+                        <div class="white_card_body" >
+                            <div class="row" style="border: grey 2px solid;padding:3%;border-radius: 2%;">
+                                <!-- vong lap for se o day de display cart -->
+                                <% int shipID =0; %>
+
+                                <%for(int j=0;j < listorder.get(i).size();j++){%>
+                                <div class="col-lg-12">
+                                    <div class="common_input mb_15">
+                                        <div class="col-md-12">
+                                            <div class="IMGPRODUCT col-sm-2">
+                                                <img class="img-fluid" 
+                                                     width="200" height="200" src="<%=listorder.get(i).get(j).getImage()%>" alt="">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <p style="font-size: 18px;font-style: italic;">Product Name: <%=listorder.get(i).get(j).getProductName()%> <sup>x<%= (int)listorder.get(i).get(j).getQuantityBuy()%></sup></p>
+                                                <p>create by account: <%=user.getUsername()%> </p>
+                                                <p>Ship to: <%=listorder.get(i).get(j).getAddress()%> </p>
+                                                <p>Time: <%=listorder.get(i).get(j).getRequireDate()%> <%=listorder.get(i).get(j).getRequireTime()%> </p>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <p style="font-size: 18px;font-style: italic;">Info</p>
+                                                <p>Name: <%=listorder.get(i).get(j).getCusName()%> </p>
+                                                <p>phone: <%=listorder.get(i).get(j).getPhone()%> </p>
+
+                                            </div>
+
+                                            <div class="col-sm-2">
+                                                <!--<p>Cost Product: <%=listorder.get(i).get(j).getTotalCost()%></p>-->
+                                                <p>Cost Product: <%=listorder.get(i).get(j).getProductPrice()%></p>
+                                                <% total = listorder.get(i).get(j).getTotalCost(); %>
+
+                                                <% shipID = listorder.get(i).get(j).getShipID();%>
                                             </div>
                                         </div>
                                     </div>
-                                    <hr>                         
-                                        <%}%>
-                                        <span style="margin-left: 800px; margin-bottom: -14px; margin-top: 7px;">
-                                        <button style="font-size: 15px;font-style: italic;" value="<%=ShipingID%>" name="request"  class="btn_1 button_order" type="submit" >request cancellation</button>
-                                        </span>
-                                        
                                 </div>
-                            </div> 
-                                        <%}%>
-                            <%}%>
+                                <%}%>
+
+                                <div class="col-lg-12">
+                                    <div class="col-sm-9"></div>
+                                    <div class="create_report_btn mt_30 col-sm-3">
+                                        <h4>Total Cost: <%= total %></h4>
+                                        <h4>Ordered</h4>
+                                        <form action="requestcancellation" method="POST">
+                                            <input type ="hidden" name="request" value="<%=shipID%>" />
+                                            <input style="font-size: 15px;font-style: italic;" class="btn_1 button_order" type="submit" value="request cancellation">
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
+
+                        <%}%>
+                        <%}%>
                     </div>
                 </div>
-                </section>
-            </form>
-        </div>
-        <% } %>
-    </body>
+            </div>
+        </section>
+
+    </div>
+    <% } %>
+</body>
 </html>
