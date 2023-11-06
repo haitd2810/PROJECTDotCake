@@ -40,14 +40,13 @@ public class SearchProduct extends HttpServlet {
         List<image> listP = dao.searchByName(search);
         PrintWriter out = response.getWriter();
         for (image o : listP) {
-            out.print("<div class=\"col-md-3 seller__item\" style=\"padding: 0; border-bottom: 1px solid #000; height: 450px\">\n"
-                    + "                                    <a  href=\"ProductDetail?pid="+o.getProductID()+"\">\n"
-                    + "                                        <img src=\""+o.getImage()+"\" alt=\"\">\n"
-                    + "                                        <h1>"+o.getProductName()+"</h1>\n"
-                    + "                                        <p><span>"+o.getProductPrice()+"</span>VND</p>\n"
+            out.print("<div class=\" product_load col-md-3 seller__item\" style=\"padding: 0; border-bottom: 1px solid #000; height: 450px\">\n"
+                    + "                                    <a  href=\"ProductDetail?pid=" + o.getProductID() + "\">\n"
+                    + "                                        <img src=\"" + o.getImage() + "\" alt=\"\">\n"
+                    + "                                        <h1>" + o.getProductName() + "</h1>\n"
+                    + "                                        <p><span>" + o.getProductPrice() + "</span>VND</p>\n"
                     + "                                        <div class=\"seller__btn\">\n"
-                    + "                                            <button class=\"order\"><a href=\"\">Order</a></button>\n"
-                    + "                                            <button class=\"cart\"><a href=\"\">Cart</a></button>\n"
+                    + "                                        <button class=\"cart\"><a href=\"add?id="+o.getProductID()+"&img="+o.getImage()+"&name="+o.getProductName()+"&price="+o.getProductPrice()+"\">Cart</a></button>\n"
                     + "                                        </div>\n"
                     + "                                    </a>\n"
                     + "                                </div>");
