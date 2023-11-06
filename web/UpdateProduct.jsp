@@ -1,7 +1,7 @@
 <%-- 
-    Document   : CreateProduct
-    Created on : Oct 18, 2023, 8:08:38 PM
-    Author     : Duy Hai
+    Document   : UpdateProduct
+    Created on : Nov 3, 2023, 12:18:04 AM
+    Author     : quynhh
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -36,71 +36,68 @@
                                         <h2 style="text-align: center">Access Denied</h2>
                                     </c:if>
                                     <c:if test="${user.getRoleID()==2 || user.getRoleID()==1 }">
-                                        <h2 class="m-0">Add Product </h2>
+                                        <h2 class="m-0">Update Product </h2>
                                     </div>
                                 </div>
                             </div>
-                    <h3 style="color: red; margin: auto; text-align: center">${requestScope.error}</h3>
-                            <form action="addProduct" >               
-                                
+                            <c:set var="p" value="${requestScope.productupdate}"/>
+                            <form action="updateProduct" method="post" >
+
                                 <div class="white_card_body">
                                     <div class="row">
                                         <div class="">
                                             <div class="common_input mb_15">
-                                                <input type="text" readonly value="${user.getName()}" name="username">
+                                                <h4> ProductID ( You can not update ProductID)</h4>
+                                                <input type="text" readonly name="productid" value="${p.productID}" >
+                                                
                                             </div>
                                         </div>
                                         <div class="">
                                             <div class="common_input mb_15">
-                                                <input type="text" placeholder="ProductID" name="productid">
+                                                <h4>Product Name</h4><input type="text"  name="productname" value="${p.productName}"> 
                                             </div>
                                         </div>
                                         <div class="">
                                             <div class="common_input mb_15">
-                                               <input type="text" placeholder="ProductName" name="productname">
+                                                <h4>Product Price</h4>
+                                                <input type="number"  name="productprice" value="${p.productPrice}">
                                             </div>
                                         </div>
                                         <div class="">
                                             <div class="common_input mb_15">
-                                                <input type="number" placeholder="ProductPrice" name="productprice">
+                                                <h4>Product Detail</h4>
+                                                <input type="text"  name="detail" value="${p.productDetail}">
                                             </div>
                                         </div>
                                         <div class="">
                                             <div class="common_input mb_15">
-                                                <input type="text" placeholder="Detail" name="detail">
+                                                <h4>Create Date</h4>
+                                                <input type="date"  name="createdate" value="${p.createDate}">
                                             </div>
                                         </div>
                                         <div class="">
                                             <div class="common_input mb_15">
-                                                <input type="date" placeholder="CreateDate" name="createdate">
-                                            </div>
-                                        </div>
-                                        <div class="">
-                                            <div class="common_input mb_15">
-                                                <input type="number" placeholder="Quantity" name="quantity">
+                                                <h4>Quantity</h4>
+                                                <input type="number" name="quantity" value="${p.quantity}">
                                             </div>
                                         </div>
 
 
                                         <div class="col-12">
+                                            <h4>CategoryID ( You can not update CategoryID) </h4>
                                             <div class="common_input mb_15">
-                                                <select placeholder="Categories" class="category" name="categoryID" >
-                                                    <option value="">--Choose Categories ID--</option>
-                                                    <option value="B">B</option>
-                                                    <option value="A">A</option>
-                                                    <option value="D">D</option>
-                                                    <option value="PK">PK</option>
-                                                </select>
+                                                <input  type="text" readonly name="categoryID" value="${p.categoryID}" >
                                             </div>
                                         </div>
                                         <div class="">
                                             <div class="common_input mb_15">
-                                                <input type="text" placeholder="Status" name="status">
+                                                <h4>Status</h4>
+                                                <input type="text"  name="status" value="${p.status}">
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="create_report_btn mt_30">
-                                                <input class="btn_1 radius_btn d-block text-center" type="submit" value="Add Product">
+                                                <input class="btn_1 radius_btn d-block text-center" type="submit" value="Update Product">
                                             </div>
                                         </div>
                                     </div>
@@ -124,3 +121,4 @@
 
 
 </body></html>
+

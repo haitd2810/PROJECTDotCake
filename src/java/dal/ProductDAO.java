@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import model.Product;
+import model.ProductNew;
 
 /**
  *
@@ -44,6 +45,37 @@ public class ProductDAO extends MyDAO {
             ex.printStackTrace();
         }
         return product;
+    }
+    
+    List<ProductNew> productNew = new ArrayList<>();
+    public List<ProductNew> getProductNew() {
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        try {
+            if (con != null) {
+                String sql = "select * from Product";
+                stm = con.prepareStatement(sql);
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    String productID = rs.getString("productID");
+                    String productName = rs.getString("productName");
+                    int productPrice = rs.getInt("productPrice");
+                    String detail = rs.getString("detail");
+                    Date createDate = rs.getDate("CreateDate");
+                    int quantity = rs.getInt("quantity");
+                    String categoryID = rs.getString("categoryID");
+                    String status = rs.getString("status");
+                    String created_by= rs.getString("created_By");
+                    ProductNew pro = new ProductNew(productID, productName, productPrice, detail, 
+                            createDate, quantity, categoryID, status, created_by);
+                            
+                    productNew.add(pro);
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return productNew;
     }
     
     public static void main(String[] args) {

@@ -13,14 +13,15 @@ import java.util.List;
 import model.Category;
 import model.DBContext;
 import model.Product;
+import model.ProductNew;
 
 /**
  *
- * @author admin
+ * @author quynhh
  */
 public class SellerDAO extends DBContext {
 
-    public void insertProduct(Product p) {
+    public void insertProductNew(ProductNew p) {
         String sql = "INSERT INTO [dbo].[Product]\n"
                 + "           ([productID]\n"
                 + "           ,[productName]\n"
@@ -29,9 +30,9 @@ public class SellerDAO extends DBContext {
                 + "           ,[CreateDate]\n"
                 + "           ,[quantity]\n"
                 + "           ,[categoryID]\n"
-                + "           ,[status])\n"
-                + "     VALUES\n"
-                + "           (?,?,?,?,?,?,?,?)";
+                + "           ,[status]\n"
+                + "           ,[created_By])\n"
+                + "     VALUES (?,?,?,?,?,?,?, ?,?)";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, p.getProductID());
@@ -42,6 +43,7 @@ public class SellerDAO extends DBContext {
             st.setInt(6, p.getQuantity());
             st.setString(7, p.getCategoryID());
             st.setString(8, p.getStatus());
+            st.setString(9, p.getCreated_by());
 
             st.executeUpdate();
         } catch (SQLException e) {
@@ -66,9 +68,9 @@ public class SellerDAO extends DBContext {
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
                 Product p = new Product(rs.getString("productID"),
-                        rs.getString("ProductName"),
-                        rs.getInt("ProductPrice"),
-                        rs.getString("ProductDetail"),
+                        rs.getString("productName"),
+                        rs.getInt("productPrice"),
+                        rs.getString("detail"),
                         rs.getDate("CreateDate"),
                         rs.getInt("quantity"),
                         rs.getString("categoryID"),
@@ -99,6 +101,48 @@ public class SellerDAO extends DBContext {
 
         }
         return list;
+    }
+
+    //update a products
+    public void updateProduct(Product p) {
+        String sql = "UPDATE [dbo].[Product]\n"
+                + "   SET [productName] = ?\n"
+                + "      ,[productPrice] = ?\n"
+                + "      ,[detail] = ? \n"
+                + "      ,[CreateDate] = ?\n"
+                + "      ,[quantity] = ?\n"
+                + "      ,[categoryID] = ?\n"
+                + "      ,[status] = ?\n"
+                + " WHERE productID=?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, p.getProductName());
+            st.setInt(2, p.getProductPrice());
+            st.setString(3, p.getProductDetail());
+            st.setDate(4, (Date) p.getCreateDate());
+            st.setInt(5, p.getQuantity());
+            st.setString(6, p.getCategoryID());
+            st.setString(7, p.getStatus());
+            st.setString(8, p.getProductID());
+
+            st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    //xóa category bằng id
+    public void delProductNew(String productID) {
+        String sql = "DELETE FROM [dbo].[Product]\n"
+                + "      WHERE  productID = ? ";
+        try{
+            PreparedStatement st= connection.prepareStatement(sql);
+            st.setString(1, productID);
+            st.executeUpdate();
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+        
     }
 
 }

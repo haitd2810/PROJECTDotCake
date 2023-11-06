@@ -36,15 +36,20 @@
                                         <h2 style="text-align: center">Access Denied</h2>
                                     </c:if>
                                     <c:if test="${user.getRoleID()==2 || user.getRoleID()==1 }">
-                                        <h3 class="m-0">Add Product </h3>
+                                        <h2 class="m-0">Add Product </h2>
                                     </div>
                                 </div>
                             </div>
-
-                            <h3>${sessionScope.error}</h3>
+                    <h3 style="color: red; margin: auto; text-align: center">${requestScope.error}</h3>
                             <form action="addProduct" >               
+                                
                                 <div class="white_card_body">
                                     <div class="row">
+                                        <div class="">
+                                            <div class="common_input mb_15">
+                                                <input type="text" readonly value="${user.getName()}" name="username">
+                                            </div>
+                                        </div>
                                         <div class="">
                                             <div class="common_input mb_15">
                                                 <input type="text" placeholder="ProductID" name="productid">
@@ -52,7 +57,7 @@
                                         </div>
                                         <div class="">
                                             <div class="common_input mb_15">
-                                                <input type="text" placeholder="ProductName" name="productname">
+                                               <input type="text" placeholder="ProductName" name="productname">
                                             </div>
                                         </div>
                                         <div class="">
