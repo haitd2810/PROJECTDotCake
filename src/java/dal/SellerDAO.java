@@ -131,4 +131,18 @@ public class SellerDAO extends DBContext {
         }
     }
 
+    //xóa category bằng id
+    public void delProductNew(String productID) {
+        String sql = "DELETE FROM [dbo].[Product]\n"
+                + "      WHERE  productID = ? ";
+        try{
+            PreparedStatement st= connection.prepareStatement(sql);
+            st.setString(1, productID);
+            st.executeUpdate();
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+        
+    }
+
 }

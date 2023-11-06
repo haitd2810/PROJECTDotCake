@@ -25,6 +25,13 @@
             }
 
         </style>
+        <script type="text/javascript">
+            function deleteProduct(id) {
+                if (confirm("Are u sure to delete category with id= " + id)) {
+                    window.location = 'deleteProduct?productid=' + id;
+                }
+            }
+        </script>
 
     </head>
     <body class="crm_body_bg">
@@ -79,7 +86,7 @@
                                                         <td style="border: grey 1px solid;">${dto.getCreated_by()}</td> 
                                                         <td style="border: grey 1px solid;">
                                                             <a href="updateProduct?productid=${dto.productID}">Update</a> &nbsp;&nbsp;&nbsp;
-                                                            <a href="#">Delete</a>                          
+                                                            <a href="#" onclick="deleteProduct('${dto.productID}')">Delete</a>                          
                                                         </td>
                                                     </tr>
                                                 </form>

@@ -77,7 +77,7 @@
                                                         <td style="border: grey 1px solid;">${dto.getCreated_by()}</td> 
                                                           <td style="border: grey 1px solid;">
                                                             <a href="updateProduct?productid=${dto.productID}">Update</a> &nbsp;&nbsp;&nbsp;
-                                                            <a href="#">Delete</a>                          
+                                                            <a href="deleteProduct?productid=${dto.productID}">Delete</a>                          
                                                         </td>
                                                     </tr>
                                                 </form>
