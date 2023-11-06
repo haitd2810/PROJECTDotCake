@@ -45,7 +45,7 @@
                                 </div>
                             </a>
                             <ul class="mm-collapse" style="height: 5px;">
-                                <li><a href="AdminList">Admin List</a></li>
+<!--                                <li><a href="AdminList">Admin List</a></li>-->
                                 <li><a href="AddAccount.jsp" class="active">Add New Account</a></li>
                                 <li><a href="AccountList" class="active">Account List</a></li>
                             </ul>
