@@ -20,6 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Product;
 import dal.UserDAO;
+import model.ProductNew;
 
 /**
  *
@@ -40,9 +41,13 @@ public class ListProduct extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         ProductDAO dao = new ProductDAO();
-        List<Product> product = dao.getProduct();
-        session.setAttribute("PRODUCTLIST", product);
+        
+        
+        
+        List<ProductNew> productNew = dao.getProductNew();
+        session.setAttribute("PRODUCTLISTNEW", productNew);
         response.sendRedirect("ProductList.jsp");
+        
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

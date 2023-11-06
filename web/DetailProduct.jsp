@@ -51,7 +51,7 @@
                             </div>
                             <div class="white_card_body">
                                 <div class="row">
-                                    <c:set var="product" value="${sessionScope.PRODUCTLIST}"></c:set>
+                                    <c:set var="product" value="${sessionScope.PRODUCTLISTNEW}"></c:set>
                                     <c:if test="${not empty product}">
                                         <table border="1">
                                             <thead>
@@ -61,7 +61,7 @@
                                                     <th style="border: grey 1px solid;"><h4>ProductName</h4></th>
                                                     <th style="border: grey 1px solid;"><h4>Detail</h4></th>
                                                     <th style="border: grey 1px solid;" ><h4>CreateDate</h4></th>
-                                                    <!--dùng để thêm cột createby-->
+                                                    <th style="border: grey 1px solid;"><h4>Created By</h4></th>
                                                     <th style="border: grey 1px solid;">Action</th>
                                                 </tr>
                                             </thead>
@@ -74,6 +74,7 @@
                                                         <td style="border: grey 1px solid;">${dto.getProductName()}</td>
                                                         <td style="border: grey 1px solid;">${dto.getProductDetail()}</td>
                                                         <td style="border: grey 1px solid;">${dto.getCreateDate()}</td>
+                                                        <td style="border: grey 1px solid;">${dto.getCreated_by()}</td> 
                                                           <td style="border: grey 1px solid;">
                                                             <a href="updateProduct?productid=${dto.productID}">Update</a> &nbsp;&nbsp;&nbsp;
                                                             <a href="#">Delete</a>                          

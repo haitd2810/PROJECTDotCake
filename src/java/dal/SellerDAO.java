@@ -13,6 +13,7 @@ import java.util.List;
 import model.Category;
 import model.DBContext;
 import model.Product;
+import model.ProductNew;
 
 /**
  *
@@ -20,7 +21,7 @@ import model.Product;
  */
 public class SellerDAO extends DBContext {
 
-    public void insertProduct(Product p) {
+    public void insertProductNew(ProductNew p) {
         String sql = "INSERT INTO [dbo].[Product]\n"
                 + "           ([productID]\n"
                 + "           ,[productName]\n"
@@ -29,9 +30,9 @@ public class SellerDAO extends DBContext {
                 + "           ,[CreateDate]\n"
                 + "           ,[quantity]\n"
                 + "           ,[categoryID]\n"
-                + "           ,[status])\n"
-                + "     VALUES\n"
-                + "           (?,?,?,?,?,?,?,?)";
+                + "           ,[status]\n"
+                + "           ,[created_By])\n"
+                + "     VALUES (?,?,?,?,?,?,?, ?,?)";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, p.getProductID());
@@ -42,6 +43,7 @@ public class SellerDAO extends DBContext {
             st.setInt(6, p.getQuantity());
             st.setString(7, p.getCategoryID());
             st.setString(8, p.getStatus());
+            st.setString(9, p.getCreated_by());
 
             st.executeUpdate();
         } catch (SQLException e) {
@@ -112,8 +114,8 @@ public class SellerDAO extends DBContext {
                 + "      ,[categoryID] = ?\n"
                 + "      ,[status] = ?\n"
                 + " WHERE productID=?";
-        try{
-            PreparedStatement st= connection.prepareStatement(sql);
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, p.getProductName());
             st.setInt(2, p.getProductPrice());
             st.setString(3, p.getProductDetail());
@@ -122,9 +124,9 @@ public class SellerDAO extends DBContext {
             st.setString(6, p.getCategoryID());
             st.setString(7, p.getStatus());
             st.setString(8, p.getProductID());
-            
+
             st.executeUpdate();
-        }catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println(e);
         }
     }

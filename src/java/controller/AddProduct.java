@@ -17,6 +17,7 @@ import java.sql.Date;
 import java.util.List;
 import model.Category;
 import model.Product;
+import model.ProductNew;
 
 /**
  *
@@ -63,6 +64,7 @@ public class AddProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String username= request.getParameter("username");
         String productid = request.getParameter("productid");
         String productname = request.getParameter("productname");
         String productprice_raw = request.getParameter("productprice");
@@ -81,10 +83,10 @@ public class AddProduct extends HttpServlet {
 
             Product p = dao.getProductByProductID(productid);
             if (p == null) {
-                Product pNew = new Product(productid, productname,
+                ProductNew pNew = new ProductNew(productid, productname,
                         productprice, detail,
-                        createdate, quantity, categoryID, status);
-                dao.insertProduct(pNew);
+                        createdate, quantity, categoryID, status,username);
+                dao.insertProductNew(pNew);
                 response.sendRedirect("listproduct");
             } else {
                 request.setAttribute("error", "Product has existed");
