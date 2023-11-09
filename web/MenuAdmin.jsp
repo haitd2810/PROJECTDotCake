@@ -63,8 +63,7 @@
                                 <li><a href="listproduct">Product List</a></li>
                                 <li><a href="CreateProduct.jsp" class="active">Add New Product</a></li>
                                 <li><a href="UpdateProduct.jsp" class="active">Update Product</a></li>
-                                <li><a href="#" class="active">Delete Product</a></li>
-                            </ul>
+                                                         </ul>
                         </li>
                         <li class="">
                             <a class="has-arrow" href="#" aria-expanded="false">
@@ -120,7 +119,7 @@
                                 <li><a href="listproduct">Product List</a></li>
                                 <li><a href="DetailProduct.jsp">Product Detail</a></li>
                                 <li><a href="CreateProduct.jsp" class="active">Add New Product</a></li>
-                                <li><a href="#" class="active">Delete Product</a></li>
+                                
                             </ul>
                         </li>
                     </c:if>
